@@ -1,0 +1,14 @@
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\bin\Debug\CarShop_DesktopApp.exe.config
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\bin\Debug\CarShop_DesktopApp.exe
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\bin\Debug\CarShop_DesktopApp.pdb
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.csprojAssemblyReference.cache
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Login.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Properties.Resources.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.csproj.GenerateResource.cache
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.exe
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.pdb
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.csproj.CopyComplete
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.MainForm.resources

@@ -1,4 +1,5 @@
 ﻿using CarShop_REST_API.Context;
+using CarShop_REST_API.DAL;
 using CarShop_REST_API.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,12 @@ namespace CarShop_REST_API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private DatabaseContext db = new DatabaseContext();
-
+      
+        [HttpGet]
         public List<User> GetUsers()
         {
-            return db.Users.ToList();
+            return CarShopRepository.GetUsers();
         }
+      
     }
 }

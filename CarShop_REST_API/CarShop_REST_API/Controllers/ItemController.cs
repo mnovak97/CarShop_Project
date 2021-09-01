@@ -13,12 +13,7 @@ namespace CarShop_REST_API.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
-        private DatabaseContext db = new DatabaseContext();
 
-        [HttpGet]
-        public List<Item> GetItems()
-        {
-            return db.Items.ToList();
-        }
+      
     }
 }

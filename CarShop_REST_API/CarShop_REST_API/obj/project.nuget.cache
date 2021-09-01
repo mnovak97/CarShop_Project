@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "u14Z1Qum34N98uLBx+H3uqTEmVtbciei/eJgTs9JAD2OceVO46odAne9+m2so5Fbs3O8+pFZa5JYvyebrxLWLw==",
+  "dgSpecHash": "cMlA71jsRKfYnFCclNzkpuiuAxp0Y9qoCsiEbRS71ig5Qx6xXXXyhTVJ9A4HnEDE9uPg03czA4IcpcfMFtrCqQ==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitHub\\CarShop_Project\\CarShop_REST_API\\CarShop_REST_API\\CarShop_REST_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Martin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Martin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.9\\microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Martin\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.1\\microsoft.data.sqlclient.2.1.1.nupkg.sha512",
     "C:\\Users\\Martin\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

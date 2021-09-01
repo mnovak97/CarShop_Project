@@ -13,12 +13,7 @@ namespace CarShop_REST_API.Controllers
     [ApiController]
     public class WorkOrderController : ControllerBase
     {
-        private DatabaseContext db = new DatabaseContext();
 
-        [HttpGet]
-        public List<WorkOrder> GetWorkOrders()
-        {
-            return db.WorkOrders.ToList();
-        }
+       
     }
 }

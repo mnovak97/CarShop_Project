@@ -13,11 +13,7 @@ namespace CarShop_REST_API.Controllers
     [ApiController]
     public class BuyerController : ControllerBase
     {
-        private DatabaseContext db = new DatabaseContext();
 
-        public List<Buyer> GetBuyers()
-        {
-            return db.Buyers.ToList();
-        }
+       
     }
 }
