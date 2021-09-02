@@ -25,5 +25,23 @@ namespace CarShop_REST_API.DAL
             return GetUsers().FirstOrDefault(x => x.Username == login.Username && x.Password == login.Password);
         }
 
+        public static List<Item> GetItems()
+        {
+            using(var db = new DatabaseContext())
+            {
+                var items = db.Items.ToList();
+                return items;
+            }
+        }
+
+        public static List<Buyer> GetBuyers()
+        {
+            using (var db = new DatabaseContext())
+            {
+                var buyers = db.Buyers.ToList();
+                return buyers;
+            }
+        }
+
     }
 }

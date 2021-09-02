@@ -29,110 +29,103 @@ namespace CarShop_DesktopApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddNewItem = new System.Windows.Forms.Button();
             this.mnStripMainForm = new System.Windows.Forms.MenuStrip();
             this.tsmUsername = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vIewWorkOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWorkOrdersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNewBuyer = new System.Windows.Forms.Button();
-            this.btnNewWorkOrder = new System.Windows.Forms.Button();
-            this.btnNewReceipt = new System.Windows.Forms.Button();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmBuyers = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmWorkOrders = new System.Windows.Forms.ToolStripMenuItem();
+            this.placeHolder = new System.Windows.Forms.Panel();
             this.mnStripMainForm.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAddNewItem
-            // 
-            this.btnAddNewItem.Location = new System.Drawing.Point(324, 206);
-            this.btnAddNewItem.Name = "btnAddNewItem";
-            this.btnAddNewItem.Size = new System.Drawing.Size(145, 23);
-            this.btnAddNewItem.TabIndex = 1;
-            this.btnAddNewItem.Text = "Add new item";
-            this.btnAddNewItem.UseVisualStyleBackColor = true;
-            // 
             // mnStripMainForm
             // 
+            this.mnStripMainForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.mnStripMainForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmUsername});
+            this.tsmUsername,
+            this.tsmItems,
+            this.tsmBuyers,
+            this.tsmWorkOrders});
             this.mnStripMainForm.Location = new System.Drawing.Point(0, 0);
             this.mnStripMainForm.Name = "mnStripMainForm";
-            this.mnStripMainForm.Size = new System.Drawing.Size(830, 24);
+            this.mnStripMainForm.Size = new System.Drawing.Size(830, 33);
             this.mnStripMainForm.TabIndex = 2;
             this.mnStripMainForm.Text = "menuStripMain";
             // 
             // tsmUsername
             // 
             this.tsmUsername.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewItemsToolStripMenuItem,
-            this.vIewWorkOrdersToolStripMenuItem,
             this.viewWorkOrdersToolStripMenuItem1,
             this.logOutToolStripMenuItem});
+            this.tsmUsername.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.tsmUsername.Name = "tsmUsername";
-            this.tsmUsername.Size = new System.Drawing.Size(125, 20);
-            this.tsmUsername.Text = "toolStripMenuItem1";
-            // 
-            // viewItemsToolStripMenuItem
-            // 
-            this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
-            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewItemsToolStripMenuItem.Text = "View buyers";
-            // 
-            // vIewWorkOrdersToolStripMenuItem
-            // 
-            this.vIewWorkOrdersToolStripMenuItem.Name = "vIewWorkOrdersToolStripMenuItem";
-            this.vIewWorkOrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vIewWorkOrdersToolStripMenuItem.Text = "VIew items";
+            this.tsmUsername.Size = new System.Drawing.Size(84, 29);
+            this.tsmUsername.Text = "Place holder";
             // 
             // viewWorkOrdersToolStripMenuItem1
             // 
             this.viewWorkOrdersToolStripMenuItem1.Name = "viewWorkOrdersToolStripMenuItem1";
-            this.viewWorkOrdersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.viewWorkOrdersToolStripMenuItem1.Text = "View work orders";
-            // 
-            // btnNewBuyer
-            // 
-            this.btnNewBuyer.Location = new System.Drawing.Point(324, 177);
-            this.btnNewBuyer.Name = "btnNewBuyer";
-            this.btnNewBuyer.Size = new System.Drawing.Size(145, 23);
-            this.btnNewBuyer.TabIndex = 3;
-            this.btnNewBuyer.Text = "Add new buyer";
-            this.btnNewBuyer.UseVisualStyleBackColor = true;
-            // 
-            // btnNewWorkOrder
-            // 
-            this.btnNewWorkOrder.Location = new System.Drawing.Point(324, 235);
-            this.btnNewWorkOrder.Name = "btnNewWorkOrder";
-            this.btnNewWorkOrder.Size = new System.Drawing.Size(145, 23);
-            this.btnNewWorkOrder.TabIndex = 4;
-            this.btnNewWorkOrder.Text = "Make a new work order";
-            this.btnNewWorkOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnNewReceipt
-            // 
-            this.btnNewReceipt.Location = new System.Drawing.Point(324, 264);
-            this.btnNewReceipt.Name = "btnNewReceipt";
-            this.btnNewReceipt.Size = new System.Drawing.Size(145, 23);
-            this.btnNewReceipt.TabIndex = 5;
-            this.btnNewReceipt.Text = "Make a receipt";
-            this.btnNewReceipt.UseVisualStyleBackColor = true;
+            this.viewWorkOrdersToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.viewWorkOrdersToolStripMenuItem1.Text = "My profile";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
+            // tsmItems
+            // 
+            this.tsmItems.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tsmItems.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tsmItems.ForeColor = System.Drawing.SystemColors.Window;
+            this.tsmItems.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
+            this.tsmItems.Name = "tsmItems";
+            this.tsmItems.Size = new System.Drawing.Size(72, 29);
+            this.tsmItems.Text = "Items";
+            this.tsmItems.Click += new System.EventHandler(this.tsmItems_Click);
+            // 
+            // tsmBuyers
+            // 
+            this.tsmBuyers.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tsmBuyers.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tsmBuyers.ForeColor = System.Drawing.SystemColors.Window;
+            this.tsmBuyers.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.tsmBuyers.Name = "tsmBuyers";
+            this.tsmBuyers.Size = new System.Drawing.Size(84, 29);
+            this.tsmBuyers.Text = "Buyers";
+            this.tsmBuyers.Click += new System.EventHandler(this.tsmBuyers_Click);
+            // 
+            // tsmWorkOrders
+            // 
+            this.tsmWorkOrders.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tsmWorkOrders.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tsmWorkOrders.ForeColor = System.Drawing.SystemColors.Window;
+            this.tsmWorkOrders.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.tsmWorkOrders.Name = "tsmWorkOrders";
+            this.tsmWorkOrders.Size = new System.Drawing.Size(138, 29);
+            this.tsmWorkOrders.Text = "Work Orders";
+            this.tsmWorkOrders.Click += new System.EventHandler(this.tsmWorkOrders_Click);
+            // 
+            // placeHolder
+            // 
+            this.placeHolder.BackColor = System.Drawing.Color.White;
+            this.placeHolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.placeHolder.Location = new System.Drawing.Point(0, 33);
+            this.placeHolder.Name = "placeHolder";
+            this.placeHolder.Size = new System.Drawing.Size(830, 443);
+            this.placeHolder.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(830, 476);
-            this.Controls.Add(this.btnNewReceipt);
-            this.Controls.Add(this.btnNewWorkOrder);
-            this.Controls.Add(this.btnNewBuyer);
-            this.Controls.Add(this.btnAddNewItem);
+            this.Controls.Add(this.placeHolder);
             this.Controls.Add(this.mnStripMainForm);
             this.Name = "MainForm";
             this.Text = "Main";
@@ -144,16 +137,13 @@ namespace CarShop_DesktopApp
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddNewItem;
         private System.Windows.Forms.MenuStrip mnStripMainForm;
         private System.Windows.Forms.ToolStripMenuItem tsmUsername;
-        private System.Windows.Forms.ToolStripMenuItem viewItemsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vIewWorkOrdersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewWorkOrdersToolStripMenuItem1;
-        private System.Windows.Forms.Button btnNewBuyer;
-        private System.Windows.Forms.Button btnNewReceipt;
-        private System.Windows.Forms.Button btnNewWorkOrder;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmItems;
+        private System.Windows.Forms.ToolStripMenuItem tsmBuyers;
+        private System.Windows.Forms.ToolStripMenuItem tsmWorkOrders;
+        private System.Windows.Forms.Panel placeHolder;
     }
 }

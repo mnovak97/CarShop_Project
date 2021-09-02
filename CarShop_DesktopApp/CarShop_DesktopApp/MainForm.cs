@@ -1,4 +1,5 @@
-﻿using CarShop_DesktopApp.Model;
+﻿using CarShop_DesktopApp.DAL;
+using CarShop_DesktopApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,18 +29,31 @@ namespace CarShop_DesktopApp
         private void setUpScreen()
         {
             tsmUsername.Text = user.Username;
-            if (user.Role != Role.Admin)
-            {
-                btnAddNewItem.Hide();
-                btnNewBuyer.Hide();
-            }
-
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
             this.refToLoginForm.Show();
+        }
+
+        private void tsmItems_Click(object sender, EventArgs e)
+        {
+            Items myUserControl = new Items(token);
+            placeHolder.Controls.Clear();
+            placeHolder.Controls.Add(myUserControl);
+        }
+
+        private void tsmBuyers_Click(object sender, EventArgs e)
+        {
+            Buyers myBuyersControl = new Buyers(token);
+            placeHolder.Controls.Clear();
+            placeHolder.Controls.Add(myBuyersControl);
+        }
+
+        private void tsmWorkOrders_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

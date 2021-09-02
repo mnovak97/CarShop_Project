@@ -1,4 +1,5 @@
-﻿using CarShop_DesktopApp.Model;
+﻿using CarShop_DesktopApp.DAL;
+using CarShop_DesktopApp.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -29,45 +30,34 @@ namespace CarShop_DesktopApp
         {
             try
             {
-                Uri uri = new Uri("http://localhost:5000/api/Login");
-                WebRequest webRequest = WebRequest.Create(uri);
-                webRequest.ContentType = "application/json";
-                webRequest.Method = "POST";
-
-                using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
-                {
-                    string json = "{\"username\":\"" + txtUsername.Text + "\"," +
-                      "\"password\":\"" + txtPassword.Text + "\"}";
-                    streamWriter.Write(json);
-                }
-                var response = (HttpWebResponse)webRequest.GetResponse();
-                using (var streamReader = new StreamReader(response.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-                    dynamic data = JObject.Parse(result);
-                    token = data.token;
-                    json = data._data.ToString();
-                    user = JsonConvert.DeserializeObject<User>(json);
-                }
+                var response = RestApiCallsHandler.Login(txtUsername.Text,txtPassword.Text);
+                getResponseData(response);
+                
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     this.Hide();
                     MainForm mainForm = new MainForm(token, user);
                     mainForm.refToLoginForm = this;
-                    mainForm.FormClosed += (s, args) =>
-                    {
-                        txtPassword.Text = "";
-                        txtUsername.Text = "";
-                    };
+                    mainForm.FormClosed += (s, args) => this.Close();
                     mainForm.Show();
                 }
-
-
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void getResponseData(HttpWebResponse response)
+        {
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                dynamic data = JObject.Parse(result);
+                token = data.token;
+                json = data._data.ToString();
+                user = JsonConvert.DeserializeObject<User>(json);
             }
         }
     }

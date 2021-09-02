@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace CarShop_REST_API.Model
+namespace CarShop_DesktopApp.Model
 {
-    public class Item
+    class Item
     {
-        [Key]
+        [Browsable(false)]
         public int IDItem { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
         public string Code { get; set; }
-        public virtual ICollection<WorkOrder> WorkOrders { get; set; }
     }
 }
