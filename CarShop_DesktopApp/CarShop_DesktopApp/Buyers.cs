@@ -27,5 +27,13 @@ namespace CarShop_DesktopApp
             dataGridBuyers.DataSource = RestApiCallsHandler.GetBuyers(token);
             GridViewStyleExtension.SetStyle(dataGridBuyers);
         }
+
+        private void btnNewBuyer_Click(object sender, EventArgs e)
+        {
+            AddBuyer addBuyerForm = new AddBuyer(token);
+            addBuyerForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            addBuyerForm.FormClosed += (s, args) => dataGridBuyers.DataSource = RestApiCallsHandler.GetBuyers(token);
+            addBuyerForm.Show();
+        }
     }
 }

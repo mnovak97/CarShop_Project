@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBuyer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBuyer.Designer.cs">
+      <DependentUpon>AddBuyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buyers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +92,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddBuyer.resx">
+      <DependentUpon>AddBuyer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buyers.resx">
       <DependentUpon>Buyers.cs</DependentUpon>
     </EmbeddedResource>

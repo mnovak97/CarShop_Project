@@ -33,7 +33,50 @@ namespace CarShop_DesktopApp.DAL
             return response;
         }
 
-        internal static List<Buyer> GetBuyers(string token)
+        public static bool AddBuyer(Buyer newBuyer,string token)
+        {
+            HttpWebRequest request = httpPostCall("Buyer/addBuyer", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(newBuyer);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool AddItem(Item newItem, string token)
+        {
+            
+            HttpWebRequest request = httpPostCall("Item/addItem", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(newItem);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+       
+
+        public static List<Buyer> GetBuyers(string token)
         {
             List<Buyer> buyers = new List<Buyer>();
             HttpWebRequest request = httpGetCall("Buyer",token);
@@ -50,7 +93,7 @@ namespace CarShop_DesktopApp.DAL
         public static List<Item> GetItems(string token)
         {
             List<Item> items = new List<Item>();
-            HttpWebRequest request = httpGetCall("Item", token);
+            HttpWebRequest request = httpGetCall("Item/all", token);
             var response = (HttpWebResponse)request.GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
@@ -58,6 +101,18 @@ namespace CarShop_DesktopApp.DAL
                 items = JsonConvert.DeserializeObject<List<Item>>(result);
             }
             return items;
+        }
+
+        private static HttpWebRequest httpPostCall(string controller, string token)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uriString + controller);
+            request.Method = "POST";
+            request.Accept = "application/json";
+            request.ContentType = "application/json; charset=utf-8";
+            request.PreAuthenticate = true;
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            return request;
         }
 
         private static HttpWebRequest httpGetCall(string controller,string token)

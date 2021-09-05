@@ -14,5 +14,15 @@ namespace CarShop_DesktopApp.Model
         public string MobilePhone { get; set; }
         public string Address { get; set; }
         public string OIB { get; set; }
+
+
+        public Buyer(string name,string email,string mobilePhone,string address,string oib)
+        {
+            Name = name;
+            Email = email;
+            MobilePhone = mobilePhone;
+            Address = address;
+            OIB = oib;
+        }
     }
 }

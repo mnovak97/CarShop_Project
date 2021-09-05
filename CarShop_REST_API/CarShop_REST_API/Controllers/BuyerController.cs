@@ -21,6 +21,21 @@ namespace CarShop_REST_API.Controllers
         {
             return CarShopRepository.GetBuyers();
         }
-       
+
+        [HttpPost("addBuyer")]
+        [Authorize]
+        public void AddBuyer([FromBody]Buyer buyer)
+        {
+            try
+            {
+                CarShopRepository.AddBuyer(buyer);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
+
     }
 }

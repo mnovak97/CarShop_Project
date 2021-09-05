@@ -76,6 +76,7 @@ namespace CarShop_DesktopApp
             this.btnNewBuyer.TabIndex = 1;
             this.btnNewBuyer.Text = "Add new buyer";
             this.btnNewBuyer.UseVisualStyleBackColor = false;
+            this.btnNewBuyer.Click += new System.EventHandler(this.btnNewBuyer_Click);
             // 
             // Buyers
             // 

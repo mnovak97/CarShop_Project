@@ -14,3 +14,5 @@ D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\De
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.MainForm.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Items.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Buyers.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.AddItem.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.AddBuyer.resources

@@ -30,6 +30,12 @@ namespace CarShop_DesktopApp
             GridViewStyleExtension.SetStyle(dataGridItems);
         }
 
-
+        private void btnNewItem_Click(object sender, EventArgs e)
+        {
+            AddItem addItemForm = new AddItem(token);
+            addItemForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            addItemForm.FormClosed += (s, args) => dataGridItems.DataSource = RestApiCallsHandler.GetItems(token);
+            addItemForm.Show();
+        }
     }
 }

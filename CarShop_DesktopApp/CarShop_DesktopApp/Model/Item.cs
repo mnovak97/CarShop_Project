@@ -14,5 +14,12 @@ namespace CarShop_DesktopApp.Model
         public string Title { get; set; }
         public double Price { get; set; }
         public string Code { get; set; }
+
+        public Item(string title,double price,string code)
+        {
+            Title = title;
+            Price = price;
+            Code = code;
+        }
     }
 }

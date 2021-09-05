@@ -34,12 +34,30 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+        public static void AddBuyer(Buyer buyer)
+        {
+            using(var db = new DatabaseContext())
+            {
+                db.Buyers.Add(buyer);
+                db.SaveChanges();
+            }
+        }
+
         public static List<Buyer> GetBuyers()
         {
             using (var db = new DatabaseContext())
             {
                 var buyers = db.Buyers.ToList();
                 return buyers;
+            }
+        }
+
+        public static void AddItem(Item item)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.Items.Add(item);
+                db.SaveChanges();
             }
         }
 

@@ -16,11 +16,26 @@ namespace CarShop_REST_API.Controllers
     [Authorize]
     public class ItemController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("all")]
         public List<Item> GetItems()
         {
             return CarShopRepository.GetItems();
         }
-      
+
+        [HttpPost("addItem")]
+        [Authorize]
+        public void AddItem([FromBody] Item item)
+        {
+            try
+            {
+                CarShopRepository.AddItem(item);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
+
     }
 }

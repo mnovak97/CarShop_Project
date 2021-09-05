@@ -78,6 +78,7 @@ namespace CarShop_DesktopApp
             this.btnNewItem.TabIndex = 1;
             this.btnNewItem.Text = "Add new item";
             this.btnNewItem.UseVisualStyleBackColor = false;
+            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // Items
             // 
