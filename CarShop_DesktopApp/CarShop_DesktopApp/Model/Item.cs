@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarShop_DesktopApp.Model
 {
-    class Item
+    public class Item
     {
         [Browsable(false)]
         public int IDItem { get; set; }

@@ -14,7 +14,7 @@ namespace CarShop_REST_API.Model
         public string Title { get; set; }
         public double Price { get; set; }
         public string Code { get; set; }
-        public virtual ICollection<WorkOrder> WorkOrders { get; set; }
+        public virtual ICollection<WorkOrdersItems> WorkOrdersItems { get; set; }
 
     }
 }

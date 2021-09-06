@@ -53,7 +53,9 @@ namespace CarShop_DesktopApp
 
         private void tsmWorkOrders_Click(object sender, EventArgs e)
         {
-
+            WorkOrders myWorkOrdersControl = new WorkOrders(token);
+            placeHolder.Controls.Clear();
+            placeHolder.Controls.Add(myWorkOrdersControl);
         }
     }
 }

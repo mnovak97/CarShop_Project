@@ -49,42 +49,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBuyer.cs">
+    <Compile Include="Forms\AddBuyer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBuyer.Designer.cs">
+    <Compile Include="Forms\AddBuyer.Designer.cs">
       <DependentUpon>AddBuyer.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddItem.cs">
+    <Compile Include="Forms\AddItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItem.Designer.cs">
+    <Compile Include="Forms\AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Buyers.cs">
+    <Compile Include="Forms\AddWorkOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddWorkOrder.Designer.cs">
+      <DependentUpon>AddWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectItem.Designer.cs">
+      <DependentUpon>SelectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkOrder.cs" />
+    <Compile Include="UserControls\Buyers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Buyers.Designer.cs">
+    <Compile Include="UserControls\Buyers.Designer.cs">
       <DependentUpon>Buyers.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\RestApiCallsHandler.cs" />
     <Compile Include="Extensions\GridViewStyleExtension.cs" />
-    <Compile Include="Items.cs">
+    <Compile Include="UserControls\Items.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Items.Designer.cs">
+    <Compile Include="UserControls\Items.Designer.cs">
       <DependentUpon>Items.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Buyer.cs" />
@@ -92,22 +105,40 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddBuyer.resx">
+    <Compile Include="UserControls\WorkOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\WorkOrders.Designer.cs">
+      <DependentUpon>WorkOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WorkOrdersList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\WorkOrdersList.Designer.cs">
+      <DependentUpon>WorkOrdersList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\AddBuyer.resx">
       <DependentUpon>AddBuyer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddItem.resx">
+    <EmbeddedResource Include="Forms\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Buyers.resx">
+    <EmbeddedResource Include="Forms\AddWorkOrder.resx">
+      <DependentUpon>AddWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectItem.resx">
+      <DependentUpon>SelectItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Buyers.resx">
       <DependentUpon>Buyers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items.resx">
+    <EmbeddedResource Include="UserControls\Items.resx">
       <DependentUpon>Items.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,6 +150,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\WorkOrders.resx">
+      <DependentUpon>WorkOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\WorkOrdersList.resx">
+      <DependentUpon>WorkOrdersList.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

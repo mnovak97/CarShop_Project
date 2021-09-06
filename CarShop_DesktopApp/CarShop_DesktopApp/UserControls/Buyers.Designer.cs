@@ -58,6 +58,7 @@ namespace CarShop_DesktopApp
             this.dataGridBuyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBuyers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridBuyers.Location = new System.Drawing.Point(3, 3);
+            this.dataGridBuyers.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridBuyers.Name = "dataGridBuyers";
             this.dataGridBuyers.ReadOnly = true;
             this.dataGridBuyers.Size = new System.Drawing.Size(516, 287);

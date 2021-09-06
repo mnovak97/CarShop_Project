@@ -40,15 +40,14 @@ namespace CarShop_DesktopApp
             // 
             this.tableLayoutItems.ColumnCount = 1;
             this.tableLayoutItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutItems.Controls.Add(this.dataGridItems, 0, 0);
             this.tableLayoutItems.Controls.Add(this.btnNewItem, 0, 1);
             this.tableLayoutItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutItems.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutItems.Name = "tableLayoutItems";
             this.tableLayoutItems.RowCount = 2;
-            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.92913F));
-            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.070867F));
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.41F));
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.59F));
             this.tableLayoutItems.Size = new System.Drawing.Size(586, 508);
             this.tableLayoutItems.TabIndex = 2;
             // 
@@ -60,6 +59,7 @@ namespace CarShop_DesktopApp
             this.dataGridItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridItems.Location = new System.Drawing.Point(3, 3);
+            this.dataGridItems.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridItems.Name = "dataGridItems";
             this.dataGridItems.ReadOnly = true;
             this.dataGridItems.Size = new System.Drawing.Size(580, 460);
@@ -76,7 +76,6 @@ namespace CarShop_DesktopApp
             this.btnNewItem.Name = "btnNewItem";
             this.btnNewItem.Size = new System.Drawing.Size(118, 33);
             this.btnNewItem.TabIndex = 1;
-            this.btnNewItem.Text = "Add new item";
             this.btnNewItem.UseVisualStyleBackColor = false;
             this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 

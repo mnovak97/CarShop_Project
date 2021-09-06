@@ -1,5 +1,7 @@
 ﻿using CarShop_REST_API.Context;
+using CarShop_REST_API.DAL;
 using CarShop_REST_API.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,7 +15,11 @@ namespace CarShop_REST_API.Controllers
     [ApiController]
     public class WorkOrderController : ControllerBase
     {
-
-       
+        [HttpGet("all"]
+        [Authorize]
+        public List<WorkOrder> GetWorkOrders()
+        {
+            return CarShopRepository.GetWorkOrders();
+        }
     }
 }

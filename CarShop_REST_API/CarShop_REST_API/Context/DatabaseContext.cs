@@ -16,6 +16,8 @@ namespace CarShop_REST_API.Context
         public DbSet<Buyer> Buyers { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<WorkOrder> WorkOrders { get; set; }
+        public DbSet<WorkOrdersItems> WorkOrdersItems { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(myConnectionString);
@@ -24,6 +26,16 @@ namespace CarShop_REST_API.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+            modelBuilder.Entity<WorkOrdersItems>()
+                .HasKey(wi => new { wi.WorkOrderID, wi.ItemID });
+            modelBuilder.Entity<WorkOrdersItems>()
+                 .HasOne(wi => wi.WorkOrder)
+                 .WithMany(w => w.WorkOrdersItems)
+                 .HasForeignKey(wi => wi.WorkOrderID);
+            modelBuilder.Entity<WorkOrdersItems>()
+                .HasOne(wi => wi.Item)
+                .WithMany(i => i.WorkOrdersItems)
+                .HasForeignKey(wi => wi.ItemID);
         }
 
     }

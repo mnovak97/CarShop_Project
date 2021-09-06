@@ -20,6 +20,15 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+        public static List<WorkOrder> GetWorkOrders()
+        {
+            using (var db = new DatabaseContext())
+            {
+                var workOrders = db.WorkOrders.ToList();
+                return workOrders;
+            }
+        }
+
         public static User AuthorizeUser(UserModel login)
         {
             return GetUsers().FirstOrDefault(x => x.Username == login.Username && x.Password == login.Password);

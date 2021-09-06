@@ -73,8 +73,18 @@ namespace CarShop_DesktopApp.DAL
                 return false;
             }
         }
-
-       
+        public static List<WorkOrder> GetWorkOrders(string token)
+        {
+            List<WorkOrder> workOrder = new List<WorkOrder>();
+            HttpWebRequest request = httpGetCall("WorkOrder/all", token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                workOrder = JsonConvert.DeserializeObject<List<WorkOrder>>(result);
+            }
+            return workOrder;
+        }
 
         public static List<Buyer> GetBuyers(string token)
         {
