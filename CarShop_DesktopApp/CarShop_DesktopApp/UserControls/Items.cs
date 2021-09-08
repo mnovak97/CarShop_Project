@@ -19,9 +19,11 @@ namespace CarShop_DesktopApp
 
         private string token;
         AddWorkOrder workOrder;
-        public Items(string JWTToken)
+        User user;
+        public Items(string JWTToken, User currentUser)
         {
             token = JWTToken;
+            user = currentUser;
             InitializeComponent();
             btnNewItem.Text = "Add new item";
         }

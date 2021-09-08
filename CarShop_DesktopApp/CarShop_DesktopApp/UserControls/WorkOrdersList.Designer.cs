@@ -30,8 +30,8 @@ namespace CarShop_DesktopApp.UserControls
         private void InitializeComponent()
         {
             this.tableLayoutWorkOrders = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridWorkOrders = new System.Windows.Forms.DataGridView();
             this.btnNewWorkOrder = new System.Windows.Forms.Button();
+            this.dataGridWorkOrders = new System.Windows.Forms.DataGridView();
             this.tableLayoutWorkOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkOrders)).BeginInit();
             this.SuspendLayout();
@@ -51,17 +51,6 @@ namespace CarShop_DesktopApp.UserControls
             this.tableLayoutWorkOrders.Size = new System.Drawing.Size(489, 326);
             this.tableLayoutWorkOrders.TabIndex = 0;
             // 
-            // dataGridWorkOrders
-            // 
-            this.dataGridWorkOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
-            this.dataGridWorkOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridWorkOrders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridWorkOrders.Location = new System.Drawing.Point(0, 0);
-            this.dataGridWorkOrders.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridWorkOrders.Name = "dataGridWorkOrders";
-            this.dataGridWorkOrders.Size = new System.Drawing.Size(489, 288);
-            this.dataGridWorkOrders.TabIndex = 0;
-            // 
             // btnNewWorkOrder
             // 
             this.btnNewWorkOrder.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -76,6 +65,20 @@ namespace CarShop_DesktopApp.UserControls
             this.btnNewWorkOrder.Text = "Add new work order";
             this.btnNewWorkOrder.UseVisualStyleBackColor = false;
             this.btnNewWorkOrder.Click += new System.EventHandler(this.btnNewWorkOrder_Click);
+            // 
+            // dataGridWorkOrders
+            // 
+            this.dataGridWorkOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridWorkOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
+            this.dataGridWorkOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridWorkOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridWorkOrders.Location = new System.Drawing.Point(0, 0);
+            this.dataGridWorkOrders.Margin = new System.Windows.Forms.Padding(0);
+            this.dataGridWorkOrders.Name = "dataGridWorkOrders";
+            this.dataGridWorkOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridWorkOrders.Size = new System.Drawing.Size(489, 288);
+            this.dataGridWorkOrders.TabIndex = 0;
+            this.dataGridWorkOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridWorkOrders_CellClick);
             // 
             // WorkOrdersList
             // 

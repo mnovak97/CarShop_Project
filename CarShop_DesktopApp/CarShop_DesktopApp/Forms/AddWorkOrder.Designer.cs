@@ -32,6 +32,11 @@ namespace CarShop_DesktopApp.Forms
             this.tableLayoutTitle = new System.Windows.Forms.TableLayoutPanel();
             this.lblFormName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtComment = new System.Windows.Forms.TextBox();
+            this.lblDone = new System.Windows.Forms.Label();
+            this.txtKm = new System.Windows.Forms.TextBox();
+            this.txtManufacturingYear = new System.Windows.Forms.TextBox();
+            this.lblManufacturingYear = new System.Windows.Forms.Label();
             this.lblCarType = new System.Windows.Forms.Label();
             this.txtCarType = new System.Windows.Forms.TextBox();
             this.lblRegistration = new System.Windows.Forms.Label();
@@ -41,21 +46,16 @@ namespace CarShop_DesktopApp.Forms
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblKM = new System.Windows.Forms.Label();
-            this.lblManufacturingYear = new System.Windows.Forms.Label();
-            this.txtManufacturingYear = new System.Windows.Forms.TextBox();
-            this.txtKm = new System.Windows.Forms.TextBox();
-            this.lblComment = new System.Windows.Forms.Label();
             this.lblWarranty = new System.Windows.Forms.Label();
             this.chBWarranty = new System.Windows.Forms.CheckBox();
             this.chBDone = new System.Windows.Forms.CheckBox();
-            this.lblDone = new System.Windows.Forms.Label();
-            this.txtComment = new System.Windows.Forms.TextBox();
+            this.lblComment = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblItems = new System.Windows.Forms.Label();
+            this.btnAddWorkOrder = new System.Windows.Forms.Button();
             this.dataGridItemsWorkOrder = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblItems = new System.Windows.Forms.Label();
             this.btnItemsList = new System.Windows.Forms.Button();
-            this.btnAddWorkOrder = new System.Windows.Forms.Button();
             this.tableLayoutTitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -93,10 +93,10 @@ namespace CarShop_DesktopApp.Forms
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.Controls.Add(this.txtComment, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblDone, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtKm, 3, 1);
@@ -127,12 +127,61 @@ namespace CarShop_DesktopApp.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 340);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // txtComment
+            // 
+            this.txtComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtComment.Location = new System.Drawing.Point(126, 275);
+            this.txtComment.Multiline = true;
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(148, 62);
+            this.txtComment.TabIndex = 19;
+            // 
+            // lblDone
+            // 
+            this.lblDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDone.AutoSize = true;
+            this.lblDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDone.Location = new System.Drawing.Point(388, 252);
+            this.lblDone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
+            this.lblDone.Name = "lblDone";
+            this.lblDone.Size = new System.Drawing.Size(40, 15);
+            this.lblDone.TabIndex = 18;
+            this.lblDone.Text = "Done:";
+            // 
+            // txtKm
+            // 
+            this.txtKm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtKm.Location = new System.Drawing.Point(434, 113);
+            this.txtKm.Name = "txtKm";
+            this.txtKm.Size = new System.Drawing.Size(148, 20);
+            this.txtKm.TabIndex = 13;
+            // 
+            // txtManufacturingYear
+            // 
+            this.txtManufacturingYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtManufacturingYear.Location = new System.Drawing.Point(434, 45);
+            this.txtManufacturingYear.Name = "txtManufacturingYear";
+            this.txtManufacturingYear.Size = new System.Drawing.Size(148, 20);
+            this.txtManufacturingYear.TabIndex = 12;
+            // 
+            // lblManufacturingYear
+            // 
+            this.lblManufacturingYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblManufacturingYear.AutoSize = true;
+            this.lblManufacturingYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblManufacturingYear.Location = new System.Drawing.Point(313, 48);
+            this.lblManufacturingYear.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
+            this.lblManufacturingYear.Name = "lblManufacturingYear";
+            this.lblManufacturingYear.Size = new System.Drawing.Size(115, 15);
+            this.lblManufacturingYear.TabIndex = 11;
+            this.lblManufacturingYear.Text = "Manufacturing year:";
+            // 
             // lblCarType
             // 
             this.lblCarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCarType.AutoSize = true;
             this.lblCarType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCarType.Location = new System.Drawing.Point(97, 48);
+            this.lblCarType.Location = new System.Drawing.Point(66, 48);
             this.lblCarType.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
             this.lblCarType.Name = "lblCarType";
             this.lblCarType.Size = new System.Drawing.Size(54, 15);
@@ -141,9 +190,8 @@ namespace CarShop_DesktopApp.Forms
             // 
             // txtCarType
             // 
-            this.txtCarType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCarType.Location = new System.Drawing.Point(157, 45);
+            this.txtCarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtCarType.Location = new System.Drawing.Point(126, 45);
             this.txtCarType.Name = "txtCarType";
             this.txtCarType.Size = new System.Drawing.Size(148, 20);
             this.txtCarType.TabIndex = 3;
@@ -153,7 +201,7 @@ namespace CarShop_DesktopApp.Forms
             this.lblRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRegistration.AutoSize = true;
             this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRegistration.Location = new System.Drawing.Point(45, 116);
+            this.lblRegistration.Location = new System.Drawing.Point(14, 116);
             this.lblRegistration.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
             this.lblRegistration.Name = "lblRegistration";
             this.lblRegistration.Size = new System.Drawing.Size(106, 15);
@@ -162,9 +210,8 @@ namespace CarShop_DesktopApp.Forms
             // 
             // txtRegistrationPlate
             // 
-            this.txtRegistrationPlate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRegistrationPlate.Location = new System.Drawing.Point(157, 113);
+            this.txtRegistrationPlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtRegistrationPlate.Location = new System.Drawing.Point(126, 113);
             this.txtRegistrationPlate.Name = "txtRegistrationPlate";
             this.txtRegistrationPlate.Size = new System.Drawing.Size(148, 20);
             this.txtRegistrationPlate.TabIndex = 5;
@@ -174,7 +221,7 @@ namespace CarShop_DesktopApp.Forms
             this.lblBuyer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBuyer.AutoSize = true;
             this.lblBuyer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblBuyer.Location = new System.Drawing.Point(110, 184);
+            this.lblBuyer.Location = new System.Drawing.Point(79, 184);
             this.lblBuyer.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
             this.lblBuyer.Name = "lblBuyer";
             this.lblBuyer.Size = new System.Drawing.Size(41, 15);
@@ -183,10 +230,9 @@ namespace CarShop_DesktopApp.Forms
             // 
             // cbBuyers
             // 
-            this.cbBuyers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbBuyers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbBuyers.FormattingEnabled = true;
-            this.cbBuyers.Location = new System.Drawing.Point(157, 180);
+            this.cbBuyers.Location = new System.Drawing.Point(126, 180);
             this.cbBuyers.Name = "cbBuyers";
             this.cbBuyers.Size = new System.Drawing.Size(148, 21);
             this.cbBuyers.TabIndex = 7;
@@ -196,7 +242,7 @@ namespace CarShop_DesktopApp.Forms
             this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDescription.Location = new System.Drawing.Point(79, 252);
+            this.lblDescription.Location = new System.Drawing.Point(48, 252);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(72, 15);
@@ -205,9 +251,8 @@ namespace CarShop_DesktopApp.Forms
             // 
             // txtDescription
             // 
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(157, 249);
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtDescription.Location = new System.Drawing.Point(126, 249);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(148, 20);
             this.txtDescription.TabIndex = 9;
@@ -217,61 +262,19 @@ namespace CarShop_DesktopApp.Forms
             this.lblKM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKM.AutoSize = true;
             this.lblKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKM.Location = new System.Drawing.Point(430, 116);
+            this.lblKM.Location = new System.Drawing.Point(399, 116);
             this.lblKM.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
             this.lblKM.Name = "lblKM";
             this.lblKM.Size = new System.Drawing.Size(29, 15);
             this.lblKM.TabIndex = 10;
             this.lblKM.Text = "Km:";
             // 
-            // lblManufacturingYear
-            // 
-            this.lblManufacturingYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblManufacturingYear.AutoSize = true;
-            this.lblManufacturingYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblManufacturingYear.Location = new System.Drawing.Point(344, 48);
-            this.lblManufacturingYear.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
-            this.lblManufacturingYear.Name = "lblManufacturingYear";
-            this.lblManufacturingYear.Size = new System.Drawing.Size(115, 15);
-            this.lblManufacturingYear.TabIndex = 11;
-            this.lblManufacturingYear.Text = "Manufacturing year:";
-            // 
-            // txtManufacturingYear
-            // 
-            this.txtManufacturingYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtManufacturingYear.Location = new System.Drawing.Point(465, 45);
-            this.txtManufacturingYear.Name = "txtManufacturingYear";
-            this.txtManufacturingYear.Size = new System.Drawing.Size(151, 20);
-            this.txtManufacturingYear.TabIndex = 12;
-            // 
-            // txtKm
-            // 
-            this.txtKm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKm.Location = new System.Drawing.Point(465, 113);
-            this.txtKm.Name = "txtKm";
-            this.txtKm.Size = new System.Drawing.Size(151, 20);
-            this.txtKm.TabIndex = 13;
-            // 
-            // lblComment
-            // 
-            this.lblComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblComment.AutoSize = true;
-            this.lblComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblComment.Location = new System.Drawing.Point(87, 275);
-            this.lblComment.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(64, 15);
-            this.lblComment.TabIndex = 14;
-            this.lblComment.Text = "Comment:";
-            // 
             // lblWarranty
             // 
             this.lblWarranty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWarranty.AutoSize = true;
             this.lblWarranty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblWarranty.Location = new System.Drawing.Point(401, 184);
+            this.lblWarranty.Location = new System.Drawing.Point(370, 184);
             this.lblWarranty.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
             this.lblWarranty.Name = "lblWarranty";
             this.lblWarranty.Size = new System.Drawing.Size(58, 15);
@@ -282,7 +285,7 @@ namespace CarShop_DesktopApp.Forms
             // 
             this.chBWarranty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chBWarranty.AutoSize = true;
-            this.chBWarranty.Location = new System.Drawing.Point(465, 187);
+            this.chBWarranty.Location = new System.Drawing.Point(434, 187);
             this.chBWarranty.Name = "chBWarranty";
             this.chBWarranty.Size = new System.Drawing.Size(15, 14);
             this.chBWarranty.TabIndex = 16;
@@ -292,32 +295,23 @@ namespace CarShop_DesktopApp.Forms
             // 
             this.chBDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chBDone.AutoSize = true;
-            this.chBDone.Location = new System.Drawing.Point(465, 255);
+            this.chBDone.Location = new System.Drawing.Point(434, 255);
             this.chBDone.Name = "chBDone";
             this.chBDone.Size = new System.Drawing.Size(15, 14);
             this.chBDone.TabIndex = 17;
             this.chBDone.UseVisualStyleBackColor = true;
             // 
-            // lblDone
+            // lblComment
             // 
-            this.lblDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDone.AutoSize = true;
-            this.lblDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDone.Location = new System.Drawing.Point(419, 252);
-            this.lblDone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
-            this.lblDone.Name = "lblDone";
-            this.lblDone.Size = new System.Drawing.Size(40, 15);
-            this.lblDone.TabIndex = 18;
-            this.lblDone.Text = "Done:";
-            // 
-            // txtComment
-            // 
-            this.txtComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtComment.Location = new System.Drawing.Point(157, 275);
-            this.txtComment.Multiline = true;
-            this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(148, 62);
-            this.txtComment.TabIndex = 19;
+            this.lblComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblComment.AutoSize = true;
+            this.lblComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblComment.Location = new System.Drawing.Point(56, 275);
+            this.lblComment.Margin = new System.Windows.Forms.Padding(0, 3, 3, 5);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(64, 15);
+            this.lblComment.TabIndex = 14;
+            this.lblComment.Text = "Comment:";
             // 
             // tableLayoutPanel2
             // 
@@ -336,60 +330,6 @@ namespace CarShop_DesktopApp.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(619, 296);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // lblItems
-            // 
-            this.lblItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblItems.AutoSize = true;
-            this.lblItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblItems.Location = new System.Drawing.Point(3, 8);
-            this.lblItems.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.lblItems.Name = "lblItems";
-            this.lblItems.Size = new System.Drawing.Size(45, 16);
-            this.lblItems.TabIndex = 0;
-            this.lblItems.Text = "Items";
-            // 
-            // dataGridItemsWorkOrder
-            // 
-            this.dataGridItemsWorkOrder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
-            this.dataGridItemsWorkOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridItemsWorkOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridItemsWorkOrder.Location = new System.Drawing.Point(3, 32);
-            this.dataGridItemsWorkOrder.Name = "dataGridItemsWorkOrder";
-            this.dataGridItemsWorkOrder.Size = new System.Drawing.Size(613, 230);
-            this.dataGridItemsWorkOrder.TabIndex = 1;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel3.Controls.Add(this.lblItems, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnItemsList, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(619, 29);
-            this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // btnItemsList
-            // 
-            this.btnItemsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnItemsList.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnItemsList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItemsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnItemsList.ForeColor = System.Drawing.Color.White;
-            this.btnItemsList.Location = new System.Drawing.Point(154, 0);
-            this.btnItemsList.Margin = new System.Windows.Forms.Padding(0);
-            this.btnItemsList.Name = "btnItemsList";
-            this.btnItemsList.Size = new System.Drawing.Size(118, 29);
-            this.btnItemsList.TabIndex = 2;
-            this.btnItemsList.Text = "Add item";
-            this.btnItemsList.UseVisualStyleBackColor = false;
-            this.btnItemsList.Click += new System.EventHandler(this.btnItemsList_Click);
-            // 
             // btnAddWorkOrder
             // 
             this.btnAddWorkOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -405,6 +345,62 @@ namespace CarShop_DesktopApp.Forms
             this.btnAddWorkOrder.Text = "Add work order";
             this.btnAddWorkOrder.UseVisualStyleBackColor = false;
             this.btnAddWorkOrder.Click += new System.EventHandler(this.btnAddWorkOrder_Click);
+            // 
+            // dataGridItemsWorkOrder
+            // 
+            this.dataGridItemsWorkOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridItemsWorkOrder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
+            this.dataGridItemsWorkOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridItemsWorkOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridItemsWorkOrder.Location = new System.Drawing.Point(3, 32);
+            this.dataGridItemsWorkOrder.Name = "dataGridItemsWorkOrder";
+            this.dataGridItemsWorkOrder.ReadOnly = true;
+            this.dataGridItemsWorkOrder.Size = new System.Drawing.Size(613, 230);
+            this.dataGridItemsWorkOrder.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.Controls.Add(this.lblItems, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnItemsList, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(619, 29);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // lblItems
+            // 
+            this.lblItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblItems.AutoSize = true;
+            this.lblItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblItems.Location = new System.Drawing.Point(3, 8);
+            this.lblItems.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.lblItems.Name = "lblItems";
+            this.lblItems.Size = new System.Drawing.Size(45, 16);
+            this.lblItems.TabIndex = 0;
+            this.lblItems.Text = "Items";
+            // 
+            // btnItemsList
+            // 
+            this.btnItemsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnItemsList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnItemsList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnItemsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnItemsList.ForeColor = System.Drawing.Color.White;
+            this.btnItemsList.Location = new System.Drawing.Point(126, 0);
+            this.btnItemsList.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnItemsList.Name = "btnItemsList";
+            this.btnItemsList.Size = new System.Drawing.Size(118, 29);
+            this.btnItemsList.TabIndex = 2;
+            this.btnItemsList.Text = "Add item";
+            this.btnItemsList.UseVisualStyleBackColor = false;
+            this.btnItemsList.Click += new System.EventHandler(this.btnItemsList_Click);
             // 
             // AddWorkOrder
             // 

@@ -28,34 +28,29 @@ namespace CarShop_DesktopApp
 
         private void setUpScreen()
         {
-            tsmUsername.Text = user.Username;
+            lblUsername.Text = user.Username;
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnItems_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.refToLoginForm.Show();
-        }
-
-        private void tsmItems_Click(object sender, EventArgs e)
-        {
-            Items myUserControl = new Items(token);
+            Items myUserControl = new Items(token, user);
             placeHolder.Controls.Clear();
             placeHolder.Controls.Add(myUserControl);
         }
 
-        private void tsmBuyers_Click(object sender, EventArgs e)
+        private void btnBuyers_Click(object sender, EventArgs e)
         {
-            Buyers myBuyersControl = new Buyers(token);
+            Buyers myBuyersControl = new Buyers(token, user);
             placeHolder.Controls.Clear();
             placeHolder.Controls.Add(myBuyersControl);
         }
 
-        private void tsmWorkOrders_Click(object sender, EventArgs e)
+        private void btnWorkOrders_Click(object sender, EventArgs e)
         {
-            WorkOrders myWorkOrdersControl = new WorkOrders(token);
+            WorkOrders myWorkOrdersControl = new WorkOrders(token, user);
             placeHolder.Controls.Clear();
             placeHolder.Controls.Add(myWorkOrdersControl);
         }
+    
     }
 }

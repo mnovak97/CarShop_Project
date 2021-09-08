@@ -23,7 +23,6 @@ namespace CarShop_REST_API.Controllers
         }
 
         [HttpPost("addItem")]
-        [Authorize]
         public void AddItem([FromBody] Item item)
         {
             try
@@ -35,6 +34,13 @@ namespace CarShop_REST_API.Controllers
             {
                 Response.StatusCode = StatusCodes.Status400BadRequest;
             }
+        }
+
+        [HttpPost("getWorkOrderItems")]
+        public List<Item> GetWorkOrderItems([FromBody]int workOrderID)
+        {
+            List<Item> workOrderItems = CarShopRepository.GetWorkOrderItems(workOrderID);
+            return workOrderItems;
         }
 
     }

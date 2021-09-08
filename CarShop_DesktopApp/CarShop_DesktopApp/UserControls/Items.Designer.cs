@@ -58,11 +58,11 @@ namespace CarShop_DesktopApp
             this.dataGridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridItems.Location = new System.Drawing.Point(3, 3);
+            this.dataGridItems.Location = new System.Drawing.Point(0, 0);
             this.dataGridItems.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridItems.Name = "dataGridItems";
             this.dataGridItems.ReadOnly = true;
-            this.dataGridItems.Size = new System.Drawing.Size(580, 460);
+            this.dataGridItems.Size = new System.Drawing.Size(586, 449);
             this.dataGridItems.TabIndex = 2;
             // 
             // btnNewItem
@@ -72,7 +72,7 @@ namespace CarShop_DesktopApp
             this.btnNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNewItem.ForeColor = System.Drawing.Color.White;
-            this.btnNewItem.Location = new System.Drawing.Point(465, 470);
+            this.btnNewItem.Location = new System.Drawing.Point(465, 462);
             this.btnNewItem.Name = "btnNewItem";
             this.btnNewItem.Size = new System.Drawing.Size(118, 33);
             this.btnNewItem.TabIndex = 1;

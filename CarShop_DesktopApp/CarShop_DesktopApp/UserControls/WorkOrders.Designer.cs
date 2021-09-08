@@ -30,9 +30,9 @@ namespace CarShop_DesktopApp
         private void InitializeComponent()
         {
             this.tableLayoutWorkOrders = new System.Windows.Forms.TableLayoutPanel();
+            this.btnOngoing = new System.Windows.Forms.Button();
             this.btnDone = new System.Windows.Forms.Button();
             this.placeHolderWorkOrders = new System.Windows.Forms.Panel();
-            this.btnOngoing = new System.Windows.Forms.Button();
             this.tableLayoutWorkOrders.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,22 @@ namespace CarShop_DesktopApp
             this.tableLayoutWorkOrders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutWorkOrders.Size = new System.Drawing.Size(534, 39);
             this.tableLayoutWorkOrders.TabIndex = 0;
+            // 
+            // btnOngoing
+            // 
+            this.btnOngoing.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnOngoing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOngoing.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOngoing.ForeColor = System.Drawing.Color.White;
+            this.btnOngoing.Location = new System.Drawing.Point(267, 0);
+            this.btnOngoing.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOngoing.Name = "btnOngoing";
+            this.btnOngoing.Size = new System.Drawing.Size(267, 39);
+            this.btnOngoing.TabIndex = 1;
+            this.btnOngoing.Text = "Ongoing";
+            this.btnOngoing.UseVisualStyleBackColor = false;
+            this.btnOngoing.Click += new System.EventHandler(this.btnOngoing_Click);
             // 
             // btnDone
             // 
@@ -74,21 +90,6 @@ namespace CarShop_DesktopApp
             this.placeHolderWorkOrders.Name = "placeHolderWorkOrders";
             this.placeHolderWorkOrders.Size = new System.Drawing.Size(534, 347);
             this.placeHolderWorkOrders.TabIndex = 1;
-            // 
-            // btnOngoing
-            // 
-            this.btnOngoing.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnOngoing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOngoing.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOngoing.ForeColor = System.Drawing.Color.White;
-            this.btnOngoing.Location = new System.Drawing.Point(267, 0);
-            this.btnOngoing.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOngoing.Name = "btnOngoing";
-            this.btnOngoing.Size = new System.Drawing.Size(267, 39);
-            this.btnOngoing.TabIndex = 1;
-            this.btnOngoing.Text = "Ongoing";
-            this.btnOngoing.UseVisualStyleBackColor = false;
             // 
             // WorkOrders
             // 

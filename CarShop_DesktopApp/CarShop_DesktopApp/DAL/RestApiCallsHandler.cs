@@ -33,12 +33,33 @@ namespace CarShop_DesktopApp.DAL
             return response;
         }
 
+
         public static bool AddBuyer(Buyer newBuyer,string token)
         {
             HttpWebRequest request = httpPostCall("Buyer/addBuyer", token);
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string json = JsonConvert.SerializeObject(newBuyer);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool AddWorkOrder(WorkOrdersItems workOrderItems,string token)
+        {
+            HttpWebRequest request = httpPostCall("WorkOrder/addWorkOrder", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(workOrderItems);
                 streamWriter.Write(json);
             }
 
@@ -73,6 +94,18 @@ namespace CarShop_DesktopApp.DAL
                 return false;
             }
         }
+        public static int GetWorkOrdersNumber(string token)
+        {
+            int number;
+            HttpWebRequest request = httpGetCall("WorkOrder/number", token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                number = JsonConvert.DeserializeObject<int>(result);
+            }
+            return number;
+        }
         public static List<WorkOrder> GetWorkOrders(string token)
         {
             List<WorkOrder> workOrder = new List<WorkOrder>();
@@ -84,6 +117,24 @@ namespace CarShop_DesktopApp.DAL
                 workOrder = JsonConvert.DeserializeObject<List<WorkOrder>>(result);
             }
             return workOrder;
+        }
+
+        public static List<Item> GetWorkOrderItems(int WorkOrderID,string token)
+        {
+            List<Item> workOrderItems = new List<Item>();
+            HttpWebRequest request = httpPostCall("Item/getWorkOrderItems", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(WorkOrderID);
+                streamWriter.Write(json);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                workOrderItems = JsonConvert.DeserializeObject<List<Item>>(result);
+            }
+            return workOrderItems;
         }
 
         public static List<Buyer> GetBuyers(string token)

@@ -21,5 +21,9 @@ namespace CarShop_DesktopApp.Model
             Price = price;
             Code = code;
         }
+        public override string ToString()
+        {
+            return IDItem + Title + Price + Code;
+        }
     }
 }

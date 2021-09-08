@@ -74,6 +74,7 @@
       <DependentUpon>SelectItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\WorkOrder.cs" />
+    <Compile Include="Model\WorkOrdersItems.cs" />
     <Compile Include="UserControls\Buyers.cs">
       <SubType>UserControl</SubType>
     </Compile>

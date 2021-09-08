@@ -1,5 +1,6 @@
 ﻿using CarShop_DesktopApp.DAL;
 using CarShop_DesktopApp.Extensions;
+using CarShop_DesktopApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,12 @@ namespace CarShop_DesktopApp
     public partial class Buyers : UserControl
     {
         private string token;
-        public Buyers(string JWTToken)
+        User user;
+        public Buyers(string JWTToken,User currentUser)
         {
-            InitializeComponent();
             token = JWTToken;
+            user = currentUser;
+            InitializeComponent();
         }
 
         private void Buyers_Load(object sender,EventArgs e)

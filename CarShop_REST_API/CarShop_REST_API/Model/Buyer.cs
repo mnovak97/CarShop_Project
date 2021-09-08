@@ -16,5 +16,8 @@ namespace CarShop_REST_API.Model
         public string Address { get; set; }
         public string OIB { get; set; }
 
+        public List<WorkOrder> WorkOrders { get; set; }
+
+
     }
 }

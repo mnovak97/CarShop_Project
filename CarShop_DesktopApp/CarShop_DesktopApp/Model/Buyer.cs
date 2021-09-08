@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace CarShop_DesktopApp.Model
 {
     class Buyer
     {
+        [Browsable(false)]
         public int IDBuyer { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -23,6 +25,10 @@ namespace CarShop_DesktopApp.Model
             MobilePhone = mobilePhone;
             Address = address;
             OIB = oib;
+        }
+        public override string ToString()
+        {
+            return Name + "," + OIB;
         }
     }
 }
