@@ -79,7 +79,6 @@ namespace CarShop_DesktopApp
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(119, 32);
             this.btnAddItem.TabIndex = 6;
-            this.btnAddItem.Text = "Add item";
             this.btnAddItem.UseVisualStyleBackColor = false;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
@@ -157,7 +156,7 @@ namespace CarShop_DesktopApp
             this.lblFormName.Name = "lblFormName";
             this.lblFormName.Size = new System.Drawing.Size(119, 16);
             this.lblFormName.TabIndex = 7;
-            this.lblFormName.Text = "Add item form";
+            this.lblFormName.Text = "Item form";
             this.lblFormName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // AddItem

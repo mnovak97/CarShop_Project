@@ -13,8 +13,8 @@ namespace CarShop_DesktopApp.Forms
     public partial class SelectItem : Form
     {
         private string token;
-        AddWorkOrder workOrder;
-        public SelectItem(AddWorkOrder WorkOrder,string JWTToken)
+        WorkOrderForm workOrder;
+        public SelectItem(WorkOrderForm WorkOrder,string JWTToken)
         {
             token = JWTToken;
             workOrder = WorkOrder;

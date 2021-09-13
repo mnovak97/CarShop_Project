@@ -1,7 +1,7 @@
 ﻿
 namespace CarShop_DesktopApp.Forms
 {
-    partial class AddWorkOrder
+    partial class WorkOrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -337,12 +337,11 @@ namespace CarShop_DesktopApp.Forms
             this.btnAddWorkOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddWorkOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddWorkOrder.ForeColor = System.Drawing.Color.White;
-            this.btnAddWorkOrder.Location = new System.Drawing.Point(501, 267);
+            this.btnAddWorkOrder.Location = new System.Drawing.Point(475, 267);
             this.btnAddWorkOrder.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddWorkOrder.Name = "btnAddWorkOrder";
-            this.btnAddWorkOrder.Size = new System.Drawing.Size(118, 29);
+            this.btnAddWorkOrder.Size = new System.Drawing.Size(144, 29);
             this.btnAddWorkOrder.TabIndex = 3;
-            this.btnAddWorkOrder.Text = "Add work order";
             this.btnAddWorkOrder.UseVisualStyleBackColor = false;
             this.btnAddWorkOrder.Click += new System.EventHandler(this.btnAddWorkOrder_Click);
             // 
@@ -402,7 +401,7 @@ namespace CarShop_DesktopApp.Forms
             this.btnItemsList.UseVisualStyleBackColor = false;
             this.btnItemsList.Click += new System.EventHandler(this.btnItemsList_Click);
             // 
-            // AddWorkOrder
+            // WorkOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -411,7 +410,7 @@ namespace CarShop_DesktopApp.Forms
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutTitle);
-            this.Name = "AddWorkOrder";
+            this.Name = "WorkOrderForm";
             this.Text = "AddWorkOrder";
             this.Load += new System.EventHandler(this.AddWorkOrder_Load);
             this.tableLayoutTitle.ResumeLayout(false);

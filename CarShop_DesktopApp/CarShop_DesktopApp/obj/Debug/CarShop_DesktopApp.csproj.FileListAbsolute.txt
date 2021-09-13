@@ -17,6 +17,6 @@ D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\De
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.AddItem.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.AddBuyer.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.WorkOrders.resources
-D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Forms.AddWorkOrder.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Forms.SelectItem.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.WorkOrdersList.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Forms.WorkOrderForm.resources

@@ -44,5 +44,20 @@ namespace CarShop_REST_API.Controllers
                 Response.StatusCode = StatusCodes.Status400BadRequest;
             }
         }
+
+        [HttpPost("updateWorkOrder")]
+        public void UpdateWorkOrder([FromBody]ParsingClass parsingClass)
+        {
+            try
+            {
+                CarShopRepository.UpdateWorkOrder(parsingClass.WorkOrder);
+                CarShopRepository.UpdateWorkOrderItems(parsingClass.Items, parsingClass.WorkOrder);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
     }
 }

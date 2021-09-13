@@ -43,5 +43,19 @@ namespace CarShop_REST_API.Controllers
             return workOrderItems;
         }
 
+        [HttpPost("updateItem")]
+        public void UpdateItem([FromBody]Item itemForUpdate)
+        {
+            try
+            {
+                CarShopRepository.UpdateItem(itemForUpdate);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
+
     }
 }

@@ -36,7 +36,24 @@ namespace CarShop_DesktopApp
             AddBuyer addBuyerForm = new AddBuyer(token);
             addBuyerForm.FormBorderStyle = FormBorderStyle.FixedSingle;
             addBuyerForm.FormClosed += (s, args) => dataGridBuyers.DataSource = RestApiCallsHandler.GetBuyers(token);
-            addBuyerForm.Show();
+            addBuyerForm.ShowDialog();
+        }
+
+        private void dataGridBuyers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedrowIndex = dataGridBuyers.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = dataGridBuyers.Rows[selectedrowIndex];
+            Buyer selectedBuyer = (Buyer)selectedRow.DataBoundItem;
+            DataGridView dgv = sender as DataGridView;
+            if (dgv == null)
+                return;
+            if (dgv.CurrentRow.Selected)
+            {
+                AddBuyer myForm = new AddBuyer(token, selectedBuyer);
+                myForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                myForm.FormClosed += (s, args) => dataGridBuyers.Refresh();
+                myForm.ShowDialog();
+            }
         }
     }
 }

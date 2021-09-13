@@ -18,7 +18,7 @@ namespace CarShop_DesktopApp
     {
 
         private string token;
-        AddWorkOrder workOrder;
+        WorkOrderForm workOrder;
         User user;
         public Items(string JWTToken, User currentUser)
         {
@@ -28,7 +28,7 @@ namespace CarShop_DesktopApp
             btnNewItem.Text = "Add new item";
         }
 
-        public Items(AddWorkOrder WorkOrder,string JWTToken)
+        public Items(WorkOrderForm WorkOrder,string JWTToken)
         {
             token = JWTToken;
             workOrder = WorkOrder;
@@ -59,6 +59,23 @@ namespace CarShop_DesktopApp
                 Item selectedItem = (Item)selectedRow.DataBoundItem;
                 workOrder.newItem(selectedItem);
                 ((Form)this.TopLevelControl).Close();
+            }
+        }
+
+        private void dataGridItems_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedrowIndex = dataGridItems.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = dataGridItems.Rows[selectedrowIndex];
+            Item selectedItem = (Item)selectedRow.DataBoundItem;
+            DataGridView dgv = sender as DataGridView;
+            if (dgv == null)
+                return;
+            if (dgv.CurrentRow.Selected)
+            {
+                AddItem myForm = new AddItem(token, selectedItem);
+                myForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                myForm.FormClosed += (s, args) => dataGridItems.Refresh();
+                myForm.ShowDialog();
             }
         }
     }

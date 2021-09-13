@@ -54,12 +54,72 @@ namespace CarShop_DesktopApp.DAL
             }
         }
 
+        public static bool UpdateBuyer(Buyer selectedBuyer, string token)
+        {
+            HttpWebRequest request = httpPostCall("Buyer/updateBuyer", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(selectedBuyer);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool UpdateItem(Item itemForUpdate, string token)
+        {
+            HttpWebRequest request = httpPostCall("Item/updateItem", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(itemForUpdate);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static bool AddWorkOrder(WorkOrdersItems workOrderItems,string token)
         {
             HttpWebRequest request = httpPostCall("WorkOrder/addWorkOrder", token);
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string json = JsonConvert.SerializeObject(workOrderItems);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool UpdateWorkOrder(WorkOrdersItems workOrderForUpdate, string token)
+        {
+            HttpWebRequest request = httpPostCall("WorkOrder/updateWorkOrder", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(workOrderForUpdate);
                 streamWriter.Write(json);
             }
 

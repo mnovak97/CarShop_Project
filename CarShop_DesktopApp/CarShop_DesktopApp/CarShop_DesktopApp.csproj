@@ -61,11 +61,11 @@
     <Compile Include="Forms\AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddWorkOrder.cs">
+    <Compile Include="Forms\WorkOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddWorkOrder.Designer.cs">
-      <DependentUpon>AddWorkOrder.cs</DependentUpon>
+    <Compile Include="Forms\WorkOrderForm.Designer.cs">
+      <DependentUpon>WorkOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SelectItem.cs">
       <SubType>Form</SubType>
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="Forms\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddWorkOrder.resx">
-      <DependentUpon>AddWorkOrder.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WorkOrderForm.resx">
+      <DependentUpon>WorkOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SelectItem.resx">
       <DependentUpon>SelectItem.cs</DependentUpon>

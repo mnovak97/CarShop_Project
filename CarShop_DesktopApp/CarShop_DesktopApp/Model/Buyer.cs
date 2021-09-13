@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarShop_DesktopApp.Model
 {
-    class Buyer
+    public class Buyer
     {
         [Browsable(false)]
         public int IDBuyer { get; set; }

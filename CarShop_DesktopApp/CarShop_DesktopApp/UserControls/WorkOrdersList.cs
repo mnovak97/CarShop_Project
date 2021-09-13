@@ -29,7 +29,7 @@ namespace CarShop_DesktopApp.UserControls
 
         private void btnNewWorkOrder_Click(object sender, EventArgs e)
         {
-            AddWorkOrder workOrder = new AddWorkOrder(token,user);
+            WorkOrderForm workOrder = new WorkOrderForm(token,user);
             workOrder.FormBorderStyle = FormBorderStyle.FixedSingle;
             workOrder.ShowDialog();
         }
@@ -89,6 +89,10 @@ namespace CarShop_DesktopApp.UserControls
             if (dgv.CurrentRow.Selected)
             {
                 List<Item> items = RestApiCallsHandler.GetWorkOrderItems(workOrder.IDWorkOrder, token);
+                var itemsBindingList = new BindingList<Item>(items);
+                WorkOrderForm myForm = new WorkOrderForm(token, user, workOrder, itemsBindingList);
+                myForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                myForm.ShowDialog();
             }
         }
     }

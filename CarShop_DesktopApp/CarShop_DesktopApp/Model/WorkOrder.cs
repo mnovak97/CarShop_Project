@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarShop_DesktopApp.Model
 {
-    class WorkOrder
+   public class WorkOrder
     {
         [Browsable(false)]
         public int IDWorkOrder { get; set; }
@@ -31,7 +31,7 @@ namespace CarShop_DesktopApp.Model
         public double TotalPrice { get; set; }
         [Browsable(false)]
         public virtual User User { get; set; }
-        [Browsable(false)]
+        //[Browsable(false)]
         public virtual Buyer Buyer { get; set; }
 
         public WorkOrder(int number,DateTime date,string carType,string registrationPlate,string description,int manufacturingYear,long km,bool warranty,bool done,string comment,double totalPrice,User user,Buyer buyer)

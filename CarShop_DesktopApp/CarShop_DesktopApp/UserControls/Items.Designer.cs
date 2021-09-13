@@ -62,8 +62,10 @@ namespace CarShop_DesktopApp
             this.dataGridItems.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridItems.Name = "dataGridItems";
             this.dataGridItems.ReadOnly = true;
+            this.dataGridItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridItems.Size = new System.Drawing.Size(586, 449);
             this.dataGridItems.TabIndex = 2;
+            this.dataGridItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItems_CellClick);
             // 
             // btnNewItem
             // 

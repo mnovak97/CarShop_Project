@@ -87,7 +87,7 @@ namespace CarShop_DesktopApp
             this.lblFormTitle.Name = "lblFormTitle";
             this.lblFormTitle.Size = new System.Drawing.Size(131, 16);
             this.lblFormTitle.TabIndex = 0;
-            this.lblFormTitle.Text = "Add buyer form";
+            this.lblFormTitle.Text = "Buyer form";
             this.lblFormTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblName
@@ -206,7 +206,6 @@ namespace CarShop_DesktopApp
             this.btnAddBuyer.Name = "btnAddBuyer";
             this.btnAddBuyer.Size = new System.Drawing.Size(131, 32);
             this.btnAddBuyer.TabIndex = 11;
-            this.btnAddBuyer.Text = "Add buyer";
             this.btnAddBuyer.UseVisualStyleBackColor = false;
             this.btnAddBuyer.Click += new System.EventHandler(this.btnAddBuyer_Click);
             // 

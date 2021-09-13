@@ -57,12 +57,14 @@ namespace CarShop_DesktopApp
             this.dataGridBuyers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
             this.dataGridBuyers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBuyers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridBuyers.Location = new System.Drawing.Point(3, 3);
+            this.dataGridBuyers.Location = new System.Drawing.Point(0, 0);
             this.dataGridBuyers.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridBuyers.Name = "dataGridBuyers";
             this.dataGridBuyers.ReadOnly = true;
-            this.dataGridBuyers.Size = new System.Drawing.Size(516, 287);
+            this.dataGridBuyers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridBuyers.Size = new System.Drawing.Size(522, 293);
             this.dataGridBuyers.TabIndex = 0;
+            this.dataGridBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuyers_CellClick);
             // 
             // btnNewBuyer
             // 

@@ -36,11 +36,15 @@ namespace CarShop_REST_API.Context
                 .HasOne(wi => wi.Item)
                 .WithMany(i => i.WorkOrdersItems)
                 .HasForeignKey(wi => wi.ItemID);
-
+            modelBuilder.Entity<Buyer>()
+                .HasMany(wo => wo.WorkOrders)
+                .WithOne(b => b.Buyer);
+            modelBuilder.Entity<User>()
+                .HasMany(wo => wo.WorkOrders)
+                .WithOne(u => u.User);
             modelBuilder.Entity<WorkOrder>()
                 .HasOne(u => u.User)
                 .WithMany(wo => wo.WorkOrders);
-
             modelBuilder.Entity<WorkOrder>()
                .HasOne(b => b.Buyer)
                .WithMany(wo => wo.WorkOrders);
