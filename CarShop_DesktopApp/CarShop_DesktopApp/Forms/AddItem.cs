@@ -35,7 +35,7 @@ namespace CarShop_DesktopApp
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (ch == 46 && txtPrice.Text.IndexOf('.') != -1)
+            if (ch == 46 && txtPrice.Texts.IndexOf('.') != -1)
             {
                 e.Handled = true;
                 return;
@@ -49,22 +49,51 @@ namespace CarShop_DesktopApp
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            if (btnAddItem.Text == "Add item")
+            if (ValidateForm())
             {
-                addNewItem();
+                if (btnAddItem.Text == "Add item")
+                {
+                    addNewItem();
+                }
+                else if (btnAddItem.Text == "Update item")
+                {
+                    updateItem();
+                }
             }
-            else if(btnAddItem.Text == "Update item")
-            {
-                updateItem();
-            }
-            
+        }
+
+        private bool ValidateForm()
+        {
+            bool validationSuccesfull = false;
+           
+            if (string.IsNullOrEmpty(txtTitle.Texts))
+                lblErrorTitle.Text = "Title can't be empty!";
+            else if (!string.IsNullOrEmpty(txtTitle.Texts))
+                lblErrorTitle.Text = "";
+
+            if (string.IsNullOrWhiteSpace(txtPrice.Texts))
+                lblErrorPrice.Text = "Price can't be empty!";
+            else if(Convert.ToDouble(txtPrice.Texts) == 0)
+                lblErrorPrice.Text = "Price can't be zero!";
+            else if (!string.IsNullOrEmpty(txtPrice.Texts))
+                lblErrorPrice.Text = "";
+
+            if(string.IsNullOrWhiteSpace(txtCode.Texts))
+                lblErrorCode.Text = "Code can't be empty!";
+            else if (!string.IsNullOrWhiteSpace(txtCode.Texts))
+                lblErrorCode.Text = "";
+
+            if(lblErrorTitle.Text == "" && lblErrorPrice.Text == "" && lblErrorCode.Text == "")
+                validationSuccesfull = true;
+
+            return validationSuccesfull;
         }
 
         private void updateItem()
         {
-            selectedItem.Title = txtTitle.Text;
-            selectedItem.Price = Convert.ToDouble(txtPrice.Text);
-            selectedItem.Code = txtCode.Text;
+            selectedItem.Title = txtTitle.Texts;
+            selectedItem.Price = Convert.ToDouble(txtPrice.Texts);
+            selectedItem.Code = txtCode.Texts;
             if (RestApiCallsHandler.UpdateItem(selectedItem, token))
             {
                 MessageBox.Show("Item updated!");
@@ -79,7 +108,7 @@ namespace CarShop_DesktopApp
 
         private void addNewItem()
         {
-            Item newItem = new Item(txtTitle.Text, Convert.ToDouble(txtPrice.Text), txtCode.Text);
+            Item newItem = new Item(txtTitle.Texts, Convert.ToDouble(txtPrice.Texts), txtCode.Texts);
             if (RestApiCallsHandler.AddItem(newItem, token))
             {
                 MessageBox.Show("Item added!");
@@ -94,17 +123,17 @@ namespace CarShop_DesktopApp
 
         private void setData()
         {
-            txtTitle.Text = selectedItem.Title;
-            txtPrice.Text = selectedItem.Price.ToString();
-            txtCode.Text = selectedItem.Code;
+            txtTitle.Texts = selectedItem.Title;
+            txtPrice.Texts = selectedItem.Price.ToString();
+            txtCode.Texts = selectedItem.Code;
             btnAddItem.Text = "Update item";
         }
 
         private void clearForm()
         {
-            txtTitle.Text = "";
-            txtPrice.Text = "";
-            txtCode.Text = "";
+            txtTitle.Texts = "";
+            txtPrice.Texts = "";
+            txtCode.Texts = "";
         }
     }
 }

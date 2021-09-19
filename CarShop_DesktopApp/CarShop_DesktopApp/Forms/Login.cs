@@ -30,7 +30,7 @@ namespace CarShop_DesktopApp
         {
             try
             {
-                var response = RestApiCallsHandler.Login(txtUsername.Text,txtPassword.Text);
+                var response = RestApiCallsHandler.Login(txtUsername.Texts,txtPassword.Texts);
                 getResponseData(response);
                 
                 if (response.StatusCode == HttpStatusCode.OK)

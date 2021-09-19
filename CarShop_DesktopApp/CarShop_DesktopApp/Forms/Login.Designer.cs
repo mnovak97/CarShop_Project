@@ -31,11 +31,11 @@ namespace CarShop_DesktopApp
         {
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.tableLayoutLogin = new System.Windows.Forms.TableLayoutPanel();
             this.lblFormTitle = new System.Windows.Forms.Label();
+            this.txtUsername = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.txtPassword = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.tableLayoutLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,16 +66,6 @@ namespace CarShop_DesktopApp
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtUsername.Location = new System.Drawing.Point(323, 182);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(154, 26);
-            this.txtUsername.TabIndex = 2;
-            // 
             // lblPassword
             // 
             this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -87,17 +77,6 @@ namespace CarShop_DesktopApp
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtPassword.Location = new System.Drawing.Point(323, 272);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(154, 26);
-            this.txtPassword.TabIndex = 4;
-            // 
             // tableLayoutLogin
             // 
             this.tableLayoutLogin.ColumnCount = 3;
@@ -105,11 +84,11 @@ namespace CarShop_DesktopApp
             this.tableLayoutLogin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutLogin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutLogin.Controls.Add(this.lblUsername, 1, 1);
-            this.tableLayoutLogin.Controls.Add(this.txtUsername, 1, 2);
             this.tableLayoutLogin.Controls.Add(this.lblPassword, 1, 3);
-            this.tableLayoutLogin.Controls.Add(this.txtPassword, 1, 4);
             this.tableLayoutLogin.Controls.Add(this.btnLogin, 1, 5);
             this.tableLayoutLogin.Controls.Add(this.lblFormTitle, 1, 0);
+            this.tableLayoutLogin.Controls.Add(this.txtUsername, 1, 2);
+            this.tableLayoutLogin.Controls.Add(this.txtPassword, 1, 4);
             this.tableLayoutLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutLogin.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutLogin.Name = "tableLayoutLogin";
@@ -136,6 +115,40 @@ namespace CarShop_DesktopApp
             this.lblFormTitle.Text = "Login";
             this.lblFormTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // txtUsername
+            // 
+            this.txtUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUsername.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtUsername.BorderSize = 2;
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtUsername.ForeColor = System.Drawing.Color.Black;
+            this.txtUsername.Location = new System.Drawing.Point(323, 182);
+            this.txtUsername.Multiline = false;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Padding = new System.Windows.Forms.Padding(7);
+            this.txtUsername.PasswordChar = false;
+            this.txtUsername.Size = new System.Drawing.Size(154, 31);
+            this.txtUsername.TabIndex = 6;
+            this.txtUsername.Texts = "";
+            this.txtUsername.UnderlinedStyle = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPassword.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtPassword.BorderSize = 2;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
+            this.txtPassword.Location = new System.Drawing.Point(323, 272);
+            this.txtPassword.Multiline = false;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Padding = new System.Windows.Forms.Padding(7);
+            this.txtPassword.PasswordChar = true;
+            this.txtPassword.Size = new System.Drawing.Size(154, 31);
+            this.txtPassword.TabIndex = 7;
+            this.txtPassword.Texts = "";
+            this.txtPassword.UnderlinedStyle = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,11 +168,11 @@ namespace CarShop_DesktopApp
 
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TableLayoutPanel tableLayoutLogin;
         private System.Windows.Forms.Label lblFormTitle;
+        private CustomControls.CustomTextBox txtUsername;
+        private CustomControls.CustomTextBox txtPassword;
     }
 }
 

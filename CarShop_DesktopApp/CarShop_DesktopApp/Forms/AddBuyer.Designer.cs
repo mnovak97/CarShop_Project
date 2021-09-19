@@ -32,16 +32,21 @@ namespace CarShop_DesktopApp
             this.tableLayoutBuyer = new System.Windows.Forms.TableLayoutPanel();
             this.lblFormTitle = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtMobilePhone = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtOIB = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblMobilePhone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblOIB = new System.Windows.Forms.Label();
             this.btnAddBuyer = new System.Windows.Forms.Button();
+            this.txtName = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.txtEmail = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.txtOIB = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.txtMobilePhone = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.txtAddress = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.lblErrorName = new System.Windows.Forms.Label();
+            this.lblErrorEmail = new System.Windows.Forms.Label();
+            this.lblErrorMobilePhone = new System.Windows.Forms.Label();
+            this.lblErrorAddress = new System.Windows.Forms.Label();
+            this.lblErrorOIB = new System.Windows.Forms.Label();
             this.tableLayoutBuyer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,16 +58,21 @@ namespace CarShop_DesktopApp
             this.tableLayoutBuyer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutBuyer.Controls.Add(this.lblFormTitle, 1, 0);
             this.tableLayoutBuyer.Controls.Add(this.lblName, 0, 1);
-            this.tableLayoutBuyer.Controls.Add(this.txtName, 1, 1);
-            this.tableLayoutBuyer.Controls.Add(this.txtEmail, 1, 2);
-            this.tableLayoutBuyer.Controls.Add(this.txtMobilePhone, 1, 3);
-            this.tableLayoutBuyer.Controls.Add(this.txtAddress, 1, 4);
-            this.tableLayoutBuyer.Controls.Add(this.txtOIB, 1, 5);
             this.tableLayoutBuyer.Controls.Add(this.lblEmail, 0, 2);
             this.tableLayoutBuyer.Controls.Add(this.lblMobilePhone, 0, 3);
             this.tableLayoutBuyer.Controls.Add(this.lblAddress, 0, 4);
             this.tableLayoutBuyer.Controls.Add(this.lblOIB, 0, 5);
             this.tableLayoutBuyer.Controls.Add(this.btnAddBuyer, 1, 6);
+            this.tableLayoutBuyer.Controls.Add(this.txtName, 1, 1);
+            this.tableLayoutBuyer.Controls.Add(this.txtEmail, 1, 2);
+            this.tableLayoutBuyer.Controls.Add(this.txtMobilePhone, 1, 3);
+            this.tableLayoutBuyer.Controls.Add(this.txtAddress, 1, 4);
+            this.tableLayoutBuyer.Controls.Add(this.txtOIB, 1, 5);
+            this.tableLayoutBuyer.Controls.Add(this.lblErrorName, 2, 1);
+            this.tableLayoutBuyer.Controls.Add(this.lblErrorEmail, 2, 2);
+            this.tableLayoutBuyer.Controls.Add(this.lblErrorMobilePhone, 2, 3);
+            this.tableLayoutBuyer.Controls.Add(this.lblErrorAddress, 2, 4);
+            this.tableLayoutBuyer.Controls.Add(this.lblErrorOIB, 2, 5);
             this.tableLayoutBuyer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutBuyer.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutBuyer.Name = "tableLayoutBuyer";
@@ -101,51 +111,6 @@ namespace CarShop_DesktopApp
             this.lblName.Size = new System.Drawing.Size(44, 15);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name:";
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(140, 138);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(131, 20);
-            this.txtName.TabIndex = 2;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(140, 198);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(131, 20);
-            this.txtEmail.TabIndex = 3;
-            // 
-            // txtMobilePhone
-            // 
-            this.txtMobilePhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMobilePhone.Location = new System.Drawing.Point(140, 258);
-            this.txtMobilePhone.Name = "txtMobilePhone";
-            this.txtMobilePhone.Size = new System.Drawing.Size(131, 20);
-            this.txtMobilePhone.TabIndex = 4;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Location = new System.Drawing.Point(140, 318);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(131, 20);
-            this.txtAddress.TabIndex = 5;
-            // 
-            // txtOIB
-            // 
-            this.txtOIB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOIB.Location = new System.Drawing.Point(140, 378);
-            this.txtOIB.Name = "txtOIB";
-            this.txtOIB.Size = new System.Drawing.Size(131, 20);
-            this.txtOIB.TabIndex = 6;
             // 
             // lblEmail
             // 
@@ -209,6 +174,149 @@ namespace CarShop_DesktopApp
             this.btnAddBuyer.UseVisualStyleBackColor = false;
             this.btnAddBuyer.Click += new System.EventHandler(this.btnAddBuyer_Click);
             // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtName.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtName.BorderSize = 2;
+            this.txtName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtName.ForeColor = System.Drawing.Color.Black;
+            this.txtName.Location = new System.Drawing.Point(140, 130);
+            this.txtName.Multiline = false;
+            this.txtName.Name = "txtName";
+            this.txtName.Padding = new System.Windows.Forms.Padding(7);
+            this.txtName.PasswordChar = false;
+            this.txtName.Size = new System.Drawing.Size(131, 28);
+            this.txtName.TabIndex = 12;
+            this.txtName.Texts = "";
+            this.txtName.UnderlinedStyle = true;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEmail.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtEmail.BorderSize = 2;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
+            this.txtEmail.Location = new System.Drawing.Point(140, 190);
+            this.txtEmail.Multiline = false;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Padding = new System.Windows.Forms.Padding(7);
+            this.txtEmail.PasswordChar = false;
+            this.txtEmail.Size = new System.Drawing.Size(131, 28);
+            this.txtEmail.TabIndex = 13;
+            this.txtEmail.Texts = "";
+            this.txtEmail.UnderlinedStyle = true;
+            // 
+            // txtOIB
+            // 
+            this.txtOIB.BackColor = System.Drawing.SystemColors.Window;
+            this.txtOIB.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtOIB.BorderSize = 2;
+            this.txtOIB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtOIB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtOIB.ForeColor = System.Drawing.Color.Black;
+            this.txtOIB.Location = new System.Drawing.Point(140, 370);
+            this.txtOIB.Multiline = false;
+            this.txtOIB.Name = "txtOIB";
+            this.txtOIB.Padding = new System.Windows.Forms.Padding(7);
+            this.txtOIB.PasswordChar = false;
+            this.txtOIB.Size = new System.Drawing.Size(131, 28);
+            this.txtOIB.TabIndex = 14;
+            this.txtOIB.Texts = "";
+            this.txtOIB.UnderlinedStyle = true;
+            this.txtOIB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOIB_KeyPress);
+            // 
+            // txtMobilePhone
+            // 
+            this.txtMobilePhone.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMobilePhone.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtMobilePhone.BorderSize = 2;
+            this.txtMobilePhone.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtMobilePhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtMobilePhone.ForeColor = System.Drawing.Color.Black;
+            this.txtMobilePhone.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtMobilePhone.Location = new System.Drawing.Point(140, 250);
+            this.txtMobilePhone.Multiline = false;
+            this.txtMobilePhone.Name = "txtMobilePhone";
+            this.txtMobilePhone.Padding = new System.Windows.Forms.Padding(7);
+            this.txtMobilePhone.PasswordChar = false;
+            this.txtMobilePhone.Size = new System.Drawing.Size(131, 28);
+            this.txtMobilePhone.TabIndex = 15;
+            this.txtMobilePhone.Texts = "";
+            this.txtMobilePhone.UnderlinedStyle = true;
+            this.txtMobilePhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobilePhone_KeyPress);
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtAddress.BorderSize = 2;
+            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtAddress.Location = new System.Drawing.Point(140, 310);
+            this.txtAddress.Multiline = false;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Padding = new System.Windows.Forms.Padding(7);
+            this.txtAddress.PasswordChar = false;
+            this.txtAddress.Size = new System.Drawing.Size(131, 28);
+            this.txtAddress.TabIndex = 16;
+            this.txtAddress.Texts = "";
+            this.txtAddress.UnderlinedStyle = true;
+            // 
+            // lblErrorName
+            // 
+            this.lblErrorName.AutoSize = true;
+            this.lblErrorName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblErrorName.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorName.Location = new System.Drawing.Point(277, 148);
+            this.lblErrorName.Name = "lblErrorName";
+            this.lblErrorName.Size = new System.Drawing.Size(132, 13);
+            this.lblErrorName.TabIndex = 17;
+            // 
+            // lblErrorEmail
+            // 
+            this.lblErrorEmail.AutoSize = true;
+            this.lblErrorEmail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblErrorEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorEmail.Location = new System.Drawing.Point(277, 208);
+            this.lblErrorEmail.Name = "lblErrorEmail";
+            this.lblErrorEmail.Size = new System.Drawing.Size(132, 13);
+            this.lblErrorEmail.TabIndex = 18;
+            // 
+            // lblErrorMobilePhone
+            // 
+            this.lblErrorMobilePhone.AutoSize = true;
+            this.lblErrorMobilePhone.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblErrorMobilePhone.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorMobilePhone.Location = new System.Drawing.Point(277, 268);
+            this.lblErrorMobilePhone.Name = "lblErrorMobilePhone";
+            this.lblErrorMobilePhone.Size = new System.Drawing.Size(132, 13);
+            this.lblErrorMobilePhone.TabIndex = 19;
+            // 
+            // lblErrorAddress
+            // 
+            this.lblErrorAddress.AutoSize = true;
+            this.lblErrorAddress.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblErrorAddress.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorAddress.Location = new System.Drawing.Point(277, 328);
+            this.lblErrorAddress.Name = "lblErrorAddress";
+            this.lblErrorAddress.Size = new System.Drawing.Size(132, 13);
+            this.lblErrorAddress.TabIndex = 20;
+            // 
+            // lblErrorOIB
+            // 
+            this.lblErrorOIB.AutoSize = true;
+            this.lblErrorOIB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblErrorOIB.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorOIB.Location = new System.Drawing.Point(277, 388);
+            this.lblErrorOIB.Name = "lblErrorOIB";
+            this.lblErrorOIB.Size = new System.Drawing.Size(132, 13);
+            this.lblErrorOIB.TabIndex = 21;
+            // 
             // AddBuyer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,15 +338,20 @@ namespace CarShop_DesktopApp
         private System.Windows.Forms.TableLayoutPanel tableLayoutBuyer;
         private System.Windows.Forms.Label lblFormTitle;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtMobilePhone;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtOIB;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblMobilePhone;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblOIB;
         private System.Windows.Forms.Button btnAddBuyer;
+        private CustomControls.CustomTextBox txtName;
+        private CustomControls.CustomTextBox txtEmail;
+        private CustomControls.CustomTextBox txtMobilePhone;
+        private CustomControls.CustomTextBox txtAddress;
+        private CustomControls.CustomTextBox txtOIB;
+        private System.Windows.Forms.Label lblErrorName;
+        private System.Windows.Forms.Label lblErrorEmail;
+        private System.Windows.Forms.Label lblErrorMobilePhone;
+        private System.Windows.Forms.Label lblErrorAddress;
+        private System.Windows.Forms.Label lblErrorOIB;
     }
 }
