@@ -1,5 +1,6 @@
 ﻿using CarShop_DesktopApp.DAL;
 using CarShop_DesktopApp.Model;
+using CarShop_DesktopApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,13 @@ namespace CarShop_DesktopApp
     {
         private string token;
         private Item selectedItem;
-
+        Image delete;
         public AddItem(string JWTToken)
         {
             token = JWTToken;
             InitializeComponent();
             btnAddItem.Text = "Add item";
+            imageButtonDelete.Visible = false;
         }
 
         public AddItem(string JWTToken, Item selectedItem)
@@ -134,6 +136,22 @@ namespace CarShop_DesktopApp
             txtTitle.Texts = "";
             txtPrice.Texts = "";
             txtCode.Texts = "";
+        }
+
+        private void imageButtonDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + selectedItem.Title,"Delete",MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (RestApiCallsHandler.DeleteItem(selectedItem.IDItem, token))
+                    this.Close();
+                else
+                    MessageBox.Show("Error");
+            }
+            else if(DialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
     }
 }

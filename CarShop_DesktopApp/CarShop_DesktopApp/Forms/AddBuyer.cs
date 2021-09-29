@@ -22,7 +22,6 @@ namespace CarShop_DesktopApp
             token = JWTToken;
             InitializeComponent();
             btnAddBuyer.Text = "Add buyer";
-            txtOIB.MaxLenght = 11;
         }
 
         public AddBuyer(string JWTToken, Buyer selectedBuyer)
@@ -31,7 +30,6 @@ namespace CarShop_DesktopApp
             this.selectedBuyer = selectedBuyer;
             InitializeComponent();
             setData();
-            txtOIB.MaxLenght = 11;
         }
 
 

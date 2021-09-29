@@ -11,12 +11,14 @@ namespace CarShop_REST_API.Model
         public WorkOrder WorkOrder { get; set; }
         public int ItemID { get; set; }
         public Item Item { get; set; }
+        public int Quantity { get; set; }
 
 
-        public WorkOrdersItems(int workOrderID,int itemID)
+        public WorkOrdersItems(int workOrderID,int itemID,int quantity)
         {
             WorkOrderID = workOrderID;
             ItemID = itemID;
+            Quantity = quantity;
         }
     }
 }

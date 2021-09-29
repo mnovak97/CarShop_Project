@@ -39,9 +39,9 @@ namespace CarShop_DesktopApp
             this.btnAddBuyer = new System.Windows.Forms.Button();
             this.txtName = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.txtEmail = new CarShop_DesktopApp.CustomControls.CustomTextBox();
-            this.txtOIB = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.txtMobilePhone = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.txtAddress = new CarShop_DesktopApp.CustomControls.CustomTextBox();
+            this.txtOIB = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.lblErrorName = new System.Windows.Forms.Label();
             this.lblErrorEmail = new System.Windows.Forms.Label();
             this.lblErrorMobilePhone = new System.Windows.Forms.Label();
@@ -183,6 +183,7 @@ namespace CarShop_DesktopApp
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtName.ForeColor = System.Drawing.Color.Black;
             this.txtName.Location = new System.Drawing.Point(140, 130);
+            this.txtName.MaxLenght = 32767;
             this.txtName.Multiline = false;
             this.txtName.Name = "txtName";
             this.txtName.Padding = new System.Windows.Forms.Padding(7);
@@ -201,6 +202,7 @@ namespace CarShop_DesktopApp
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.Location = new System.Drawing.Point(140, 190);
+            this.txtEmail.MaxLenght = 32767;
             this.txtEmail.Multiline = false;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Padding = new System.Windows.Forms.Padding(7);
@@ -209,25 +211,6 @@ namespace CarShop_DesktopApp
             this.txtEmail.TabIndex = 13;
             this.txtEmail.Texts = "";
             this.txtEmail.UnderlinedStyle = true;
-            // 
-            // txtOIB
-            // 
-            this.txtOIB.BackColor = System.Drawing.SystemColors.Window;
-            this.txtOIB.BorderColor = System.Drawing.SystemColors.MenuHighlight;
-            this.txtOIB.BorderSize = 2;
-            this.txtOIB.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtOIB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtOIB.ForeColor = System.Drawing.Color.Black;
-            this.txtOIB.Location = new System.Drawing.Point(140, 370);
-            this.txtOIB.Multiline = false;
-            this.txtOIB.Name = "txtOIB";
-            this.txtOIB.Padding = new System.Windows.Forms.Padding(7);
-            this.txtOIB.PasswordChar = false;
-            this.txtOIB.Size = new System.Drawing.Size(131, 28);
-            this.txtOIB.TabIndex = 14;
-            this.txtOIB.Texts = "";
-            this.txtOIB.UnderlinedStyle = true;
-            this.txtOIB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOIB_KeyPress);
             // 
             // txtMobilePhone
             // 
@@ -239,6 +222,7 @@ namespace CarShop_DesktopApp
             this.txtMobilePhone.ForeColor = System.Drawing.Color.Black;
             this.txtMobilePhone.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtMobilePhone.Location = new System.Drawing.Point(140, 250);
+            this.txtMobilePhone.MaxLenght = 32767;
             this.txtMobilePhone.Multiline = false;
             this.txtMobilePhone.Name = "txtMobilePhone";
             this.txtMobilePhone.Padding = new System.Windows.Forms.Padding(7);
@@ -258,6 +242,7 @@ namespace CarShop_DesktopApp
             this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.Location = new System.Drawing.Point(140, 310);
+            this.txtAddress.MaxLenght = 32767;
             this.txtAddress.Multiline = false;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Padding = new System.Windows.Forms.Padding(7);
@@ -266,6 +251,26 @@ namespace CarShop_DesktopApp
             this.txtAddress.TabIndex = 16;
             this.txtAddress.Texts = "";
             this.txtAddress.UnderlinedStyle = true;
+            // 
+            // txtOIB
+            // 
+            this.txtOIB.BackColor = System.Drawing.SystemColors.Window;
+            this.txtOIB.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.txtOIB.BorderSize = 2;
+            this.txtOIB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtOIB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtOIB.ForeColor = System.Drawing.Color.Black;
+            this.txtOIB.Location = new System.Drawing.Point(140, 370);
+            this.txtOIB.MaxLenght = 11;
+            this.txtOIB.Multiline = false;
+            this.txtOIB.Name = "txtOIB";
+            this.txtOIB.Padding = new System.Windows.Forms.Padding(7);
+            this.txtOIB.PasswordChar = false;
+            this.txtOIB.Size = new System.Drawing.Size(131, 28);
+            this.txtOIB.TabIndex = 14;
+            this.txtOIB.Texts = "";
+            this.txtOIB.UnderlinedStyle = true;
+            this.txtOIB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOIB_KeyPress);
             // 
             // lblErrorName
             // 

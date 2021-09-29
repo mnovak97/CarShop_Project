@@ -21,30 +21,48 @@ namespace CarShop_DesktopApp.CustomControls
             InitializeComponent();
         }
         [Category("Custom properties")]
-        public Color BorderColor { get => borderColor; set => borderColor = value; }
+        public Color BorderColor { get => borderColor; 
+            set 
+            { 
+                borderColor = value;
+                this.Invalidate();
+            }
+        }
         [Category("Custom properties")]
-        public int BorderSize { get => borderSize; set => borderSize = value; }
+        public int BorderSize { get => borderSize; 
+            set
+            {
+                borderSize = value;
+                this.Invalidate();
+            } 
+        }
         [Category("Custom properties")]
-        public bool UnderlinedStyle { get => underlinedStyle; set => underlinedStyle = value; }
+        public bool UnderlinedStyle { get => underlinedStyle; 
+            set 
+            { 
+                underlinedStyle = value;
+                this.Invalidate();
+            } 
+        }
         [Category("Custom properties")]
         public bool PasswordChar { get { return txtCustom.UseSystemPasswordChar; } set { txtCustom.UseSystemPasswordChar = value; } }
         [Category("Custom properties")]
-        public bool Multiline { get { return txtCustom.Multiline; } set { txtCustom.Multiline = value; }}
+        public bool Multiline { get { return txtCustom.Multiline; } set { txtCustom.Multiline = value; } }
         [Category("Custom properties")]
-        public override Color BackColor { get => base.BackColor; set { base.BackColor = value; txtCustom.BackColor = value;} }
+        public override Color BackColor { get => base.BackColor; set { base.BackColor = value; txtCustom.BackColor = value; } }
         [Category("Custom properties")]
         public override Color ForeColor { get => base.ForeColor; set { base.ForeColor = value; txtCustom.ForeColor = value; } }
         [Category("Custom properties")]
-        public override Font Font 
+        public override Font Font
         {
-            get => base.Font; 
-            set 
-            { 
-                base.Font = value; 
+            get => base.Font;
+            set
+            {
+                base.Font = value;
                 txtCustom.Font = value;
                 if (this.DesignMode)
                     UpdateControlHeight();
-            } 
+            }
         }
         [Category("Custom properties")]
         public string Texts
@@ -65,16 +83,17 @@ namespace CarShop_DesktopApp.CustomControls
         {
             base.OnPaint(e);
             Graphics graphics = e.Graphics;
-            using (Pen penBorder = new Pen(borderColor,borderSize))
+
+            using (Pen penBorder = new Pen(borderColor, borderSize))
             {
                 penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
                 if (underlinedStyle)
                 {
-                    graphics.DrawLine(penBorder,0,this.Height-1,this.Width,this.Height-1);
+                    graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
                 }
                 else
                 {
-                    graphics.DrawLine(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+                    graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
                 }
             }
         }
@@ -111,6 +130,11 @@ namespace CarShop_DesktopApp.CustomControls
         private void txtCustom_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.OnKeyPress(e);
+        }
+
+        private void txtCustom_TextChanged(object sender, EventArgs e)
+        {
+            this.OnTextChanged(e);
         }
     }
 }

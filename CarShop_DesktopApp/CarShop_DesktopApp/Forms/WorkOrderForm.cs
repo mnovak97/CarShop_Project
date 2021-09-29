@@ -15,9 +15,11 @@ namespace CarShop_DesktopApp.Forms
 {
     public partial class WorkOrderForm : Form
     {
+        private bool carType, registrationPlate, buyer, description, comment, manufacturingYear, KM, boolItems = false;
         private int number;
         private string token;
         BindingList<Item> items;
+        List<ItemQuantity> orderItems;
         User user;
         WorkOrder selected;
         public WorkOrderForm(string JWTToken, User currentUser)
@@ -28,27 +30,41 @@ namespace CarShop_DesktopApp.Forms
             items = new BindingList<Item>();
             InitializeComponent();
             showBuyers();
+            addColumnquantity();
             btnAddWorkOrder.Text = "Add work order";
         }
-        public WorkOrderForm(string JWTToken,User currentUser,WorkOrder selectedWorkOrder,BindingList<Item> workOrderItems)
+
+        public WorkOrderForm(string JWTToken, User currentUser, WorkOrder selectedWorkOrder, List<ItemQuantity> itemsQuantity)
         {
             token = JWTToken;
             user = currentUser;
-            items = workOrderItems;
+            items = new BindingList<Item>();
+            orderItems = itemsQuantity;
             selected = selectedWorkOrder;
             InitializeComponent();
             showBuyers();
             setData();
+            addColumnquantity();
+        }
+
+
+        private void addColumnquantity()
+        {
+            DataGridViewTextBoxColumn columnQnty = new DataGridViewTextBoxColumn();
+            columnQnty.DataPropertyName = "QUANTITY";
+            columnQnty.Name = "Quantity";
+            columnQnty.ValueType = typeof(int);
+            dataGridItemsWorkOrder.Columns.Add(columnQnty);
         }
 
         private void setData()
         {
-            txtCarType.Text = selected.CarType;
-            txtComment.Text = selected.Comment;
-            txtDescription.Text = selected.Description;
-            txtKm.Text = selected.Km.ToString();
-            txtManufacturingYear.Text = selected.ManufacturingYear.ToString();
-            txtRegistrationPlate.Text = selected.RegistrationPlate;
+            txtCarType.Texts = selected.CarType;
+            txtComment.Texts = selected.Comment;
+            txtDescription.Texts = selected.Description;
+            txtKm.Texts = selected.Km.ToString();
+            txtManufacturingYear.Texts = selected.ManufacturingYear.ToString();
+            txtRegistrationPlate.Texts = selected.RegistrationPlate;
             cbBuyers.SelectedItem = cbBuyers.Items[selected.Buyer.IDBuyer - 1];
             if (selected.Warranty)
             {
@@ -73,6 +89,10 @@ namespace CarShop_DesktopApp.Forms
         {
             dataGridItemsWorkOrder.DataSource = items;
             GridViewStyleExtension.SetStyle(dataGridItemsWorkOrder);
+            if (btnAddWorkOrder.Text == "Update work order")
+            {
+                setItems(orderItems);
+            }
         }
 
 
@@ -84,22 +104,95 @@ namespace CarShop_DesktopApp.Forms
 
         private void btnAddWorkOrder_Click(object sender, EventArgs e)
         {
-            if (btnAddWorkOrder.Text == "Add work order")
+            if (validateForm())
             {
-                addWorkOrder();
+                if (btnAddWorkOrder.Text == "Add work order")
+                {
+                    addWorkOrder();
+                }
+                else if (btnAddWorkOrder.Text == "Update work order")
+                {
+                    updateWorkOrder();
+                }
+
             }
-            else if(btnAddWorkOrder.Text =="Update work order")
+        }
+
+        private bool validateForm()
+        {
+            bool validationSuccessfull = false;
+
+            if (string.IsNullOrEmpty(txtCarType.Texts))
+                txtCarType.BorderColor = Color.Red;
+            else if (!string.IsNullOrEmpty(txtCarType.Texts)) {
+                txtCarType.BorderColor = SystemColors.MenuHighlight;
+                carType = true; }
+
+            if (string.IsNullOrEmpty(txtRegistrationPlate.Texts))
+                txtRegistrationPlate.BorderColor = Color.Red;
+            else if (!string.IsNullOrEmpty(txtRegistrationPlate.Texts))
             {
-                updateWorkOrder();
+                txtRegistrationPlate.BorderColor = SystemColors.MenuHighlight;
+                registrationPlate = true;
             }
+
+            if (string.IsNullOrEmpty(cbBuyers.Texts))
+                cbBuyers.BorderColor = Color.Red;
+            else
+            {
+                cbBuyers.BorderColor = SystemColors.MenuHighlight;
+                buyer = true;
+            }
+
+            if (string.IsNullOrEmpty(txtDescription.Texts))
+                txtDescription.BorderColor = Color.Red;
+            else if(!string.IsNullOrEmpty(txtDescription.Texts))
+            {
+                txtDescription.BorderColor = SystemColors.MenuHighlight;
+                description = true;
+            }
+
+            if (string.IsNullOrEmpty(txtComment.Texts))
+                txtComment.BorderColor = Color.Red;
+            else if(!string.IsNullOrEmpty(txtComment.Texts))
+            {
+                txtComment.BorderColor = SystemColors.MenuHighlight;
+                comment = true;
+            }
+
+            if (string.IsNullOrEmpty(txtManufacturingYear.Texts))
+                txtManufacturingYear.BorderColor = Color.Red;
+            else if(!string.IsNullOrEmpty(txtManufacturingYear.Texts))
+            {
+                txtManufacturingYear.BorderColor = SystemColors.MenuHighlight;
+                manufacturingYear = true;
+            }
+
+            if (string.IsNullOrEmpty(txtKm.Texts))
+                txtKm.BorderColor = Color.Red;
+            else if (!string.IsNullOrEmpty(txtKm.Texts))
+            {
+                txtKm.BorderColor = SystemColors.MenuHighlight;
+                KM = true;
+            }
+
+            if (items.Count() == 0)
+                boolItems = false;
+            else
+                boolItems = true;
+
+            if (carType && registrationPlate && buyer && description && comment && manufacturingYear && KM && boolItems)
+                validationSuccessfull = true;
+
+            return validationSuccessfull;
         }
 
         private void updateWorkOrder()
         {
             double totalPrice = countTotalPrice();
             Buyer buyer = getBuyer();
-            populateWorkOrder(totalPrice,buyer);
-            WorkOrdersItems workOrdersItems = new WorkOrdersItems(selected, getItems(items));
+            populateWorkOrder(totalPrice, buyer);
+            WorkOrdersItems workOrdersItems = new WorkOrdersItems(selected, getItems());
             if (RestApiCallsHandler.UpdateWorkOrder(workOrdersItems, token))
             {
                 MessageBox.Show("Work order updated!");
@@ -115,8 +208,8 @@ namespace CarShop_DesktopApp.Forms
         {
             double totalPrice = countTotalPrice();
             Buyer buyer = getBuyer();
-            WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Text, txtRegistrationPlate.Text, txtDescription.Text, Convert.ToInt32(txtManufacturingYear.Text), Convert.ToInt64(txtKm.Text), chBWarranty.Checked, chBDone.Checked, txtComment.Text, totalPrice, user, buyer);
-            WorkOrdersItems workOrderItems = new WorkOrdersItems(newWorkOrder, getItems(items));
+            WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Texts, txtRegistrationPlate.Texts, txtDescription.Texts, Convert.ToInt32(txtManufacturingYear.Texts), Convert.ToInt64(txtKm.Texts), chBWarranty.Checked, chBDone.Checked, txtComment.Texts, totalPrice, user, buyer);
+            WorkOrdersItems workOrderItems = new WorkOrdersItems(newWorkOrder, getItems());
             if (RestApiCallsHandler.AddWorkOrder(workOrderItems, token))
             {
                 MessageBox.Show("Work order added!");
@@ -126,29 +219,34 @@ namespace CarShop_DesktopApp.Forms
                 MessageBox.Show("Error!");
             }
         }
-        private void populateWorkOrder(double price,Buyer buyer)
+        private void populateWorkOrder(double price, Buyer buyer)
         {
-            selected.CarType = txtCarType.Text;
-            selected.RegistrationPlate = txtRegistrationPlate.Text;
-            selected.Description = txtDescription.Text;
-            selected.ManufacturingYear = Convert.ToInt32(txtManufacturingYear.Text);
-            selected.Km = Convert.ToInt64(txtKm.Text);
+            selected.CarType = txtCarType.Texts;
+            selected.RegistrationPlate = txtRegistrationPlate.Texts;
+            selected.Description = txtDescription.Texts;
+            selected.ManufacturingYear = Convert.ToInt32(txtManufacturingYear.Texts);
+            selected.Km = Convert.ToInt64(txtKm.Texts);
             selected.Warranty = chBWarranty.Checked;
             selected.Done = chBDone.Checked;
-            selected.Comment = txtComment.Text;
+            selected.Comment = txtComment.Texts;
             selected.TotalPrice = price;
             selected.Buyer = buyer;
         }
 
-        private List<Item> getItems(BindingList<Item> bindingItems)
+
+        private List<ItemQuantity> getItems()
         {
-            List<Item> items = new List<Item>();
-            foreach (Item item in bindingItems)
+            List<ItemQuantity> itemsQuantity = new List<ItemQuantity>();
+            foreach (Item item in items)
             {
-                items.Add(item);
+                int quantity = (int)dataGridItemsWorkOrder.Rows[items.IndexOf(item)].Cells[0].Value;
+                ItemQuantity newItemQuantity = new ItemQuantity(item, quantity);
+                itemsQuantity.Add(newItemQuantity);
             }
-            return items;
+            return itemsQuantity;
         }
+
+
 
         private Buyer getBuyer()
         {
@@ -161,7 +259,7 @@ namespace CarShop_DesktopApp.Forms
             double price = 0;
             foreach (Item item in items)
             {
-                price += item.Price;
+                price += item.Price * (int)dataGridItemsWorkOrder.Rows[items.IndexOf(item)].Cells[0].Value;
             }
             return price;
         }
@@ -175,11 +273,50 @@ namespace CarShop_DesktopApp.Forms
                 cbBuyers.Items.Add(buyer);
             }
         }
+        private void setItems(List<ItemQuantity> workOrderItems)
+        {
+            foreach (ItemQuantity item in workOrderItems)
+            {
+                items.Add(item.Item);
+                dataGridItemsWorkOrder.Rows[items.IndexOf(item.Item)].Cells[0].Value = item.Quantity;
+            }
+        }
 
         public void newItem(Item newItem)
         {
-            items.Add(newItem);
-            dataGridItemsWorkOrder.Refresh();
+            checkIfItemIsAlreadyAdded(newItem);
+        }
+
+        private void checkIfItemIsAlreadyAdded(Item newItem)
+        {
+            var duplicate = items.FirstOrDefault(i => i.IDItem == newItem.IDItem);
+            int quantity;
+            if (duplicate == null)
+            {
+                items.Add(newItem);
+                dataGridItemsWorkOrder.Rows[items.IndexOf(newItem)].Cells[0].Value = 1;
+            }
+            else
+            {
+                quantity = (int)dataGridItemsWorkOrder.Rows[items.IndexOf(duplicate)].Cells[0].Value;
+                quantity++;
+                dataGridItemsWorkOrder.Rows[items.IndexOf(duplicate)].Cells[0].Value = quantity;
+            }
+        }
+        private void txtKm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtManufacturingYear_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -24,5 +24,7 @@ namespace CarShop_REST_API.Model
         public virtual User User { get; set; }
         public virtual Buyer Buyer { get; set; }
         public virtual ICollection<WorkOrdersItems> WorkOrdersItems { get; set; }
+        public virtual ICollection<ReceiptWorkOrders> ReceiptWorkOrders { get; set; }
+
     }
 }

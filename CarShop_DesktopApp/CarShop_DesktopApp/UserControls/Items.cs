@@ -28,6 +28,7 @@ namespace CarShop_DesktopApp
             btnNewItem.Text = "Add new item";
         }
 
+
         public Items(WorkOrderForm WorkOrder,string JWTToken)
         {
             token = JWTToken;
@@ -50,7 +51,7 @@ namespace CarShop_DesktopApp
                 AddItem addItemForm = new AddItem(token);
                 addItemForm.FormBorderStyle = FormBorderStyle.FixedSingle;
                 addItemForm.FormClosed += (s, args) => dataGridItems.DataSource = RestApiCallsHandler.GetItems(token);
-                addItemForm.Show();
+                addItemForm.ShowDialog();
             }
            else if (btnNewItem.Text == "Select item")
             {
@@ -78,5 +79,7 @@ namespace CarShop_DesktopApp
                 myForm.ShowDialog();
             }
         }
+
+       
     }
 }

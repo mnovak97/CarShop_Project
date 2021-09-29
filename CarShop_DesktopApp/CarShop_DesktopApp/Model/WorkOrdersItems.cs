@@ -9,9 +9,10 @@ namespace CarShop_DesktopApp.Model
     class WorkOrdersItems
     {
         public WorkOrder WorkOrder { get; set; }
-        public List<Item> Items { get; set; }
-
-        public WorkOrdersItems(WorkOrder workOrder,List<Item> items)
+        public List<ItemQuantity> Items { get; set; }
+        public Receipt Receipt { get; set; }
+        public List<WorkOrder> WorkOrders { get; set; }
+        public WorkOrdersItems(WorkOrder workOrder,List<ItemQuantity> items)
         {
             WorkOrder = workOrder;
             Items = items;

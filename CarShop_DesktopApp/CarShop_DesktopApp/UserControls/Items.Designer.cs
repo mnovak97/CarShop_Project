@@ -30,8 +30,8 @@ namespace CarShop_DesktopApp
         private void InitializeComponent()
         {
             this.tableLayoutItems = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridItems = new System.Windows.Forms.DataGridView();
             this.btnNewItem = new System.Windows.Forms.Button();
+            this.dataGridItems = new System.Windows.Forms.DataGridView();
             this.tableLayoutItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItems)).BeginInit();
             this.SuspendLayout();
@@ -40,16 +40,30 @@ namespace CarShop_DesktopApp
             // 
             this.tableLayoutItems.ColumnCount = 1;
             this.tableLayoutItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutItems.Controls.Add(this.dataGridItems, 0, 0);
             this.tableLayoutItems.Controls.Add(this.btnNewItem, 0, 1);
+            this.tableLayoutItems.Controls.Add(this.dataGridItems, 0, 0);
             this.tableLayoutItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutItems.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutItems.Name = "tableLayoutItems";
             this.tableLayoutItems.RowCount = 2;
-            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.41F));
-            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.59F));
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutItems.Size = new System.Drawing.Size(586, 508);
             this.tableLayoutItems.TabIndex = 2;
+            // 
+            // btnNewItem
+            // 
+            this.btnNewItem.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnNewItem.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNewItem.ForeColor = System.Drawing.Color.White;
+            this.btnNewItem.Location = new System.Drawing.Point(465, 466);
+            this.btnNewItem.Name = "btnNewItem";
+            this.btnNewItem.Size = new System.Drawing.Size(118, 33);
+            this.btnNewItem.TabIndex = 1;
+            this.btnNewItem.UseVisualStyleBackColor = false;
+            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // dataGridItems
             // 
@@ -63,23 +77,9 @@ namespace CarShop_DesktopApp
             this.dataGridItems.Name = "dataGridItems";
             this.dataGridItems.ReadOnly = true;
             this.dataGridItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridItems.Size = new System.Drawing.Size(586, 449);
+            this.dataGridItems.Size = new System.Drawing.Size(586, 457);
             this.dataGridItems.TabIndex = 2;
             this.dataGridItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItems_CellClick);
-            // 
-            // btnNewItem
-            // 
-            this.btnNewItem.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnNewItem.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnNewItem.ForeColor = System.Drawing.Color.White;
-            this.btnNewItem.Location = new System.Drawing.Point(465, 462);
-            this.btnNewItem.Name = "btnNewItem";
-            this.btnNewItem.Size = new System.Drawing.Size(118, 33);
-            this.btnNewItem.TabIndex = 1;
-            this.btnNewItem.UseVisualStyleBackColor = false;
-            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // Items
             // 

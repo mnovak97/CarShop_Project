@@ -13,6 +13,7 @@ namespace CarShop_DesktopApp.Model
         public int IDBuyer { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        [DisplayName("Phone")]
         public string MobilePhone { get; set; }
         public string Address { get; set; }
         public string OIB { get; set; }

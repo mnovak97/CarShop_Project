@@ -17,6 +17,8 @@ namespace CarShop_REST_API.Context
         public DbSet<Item> Items { get; set; }
         public DbSet<WorkOrder> WorkOrders { get; set; }
         public DbSet<WorkOrdersItems> WorkOrdersItems { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
+        public DbSet<ReceiptWorkOrders> ReceiptWorkOrders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,6 +28,16 @@ namespace CarShop_REST_API.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+            modelBuilder.Entity<ReceiptWorkOrders>()
+                .HasKey(rw => new { rw.ReceiptID, rw.WorkOrderID });
+            modelBuilder.Entity<ReceiptWorkOrders>()
+                .HasOne(r => r.Receipt)
+                .WithMany(rw => rw.ReceiptWorkOrders)
+                .HasForeignKey(r => r.ReceiptID);
+            modelBuilder.Entity<ReceiptWorkOrders>()
+                .HasOne(w => w.WorkOrder)
+                .WithMany(rw => rw.ReceiptWorkOrders)
+                .HasForeignKey(w => w.WorkOrderID);
             modelBuilder.Entity<WorkOrdersItems>()
                 .HasKey(wi => new { wi.WorkOrderID, wi.ItemID });
             modelBuilder.Entity<WorkOrdersItems>()

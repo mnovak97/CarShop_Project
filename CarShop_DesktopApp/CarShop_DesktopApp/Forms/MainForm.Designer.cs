@@ -29,104 +29,192 @@ namespace CarShop_DesktopApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblUserControl = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnWorkOrders = new FontAwesome.Sharp.IconButton();
+            this.btnBuyers = new FontAwesome.Sharp.IconButton();
+            this.btnItems = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.imgHome = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.iconCurrent = new FontAwesome.Sharp.IconPictureBox();
             this.placeHolder = new System.Windows.Forms.Panel();
-            this.tableLayoutMenu = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.btnItems = new System.Windows.Forms.Button();
-            this.btnBuyers = new System.Windows.Forms.Button();
-            this.btnWorkOrders = new System.Windows.Forms.Button();
-            this.tableLayoutMenu.SuspendLayout();
+            this.btnReceipt = new FontAwesome.Sharp.IconButton();
+            this.panelMenu.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHome)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrent)).BeginInit();
             this.SuspendLayout();
             // 
-            // placeHolder
+            // lblUserControl
             // 
-            this.placeHolder.BackColor = System.Drawing.Color.White;
-            this.placeHolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.placeHolder.Location = new System.Drawing.Point(0, 38);
-            this.placeHolder.Name = "placeHolder";
-            this.placeHolder.Size = new System.Drawing.Size(830, 438);
-            this.placeHolder.TabIndex = 3;
+            this.lblUserControl.AutoSize = true;
+            this.lblUserControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblUserControl.ForeColor = System.Drawing.Color.White;
+            this.lblUserControl.Location = new System.Drawing.Point(57, 28);
+            this.lblUserControl.Name = "lblUserControl";
+            this.lblUserControl.Size = new System.Drawing.Size(49, 16);
+            this.lblUserControl.TabIndex = 0;
+            this.lblUserControl.Text = "Home";
+            this.lblUserControl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // tableLayoutMenu
+            // panelMenu
             // 
-            this.tableLayoutMenu.ColumnCount = 4;
-            this.tableLayoutMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0015F));
-            this.tableLayoutMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.33283F));
-            this.tableLayoutMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.33283F));
-            this.tableLayoutMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.33283F));
-            this.tableLayoutMenu.Controls.Add(this.btnWorkOrders, 3, 0);
-            this.tableLayoutMenu.Controls.Add(this.btnBuyers, 2, 0);
-            this.tableLayoutMenu.Controls.Add(this.lblUsername, 0, 0);
-            this.tableLayoutMenu.Controls.Add(this.btnItems, 1, 0);
-            this.tableLayoutMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutMenu.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutMenu.Name = "tableLayoutMenu";
-            this.tableLayoutMenu.RowCount = 1;
-            this.tableLayoutMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutMenu.Size = new System.Drawing.Size(830, 38);
-            this.tableLayoutMenu.TabIndex = 4;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblUsername.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblUsername.Location = new System.Drawing.Point(3, 11);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(118, 16);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "label1";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnItems
-            // 
-            this.btnItems.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnItems.ForeColor = System.Drawing.Color.White;
-            this.btnItems.Location = new System.Drawing.Point(124, 0);
-            this.btnItems.Margin = new System.Windows.Forms.Padding(0);
-            this.btnItems.Name = "btnItems";
-            this.btnItems.Size = new System.Drawing.Size(235, 38);
-            this.btnItems.TabIndex = 1;
-            this.btnItems.Text = "Items";
-            this.btnItems.UseVisualStyleBackColor = false;
-            this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
-            // 
-            // btnBuyers
-            // 
-            this.btnBuyers.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnBuyers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBuyers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuyers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnBuyers.ForeColor = System.Drawing.Color.White;
-            this.btnBuyers.Location = new System.Drawing.Point(359, 0);
-            this.btnBuyers.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBuyers.Name = "btnBuyers";
-            this.btnBuyers.Size = new System.Drawing.Size(235, 38);
-            this.btnBuyers.TabIndex = 2;
-            this.btnBuyers.Text = "Buyers";
-            this.btnBuyers.UseVisualStyleBackColor = false;
-            this.btnBuyers.Click += new System.EventHandler(this.btnBuyers_Click);
+            this.panelMenu.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panelMenu.Controls.Add(this.btnReceipt);
+            this.panelMenu.Controls.Add(this.btnWorkOrders);
+            this.panelMenu.Controls.Add(this.btnBuyers);
+            this.panelMenu.Controls.Add(this.btnItems);
+            this.panelMenu.Controls.Add(this.panel2);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(179, 476);
+            this.panelMenu.TabIndex = 4;
             // 
             // btnWorkOrders
             // 
-            this.btnWorkOrders.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnWorkOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnWorkOrders.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWorkOrders.FlatAppearance.BorderSize = 0;
             this.btnWorkOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWorkOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWorkOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWorkOrders.ForeColor = System.Drawing.Color.White;
-            this.btnWorkOrders.Location = new System.Drawing.Point(594, 0);
-            this.btnWorkOrders.Margin = new System.Windows.Forms.Padding(0);
+            this.btnWorkOrders.IconChar = FontAwesome.Sharp.IconChar.Scroll;
+            this.btnWorkOrders.IconColor = System.Drawing.Color.White;
+            this.btnWorkOrders.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnWorkOrders.IconSize = 32;
+            this.btnWorkOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWorkOrders.Location = new System.Drawing.Point(0, 200);
             this.btnWorkOrders.Name = "btnWorkOrders";
-            this.btnWorkOrders.Size = new System.Drawing.Size(236, 38);
+            this.btnWorkOrders.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnWorkOrders.Size = new System.Drawing.Size(179, 50);
             this.btnWorkOrders.TabIndex = 3;
             this.btnWorkOrders.Text = "Work orders";
-            this.btnWorkOrders.UseVisualStyleBackColor = false;
+            this.btnWorkOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWorkOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWorkOrders.UseVisualStyleBackColor = true;
             this.btnWorkOrders.Click += new System.EventHandler(this.btnWorkOrders_Click);
+            // 
+            // btnBuyers
+            // 
+            this.btnBuyers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBuyers.FlatAppearance.BorderSize = 0;
+            this.btnBuyers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuyers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBuyers.ForeColor = System.Drawing.Color.White;
+            this.btnBuyers.IconChar = FontAwesome.Sharp.IconChar.UserTie;
+            this.btnBuyers.IconColor = System.Drawing.Color.White;
+            this.btnBuyers.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuyers.IconSize = 32;
+            this.btnBuyers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuyers.Location = new System.Drawing.Point(0, 150);
+            this.btnBuyers.Name = "btnBuyers";
+            this.btnBuyers.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnBuyers.Size = new System.Drawing.Size(179, 50);
+            this.btnBuyers.TabIndex = 2;
+            this.btnBuyers.Text = "Buyers";
+            this.btnBuyers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuyers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuyers.UseVisualStyleBackColor = true;
+            this.btnBuyers.Click += new System.EventHandler(this.btnBuyers_Click);
+            // 
+            // btnItems
+            // 
+            this.btnItems.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnItems.FlatAppearance.BorderSize = 0;
+            this.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnItems.ForeColor = System.Drawing.Color.White;
+            this.btnItems.IconChar = FontAwesome.Sharp.IconChar.Wrench;
+            this.btnItems.IconColor = System.Drawing.Color.White;
+            this.btnItems.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnItems.IconSize = 32;
+            this.btnItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnItems.Location = new System.Drawing.Point(0, 100);
+            this.btnItems.Name = "btnItems";
+            this.btnItems.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnItems.Size = new System.Drawing.Size(179, 50);
+            this.btnItems.TabIndex = 1;
+            this.btnItems.Text = "Items";
+            this.btnItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnItems.UseVisualStyleBackColor = true;
+            this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.imgHome);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(179, 100);
+            this.panel2.TabIndex = 0;
+            // 
+            // imgHome
+            // 
+            this.imgHome.Image = global::CarShop_DesktopApp.Properties.Resources.logo;
+            this.imgHome.Location = new System.Drawing.Point(32, 12);
+            this.imgHome.Name = "imgHome";
+            this.imgHome.Size = new System.Drawing.Size(117, 73);
+            this.imgHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgHome.TabIndex = 0;
+            this.imgHome.TabStop = false;
+            this.imgHome.Click += new System.EventHandler(this.imgHome_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.Controls.Add(this.lblUserControl);
+            this.panel1.Controls.Add(this.iconCurrent);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(179, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(651, 55);
+            this.panel1.TabIndex = 5;
+            // 
+            // iconCurrent
+            // 
+            this.iconCurrent.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.iconCurrent.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.iconCurrent.IconColor = System.Drawing.Color.White;
+            this.iconCurrent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconCurrent.Location = new System.Drawing.Point(19, 12);
+            this.iconCurrent.Name = "iconCurrent";
+            this.iconCurrent.Size = new System.Drawing.Size(32, 32);
+            this.iconCurrent.TabIndex = 1;
+            this.iconCurrent.TabStop = false;
+            // 
+            // placeHolder
+            // 
+            this.placeHolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.placeHolder.Location = new System.Drawing.Point(179, 55);
+            this.placeHolder.Name = "placeHolder";
+            this.placeHolder.Size = new System.Drawing.Size(651, 421);
+            this.placeHolder.TabIndex = 6;
+            // 
+            // btnReceipt
+            // 
+            this.btnReceipt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReceipt.FlatAppearance.BorderSize = 0;
+            this.btnReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnReceipt.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.btnReceipt.IconColor = System.Drawing.Color.White;
+            this.btnReceipt.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReceipt.IconSize = 32;
+            this.btnReceipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReceipt.Location = new System.Drawing.Point(0, 250);
+            this.btnReceipt.Name = "btnReceipt";
+            this.btnReceipt.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnReceipt.Size = new System.Drawing.Size(179, 50);
+            this.btnReceipt.TabIndex = 4;
+            this.btnReceipt.Text = "Receipts";
+            this.btnReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReceipt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReceipt.UseVisualStyleBackColor = true;
+            this.btnReceipt.Click += new System.EventHandler(this.btnReceipt_Click);
             // 
             // MainForm
             // 
@@ -135,21 +223,31 @@ namespace CarShop_DesktopApp
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(830, 476);
             this.Controls.Add(this.placeHolder);
-            this.Controls.Add(this.tableLayoutMenu);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMenu);
             this.Name = "MainForm";
             this.Text = "Main";
-            this.tableLayoutMenu.ResumeLayout(false);
-            this.tableLayoutMenu.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgHome)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrent)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.Windows.Forms.Label lblUserControl;
+        private System.Windows.Forms.Panel panelMenu;
+        private FontAwesome.Sharp.IconButton btnWorkOrders;
+        private FontAwesome.Sharp.IconButton btnBuyers;
+        private FontAwesome.Sharp.IconButton btnItems;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox imgHome;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconPictureBox iconCurrent;
         private System.Windows.Forms.Panel placeHolder;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutMenu;
-        private System.Windows.Forms.Button btnWorkOrders;
-        private System.Windows.Forms.Button btnBuyers;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button btnItems;
+        private FontAwesome.Sharp.IconButton btnReceipt;
     }
 }

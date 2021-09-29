@@ -54,6 +54,37 @@ namespace CarShop_DesktopApp.DAL
             }
         }
 
+        public static List<WorkOrder> GetBuyersWorkOrders(int IDBuyer,string token)
+        {
+            List<WorkOrder> buyerWorkOrders = new List<WorkOrder>();
+            HttpWebRequest request = httpPostCall("WorkOrder/getBuyersWorkOrders", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(IDBuyer);
+                streamWriter.Write(json);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                buyerWorkOrders = JsonConvert.DeserializeObject<List<WorkOrder>>(result);
+            }
+            return buyerWorkOrders;
+        }
+
+        public static List<Receipt> GetReceipts(string token)
+        {
+            List<Receipt> receipts = new List<Receipt>();
+            HttpWebRequest request = httpGetCall("Receipt/all", token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                receipts = JsonConvert.DeserializeObject<List<Receipt>>(result);
+            }
+            return receipts;
+        }
+
         public static bool UpdateBuyer(Buyer selectedBuyer, string token)
         {
             HttpWebRequest request = httpPostCall("Buyer/updateBuyer", token);
@@ -154,6 +185,26 @@ namespace CarShop_DesktopApp.DAL
                 return false;
             }
         }
+
+        public static bool DeleteItem(int IDItem,string token)
+        {
+            HttpWebRequest request = httpPostCall("Item/deleteItem", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(IDItem);
+                streamWriter.Write(json);
+            }
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static int GetWorkOrdersNumber(string token)
         {
             int number;
@@ -179,9 +230,9 @@ namespace CarShop_DesktopApp.DAL
             return workOrder;
         }
 
-        public static List<Item> GetWorkOrderItems(int WorkOrderID,string token)
+        public static List<ItemQuantity> GetWorkOrderItems(int WorkOrderID,string token)
         {
-            List<Item> workOrderItems = new List<Item>();
+            List<ItemQuantity> workOrderItems = new List<ItemQuantity>();
             HttpWebRequest request = httpPostCall("Item/getWorkOrderItems", token);
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
@@ -192,7 +243,7 @@ namespace CarShop_DesktopApp.DAL
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 var result = sr.ReadToEnd();
-                workOrderItems = JsonConvert.DeserializeObject<List<Item>>(result);
+                workOrderItems = JsonConvert.DeserializeObject<List<ItemQuantity>>(result);
             }
             return workOrderItems;
         }

@@ -29,19 +29,22 @@ namespace CarShop_DesktopApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.lblCode = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblFormName = new System.Windows.Forms.Label();
             this.txtTitle = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.txtPrice = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.txtCode = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.lblErrorTitle = new System.Windows.Forms.Label();
             this.lblErrorPrice = new System.Windows.Forms.Label();
             this.lblErrorCode = new System.Windows.Forms.Label();
+            this.imageButtonDelete = new System.Windows.Forms.PictureBox();
+            this.lblFormName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageButtonDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -61,6 +64,7 @@ namespace CarShop_DesktopApp
             this.tableLayoutPanel1.Controls.Add(this.lblErrorTitle, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblErrorPrice, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblErrorCode, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.imageButtonDelete, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -124,19 +128,6 @@ namespace CarShop_DesktopApp
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title:";
             // 
-            // lblFormName
-            // 
-            this.lblFormName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFormName.AutoSize = true;
-            this.lblFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFormName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblFormName.Location = new System.Drawing.Point(128, 32);
-            this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(119, 16);
-            this.lblFormName.TabIndex = 7;
-            this.lblFormName.Text = "Item form";
-            this.lblFormName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // txtTitle
             // 
             this.txtTitle.BackColor = System.Drawing.SystemColors.Window;
@@ -146,6 +137,7 @@ namespace CarShop_DesktopApp
             this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtTitle.ForeColor = System.Drawing.Color.Black;
             this.txtTitle.Location = new System.Drawing.Point(128, 102);
+            this.txtTitle.MaxLenght = 32767;
             this.txtTitle.Multiline = false;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Padding = new System.Windows.Forms.Padding(7);
@@ -164,6 +156,7 @@ namespace CarShop_DesktopApp
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtPrice.ForeColor = System.Drawing.Color.Black;
             this.txtPrice.Location = new System.Drawing.Point(128, 155);
+            this.txtPrice.MaxLenght = 32767;
             this.txtPrice.Multiline = false;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Padding = new System.Windows.Forms.Padding(7);
@@ -183,6 +176,7 @@ namespace CarShop_DesktopApp
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtCode.ForeColor = System.Drawing.Color.Black;
             this.txtCode.Location = new System.Drawing.Point(128, 208);
+            this.txtCode.MaxLenght = 32767;
             this.txtCode.Multiline = false;
             this.txtCode.Name = "txtCode";
             this.txtCode.Padding = new System.Windows.Forms.Padding(7);
@@ -225,6 +219,30 @@ namespace CarShop_DesktopApp
             this.lblErrorCode.Size = new System.Drawing.Size(120, 15);
             this.lblErrorCode.TabIndex = 13;
             // 
+            // imageButtonDelete
+            // 
+            this.imageButtonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imageButtonDelete.BackgroundImage")));
+            this.imageButtonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imageButtonDelete.Location = new System.Drawing.Point(3, 3);
+            this.imageButtonDelete.Name = "imageButtonDelete";
+            this.imageButtonDelete.Size = new System.Drawing.Size(25, 25);
+            this.imageButtonDelete.TabIndex = 14;
+            this.imageButtonDelete.TabStop = false;
+            this.imageButtonDelete.Click += new System.EventHandler(this.imageButtonDelete_Click);
+            // 
+            // lblFormName
+            // 
+            this.lblFormName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFormName.AutoSize = true;
+            this.lblFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFormName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblFormName.Location = new System.Drawing.Point(128, 32);
+            this.lblFormName.Name = "lblFormName";
+            this.lblFormName.Size = new System.Drawing.Size(119, 16);
+            this.lblFormName.TabIndex = 7;
+            this.lblFormName.Text = "Item form";
+            this.lblFormName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +255,7 @@ namespace CarShop_DesktopApp
             this.Text = "Add item";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageButtonDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,12 +267,13 @@ namespace CarShop_DesktopApp
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblCode;
         private System.Windows.Forms.Button btnAddItem;
-        private System.Windows.Forms.Label lblFormName;
         private CustomControls.CustomTextBox txtTitle;
         private CustomControls.CustomTextBox txtPrice;
         private CustomControls.CustomTextBox txtCode;
         private System.Windows.Forms.Label lblErrorTitle;
         private System.Windows.Forms.Label lblErrorPrice;
         private System.Windows.Forms.Label lblErrorCode;
+        private System.Windows.Forms.PictureBox imageButtonDelete;
+        private System.Windows.Forms.Label lblFormName;
     }
 }

@@ -26,7 +26,7 @@ namespace CarShop_REST_API.Controllers
         public int GetNumber()
         {
             List<WorkOrder> workOrders = CarShopRepository.GetWorkOrders();
-            int number = workOrders[workOrders.Count - 1].IDWorkOrder;
+            int number = workOrders.Count()+1;
             return number;
         }
 
@@ -58,6 +58,13 @@ namespace CarShop_REST_API.Controllers
             {
                 Response.StatusCode = StatusCodes.Status400BadRequest;
             }
+        }
+
+        [HttpPost("getBuyersWorkOrders")]
+        public List<WorkOrder> GetBuyerWorkOrders([FromBody]int idBuyer)
+        {
+            List<WorkOrder> buyerWorkOrders = CarShopRepository.GetBuyerWorkOrders(idBuyer);
+            return buyerWorkOrders;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace CarShop_DesktopApp.Model
         [Browsable(false)]
         public int IDWorkOrder { get; set; }
         public int Number { get; set; }
+        [DisplayName("Date")]
         public DateTime DateOfWorkOrder { get; set; }
         [Browsable(false)]
         public string CarType { get; set; }
@@ -28,6 +29,7 @@ namespace CarShop_DesktopApp.Model
         public bool Done { get; set; }
         [Browsable(false)]
         public string Comment { get; set; }
+        [DisplayName("Price")]
         public double TotalPrice { get; set; }
         [Browsable(false)]
         public virtual User User { get; set; }
@@ -51,6 +53,9 @@ namespace CarShop_DesktopApp.Model
             Buyer = buyer;
         }
 
-       
+        public override string ToString()
+        {
+            return Number.ToString() + "/" + DateOfWorkOrder.Year.ToString() +"," + CarType;
+        }
     }
 }

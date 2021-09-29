@@ -37,9 +37,9 @@ namespace CarShop_REST_API.Controllers
         }
 
         [HttpPost("getWorkOrderItems")]
-        public List<Item> GetWorkOrderItems([FromBody]int workOrderID)
+        public List<ItemQuantity> GetWorkOrderItems([FromBody]int workOrderID)
         {
-            List<Item> workOrderItems = CarShopRepository.GetWorkOrderItems(workOrderID);
+            List<ItemQuantity> workOrderItems = CarShopRepository.GetWorkOrderItems(workOrderID);
             return workOrderItems;
         }
 
@@ -49,6 +49,20 @@ namespace CarShop_REST_API.Controllers
             try
             {
                 CarShopRepository.UpdateItem(itemForUpdate);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
+
+        [HttpPost("deleteItem")]
+        public void DeleteItem([FromBody]int itemID)
+        {
+            try
+            {
+                CarShopRepository.DeleteItem(itemID);
                 Response.StatusCode = StatusCodes.Status200OK;
             }
             catch (Exception)

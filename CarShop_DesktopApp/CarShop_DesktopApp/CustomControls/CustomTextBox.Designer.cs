@@ -1,5 +1,4 @@
-﻿
-namespace CarShop_DesktopApp.CustomControls
+﻿namespace CarShop_DesktopApp.CustomControls
 {
     partial class CustomTextBox
     {
@@ -39,8 +38,9 @@ namespace CarShop_DesktopApp.CustomControls
             this.txtCustom.Location = new System.Drawing.Point(7, 7);
             this.txtCustom.Margin = new System.Windows.Forms.Padding(0);
             this.txtCustom.Name = "txtCustom";
-            this.txtCustom.Size = new System.Drawing.Size(236, 13);
+            this.txtCustom.Size = new System.Drawing.Size(236, 14);
             this.txtCustom.TabIndex = 0;
+            this.txtCustom.TextChanged += new System.EventHandler(this.txtCustom_TextChanged);
             this.txtCustom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustom_KeyPress);
             this.txtCustom.Validating += new System.ComponentModel.CancelEventHandler(this.txtCustom_Validating);
             // 
@@ -49,7 +49,7 @@ namespace CarShop_DesktopApp.CustomControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.txtCustom);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "CustomTextBox";
             this.Padding = new System.Windows.Forms.Padding(7);

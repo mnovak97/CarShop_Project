@@ -21,6 +21,17 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+        public static List<Receipt> GetReceipts()
+        {
+            using(var db = new DatabaseContext())
+            {
+                var receipts = db.Receipts.Include(r => r.Buyer)
+                                          .Include(r => r.User)
+                                          .ToList();
+                return receipts;
+            }
+        }
+
         public static List<WorkOrder> GetWorkOrders()
         {
             using (var db = new DatabaseContext())
@@ -29,6 +40,15 @@ namespace CarShop_REST_API.DAL
                                               .Include(wo => wo.Buyer)
                                               .ToList();
                 return workOrders;
+            }
+        }
+
+        public static void AddReceipt(Receipt receipt)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.Receipts.Attach(receipt);
+                db.SaveChanges();
             }
         }
 
@@ -56,6 +76,7 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+
         public static void UpdateWorkOrder(WorkOrder workOrderForUpdate)
         {
             using (var db = new DatabaseContext())
@@ -67,18 +88,57 @@ namespace CarShop_REST_API.DAL
 
         }
 
-        public static List<Item> GetWorkOrderItems(int workOrderID)
+        public static void UpdateWorkOrderItems(List<ItemQuantity> items, WorkOrder selectedWorkOrder)
         {
-            List<Item> workOrderItems = new List<Item>();
+            using (var db = new DatabaseContext())
+            {
+                var workOrder = db.WorkOrders.FirstOrDefault(wo => wo.IDWorkOrder == selectedWorkOrder.IDWorkOrder);
+                db.WorkOrdersItems.RemoveRange(db.WorkOrdersItems.Where(woi => woi.WorkOrderID == selectedWorkOrder.IDWorkOrder));
+                addItemsToWorkOrder(workOrder, items, db);
+            }
+        }
+
+        public static void DeleteItem(int itemID)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var item = db.Items.FirstOrDefault(i => i.IDItem == itemID);
+                db.WorkOrdersItems.RemoveRange(db.WorkOrdersItems.Where(woi => woi.ItemID == itemID));
+                db.Remove(item);
+                db.SaveChanges();
+            }
+        }
+        public static List<WorkOrder> GetBuyerWorkOrders(int idBuyer)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var workOrders = db.WorkOrders.Where(wo => wo.Buyer.IDBuyer == idBuyer).ToList();
+                return workOrders;
+            }
+        }
+
+        public static List<ItemQuantity> GetWorkOrderItems(int workOrderID)
+        {
+            List<ItemQuantity> workOrderItems = new List<ItemQuantity>();
             using (var db = new DatabaseContext())
             {
                 var items = db.WorkOrdersItems.Where(wo => wo.WorkOrderID == workOrderID);
                 foreach (WorkOrdersItems item in items)
                 {
-                    workOrderItems.Add(ItemByID(item.ItemID));
+                    ItemQuantity newItemQuantity = new ItemQuantity(getItemByID(item.ItemID), item.Quantity);
+                    workOrderItems.Add(newItemQuantity);
                 }
             }
             return workOrderItems;
+        }
+
+        private static Item getItemByID(int itemID)
+        {
+            using(var db = new DatabaseContext())
+            {
+                var item = db.Items.FirstOrDefault(i => i.IDItem == itemID);
+                return item;
+            }
         }
 
         public static void UpdateItem(Item itemForUpdate)
@@ -90,26 +150,26 @@ namespace CarShop_REST_API.DAL
                 db.SaveChanges();
             }
         }
-
-        private static Item ItemByID(int itemID)
+        public static void AddReceiptItems(List<WorkOrder> workOrders,int IDUser)
         {
             using (var db = new DatabaseContext())
             {
-                var item = db.Items.FirstOrDefault(i => i.IDItem == itemID);
-                return item;
-            }
-        }
-        public static void UpdateWorkOrderItems(List<Item> items, WorkOrder selectedWorkOrder)
-        {
-            using (var db = new DatabaseContext())
-            {
-                var workOrder = db.WorkOrders.FirstOrDefault(wo => wo.IDWorkOrder == selectedWorkOrder.IDWorkOrder);
-                db.WorkOrdersItems.RemoveRange(db.WorkOrdersItems.Where(woi => woi.WorkOrderID == selectedWorkOrder.IDWorkOrder));
-                addItemsToWorkOrder(workOrder, items, db);
+                var receipt = db.Receipts.OrderByDescending(r => r.IDReceipt).FirstOrDefault(r => r.User.IDUser == IDUser);
+                addWorkOrdersToReceipt(receipt, workOrders, db);
             }
         }
 
-        public static void AddWorkOrderItems(List<Item> items, int IDUser)
+        private static void addWorkOrdersToReceipt(Receipt receipt, List<WorkOrder> workOrders, DatabaseContext db)
+        {
+            foreach (WorkOrder workOrder in workOrders)
+            {
+                ReceiptWorkOrders newReceiptWorkOrder = new ReceiptWorkOrders(receipt.IDReceipt, workOrder.IDWorkOrder);
+                db.ReceiptWorkOrders.Add(newReceiptWorkOrder);
+                db.SaveChanges(); 
+            }
+        }
+
+        public static void AddWorkOrderItems(List<ItemQuantity> items, int IDUser)
         {
             using (var db = new DatabaseContext())
             {
@@ -118,11 +178,11 @@ namespace CarShop_REST_API.DAL
             }
         }
 
-        private static void addItemsToWorkOrder(WorkOrder workOrder, List<Item> items, DatabaseContext db)
+        private static void addItemsToWorkOrder(WorkOrder workOrder, List<ItemQuantity> items, DatabaseContext db)
         {
-            foreach (Item item in items)
+            foreach (ItemQuantity item in items)
             {
-                WorkOrdersItems newworkOrderItem = new WorkOrdersItems(workOrder.IDWorkOrder, item.IDItem);
+                WorkOrdersItems newworkOrderItem = new WorkOrdersItems(workOrder.IDWorkOrder, item.Item.IDItem,item.Quantity);
                 db.WorkOrdersItems.Add(newworkOrderItem);
                 db.SaveChanges();
             }

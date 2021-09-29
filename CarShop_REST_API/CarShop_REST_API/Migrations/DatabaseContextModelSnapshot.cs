@@ -67,6 +67,52 @@ namespace CarShop_REST_API.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("CarShop_REST_API.Model.Receipt", b =>
+                {
+                    b.Property<int>("IDReceipt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("BuyerIDBuyer")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateOfReceipt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("UserIDUser")
+                        .HasColumnType("int");
+
+                    b.HasKey("IDReceipt");
+
+                    b.HasIndex("BuyerIDBuyer");
+
+                    b.HasIndex("UserIDUser");
+
+                    b.ToTable("Receipts");
+                });
+
+            modelBuilder.Entity("CarShop_REST_API.Model.ReceiptWorkOrders", b =>
+                {
+                    b.Property<int>("ReceiptID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkOrderID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReceiptID", "WorkOrderID");
+
+                    b.HasIndex("WorkOrderID");
+
+                    b.ToTable("ReceiptWorkOrders");
+                });
+
             modelBuilder.Entity("CarShop_REST_API.Model.User", b =>
                 {
                     b.Property<int>("IDUser")
@@ -172,11 +218,48 @@ namespace CarShop_REST_API.Migrations
                     b.Property<int>("ItemID")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("WorkOrderID", "ItemID");
 
                     b.HasIndex("ItemID");
 
                     b.ToTable("WorkOrdersItems");
+                });
+
+            modelBuilder.Entity("CarShop_REST_API.Model.Receipt", b =>
+                {
+                    b.HasOne("CarShop_REST_API.Model.Buyer", "Buyer")
+                        .WithMany()
+                        .HasForeignKey("BuyerIDBuyer");
+
+                    b.HasOne("CarShop_REST_API.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserIDUser");
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CarShop_REST_API.Model.ReceiptWorkOrders", b =>
+                {
+                    b.HasOne("CarShop_REST_API.Model.Receipt", "Receipt")
+                        .WithMany("ReceiptWorkOrders")
+                        .HasForeignKey("ReceiptID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarShop_REST_API.Model.WorkOrder", "WorkOrder")
+                        .WithMany("ReceiptWorkOrders")
+                        .HasForeignKey("WorkOrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receipt");
+
+                    b.Navigation("WorkOrder");
                 });
 
             modelBuilder.Entity("CarShop_REST_API.Model.WorkOrder", b =>
@@ -223,6 +306,11 @@ namespace CarShop_REST_API.Migrations
                     b.Navigation("WorkOrdersItems");
                 });
 
+            modelBuilder.Entity("CarShop_REST_API.Model.Receipt", b =>
+                {
+                    b.Navigation("ReceiptWorkOrders");
+                });
+
             modelBuilder.Entity("CarShop_REST_API.Model.User", b =>
                 {
                     b.Navigation("WorkOrders");
@@ -230,6 +318,8 @@ namespace CarShop_REST_API.Migrations
 
             modelBuilder.Entity("CarShop_REST_API.Model.WorkOrder", b =>
                 {
+                    b.Navigation("ReceiptWorkOrders");
+
                     b.Navigation("WorkOrdersItems");
                 });
 #pragma warning restore 612, 618
