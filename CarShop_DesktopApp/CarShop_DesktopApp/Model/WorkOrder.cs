@@ -28,6 +28,8 @@ namespace CarShop_DesktopApp.Model
         [Browsable(false)]
         public bool Done { get; set; }
         [Browsable(false)]
+        public bool Assigned { get; set; }
+        [Browsable(false)]
         public string Comment { get; set; }
         [DisplayName("Price")]
         public double TotalPrice { get; set; }

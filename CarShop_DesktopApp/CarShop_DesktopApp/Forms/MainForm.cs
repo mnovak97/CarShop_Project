@@ -63,6 +63,16 @@ namespace CarShop_DesktopApp
             Receipts myReceiptsControl = new Receipts(token, user);
             OpenUserControl(myReceiptsControl);
         }
+        private void btnAppointments_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+        private void btnTasks_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            TaskAssignment myTaskControl = new TaskAssignment(token);
+            OpenUserControl(myTaskControl);
+        }
 
         private void OpenUserControl(UserControl userControl)
         {

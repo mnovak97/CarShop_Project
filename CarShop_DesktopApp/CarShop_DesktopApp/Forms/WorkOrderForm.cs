@@ -45,8 +45,42 @@ namespace CarShop_DesktopApp.Forms
             showBuyers();
             setData();
             addColumnquantity();
+            lblFormName.Text = "Update work order form";
         }
 
+        public WorkOrderForm(string JWTToken,WorkOrder selectedWorkOrder,List<ItemQuantity> itemsQuantity)
+        {
+            token = JWTToken;
+            items = new BindingList<Item>();
+            orderItems = itemsQuantity;
+            selected = selectedWorkOrder;
+            InitializeComponent();
+            showBuyers();
+            setData();
+            addColumnquantity();
+            lblFormName.Text = "Work order";
+        }
+
+        private void disableControls()
+        {
+            txtCarType.Enabled = false;
+            txtRegistrationPlate.Enabled = false;
+            cbBuyers.Enabled = false;
+            txtDescription.Enabled = false;
+            txtComment.Enabled = false;
+            btnItemsList.Visible = false;
+            txtManufacturingYear.Enabled = false;
+            txtKm.Enabled = false;
+            chBDone.Enabled = false;
+            chBWarranty.Enabled = false;
+            btnAddWorkOrder.Visible = false;
+            Label lblTotalPrice = new Label();
+            lblTotalPrice.AutoSize = true;
+            lblTotalPrice.Text = "Total price: " + countTotalPrice().ToString() +" HRK";
+            lblTotalPrice.Dock = DockStyle.Right;
+            lblTotalPrice.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+            tableLayoutItems.Controls.Add(lblTotalPrice);
+        }
 
         private void addColumnquantity()
         {
@@ -82,17 +116,24 @@ namespace CarShop_DesktopApp.Forms
             {
                 chBDone.Checked = false;
             }
-            btnAddWorkOrder.Text = "Update work order";
         }
 
         private void AddWorkOrder_Load(object sender, EventArgs e)
         {
             dataGridItemsWorkOrder.DataSource = items;
             GridViewStyleExtension.SetStyle(dataGridItemsWorkOrder);
-            if (btnAddWorkOrder.Text == "Update work order")
+            if (lblFormName.Text == "Update work order form")
             {
+                btnAddWorkOrder.Text = "Update work order";
                 setItems(orderItems);
             }
+            else if(lblFormName.Text == "Work order")
+            {
+                setItems(orderItems);
+                disableControls();
+            }
+
+
         }
 
 

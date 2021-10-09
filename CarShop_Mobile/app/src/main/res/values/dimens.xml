@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_main_margin">20dp</dimen>
+    <dimen name="btnMain_Width">250dp</dimen>
+    <dimen name="btnMain_Height">50dp</dimen>
+    <dimen name="imageViewHW">45dp</dimen>
+    <dimen name="marginLR">32dp</dimen>
+    <dimen name="marginBottomTopIV">32dp</dimen>
+    <dimen name="marginBottom">16dp</dimen>
+    <dimen name="marginSignUp">16dp</dimen>
+</resources>

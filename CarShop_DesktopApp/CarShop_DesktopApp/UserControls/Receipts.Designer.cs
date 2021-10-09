@@ -101,6 +101,7 @@ namespace CarShop_DesktopApp.UserControls
             this.cbYear.Size = new System.Drawing.Size(200, 30);
             this.cbYear.TabIndex = 3;
             this.cbYear.Texts = "";
+            this.cbYear.OnSelectedIndexChanged += new System.EventHandler(this.cbYear_OnSelectedIndexChanged);
             // 
             // Receipts
             // 

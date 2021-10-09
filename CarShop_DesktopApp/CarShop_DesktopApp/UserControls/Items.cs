@@ -35,6 +35,7 @@ namespace CarShop_DesktopApp
             workOrder = WorkOrder;
             InitializeComponent();
             btnNewItem.Text = "Select item";
+            dataGridItems.CellClick -= dataGridItems_CellClick;
         }
 
         private void Items_Load(object sender, EventArgs e)

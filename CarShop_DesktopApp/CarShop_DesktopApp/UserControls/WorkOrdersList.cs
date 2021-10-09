@@ -89,8 +89,7 @@ namespace CarShop_DesktopApp.UserControls
             if (dgv.CurrentRow.Selected)
             {
                 List<ItemQuantity> items = RestApiCallsHandler.GetWorkOrderItems(workOrder.IDWorkOrder, token);
-                var itemsQuantity = new List<ItemQuantity>(items);
-                WorkOrderForm myForm = new WorkOrderForm(token, user, workOrder, itemsQuantity);
+                WorkOrderForm myForm = new WorkOrderForm(token, user, workOrder, items);
                 myForm.FormBorderStyle = FormBorderStyle.FixedSingle;
                 myForm.ShowDialog();
             }

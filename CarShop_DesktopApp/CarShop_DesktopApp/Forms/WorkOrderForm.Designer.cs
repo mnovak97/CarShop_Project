@@ -50,7 +50,7 @@ namespace CarShop_DesktopApp.Forms
             this.txtRegistrationPlate = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.txtComment = new CarShop_DesktopApp.CustomControls.CustomTextBox();
             this.cbBuyers = new CarShop_DesktopApp.CustomControls.CustomComboBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutItems = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddWorkOrder = new System.Windows.Forms.Button();
             this.dataGridItemsWorkOrder = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -58,7 +58,7 @@ namespace CarShop_DesktopApp.Forms
             this.btnItemsList = new System.Windows.Forms.Button();
             this.tableLayoutTitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItemsWorkOrder)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -396,22 +396,22 @@ namespace CarShop_DesktopApp.Forms
             this.cbBuyers.TabIndex = 29;
             this.cbBuyers.Texts = "";
             // 
-            // tableLayoutPanel2
+            // tableLayoutItems
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnAddWorkOrder, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.dataGridItemsWorkOrder, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 391);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(619, 302);
-            this.tableLayoutPanel2.TabIndex = 2;
+            this.tableLayoutItems.ColumnCount = 1;
+            this.tableLayoutItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutItems.Controls.Add(this.btnAddWorkOrder, 0, 2);
+            this.tableLayoutItems.Controls.Add(this.dataGridItemsWorkOrder, 0, 1);
+            this.tableLayoutItems.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutItems.Location = new System.Drawing.Point(0, 391);
+            this.tableLayoutItems.Name = "tableLayoutItems";
+            this.tableLayoutItems.RowCount = 3;
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.tableLayoutItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutItems.Size = new System.Drawing.Size(619, 302);
+            this.tableLayoutItems.TabIndex = 2;
             // 
             // btnAddWorkOrder
             // 
@@ -490,7 +490,7 @@ namespace CarShop_DesktopApp.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(619, 693);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutItems);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutTitle);
             this.Name = "WorkOrderForm";
@@ -500,7 +500,7 @@ namespace CarShop_DesktopApp.Forms
             this.tableLayoutTitle.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItemsWorkOrder)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -524,7 +524,7 @@ namespace CarShop_DesktopApp.Forms
         private System.Windows.Forms.CheckBox chBWarranty;
         private System.Windows.Forms.CheckBox chBDone;
         private System.Windows.Forms.Label lblComment;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutItems;
         private System.Windows.Forms.Label lblItems;
         private System.Windows.Forms.DataGridView dataGridItemsWorkOrder;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

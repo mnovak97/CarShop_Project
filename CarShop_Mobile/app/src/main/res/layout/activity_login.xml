@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.LoginActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLogin"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        />
+
+    <ImageView
+        android:id="@+id/imgUser"
+        android:layout_width="@dimen/imageViewHW"
+        android:layout_height="@dimen/imageViewHW"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginBottom="@dimen/marginBottomTopIV"
+        app:layout_constraintBottom_toTopOf="@+id/divideUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/outline_account_circle_24"
+        app:tint="#0078D7" />
+
+    <TextView
+        android:id="@+id/lblUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblUsername"
+        android:textColor="#0078D7"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginBottom="@dimen/marginBottom"
+        app:layout_constraintBottom_toTopOf="@+id/txtUsername"
+        app:layout_constraintStart_toEndOf="@+id/imgUser" />
+
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:background="@null"
+        android:hint="@string/txtUsername"
+        android:textColorHint="@color/black"
+        android:ems="10"
+        android:layout_marginBottom="@dimen/marginBottom"
+        app:layout_constraintBottom_toTopOf="@+id/divideUsername"
+        app:layout_constraintStart_toStartOf="@+id/lblUsername" />
+
+    <View
+        android:id="@+id/divideUsername"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0078D7"
+        android:visibility="visible"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        android:layout_marginBottom="@dimen/marginBottomTopIV"
+        app:layout_constraintBottom_toTopOf="@id/guidelineLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imgPassword"
+        android:layout_width="@dimen/imageViewHW"
+        android:layout_height="@dimen/imageViewHW"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divideUsername"
+        app:srcCompat="@drawable/outline_lock_24"
+        app:tint="#0078D7" />
+
+    <TextView
+        android:id="@+id/lblPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblPassword"
+        android:textColor="#0078D7"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginBottom="@dimen/marginBottom"
+        app:layout_constraintBottom_toTopOf="@+id/txtPassword"
+        app:layout_constraintStart_toEndOf="@+id/imgPassword" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/txtPassword"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginBottom="@dimen/marginBottom"
+        app:layout_constraintBottom_toTopOf="@+id/dividePassword"
+        app:layout_constraintStart_toStartOf="@+id/lblPassword" />
+
+    <View
+        android:id="@+id/dividePassword"
+        android:layout_width="match_parent"
+        android:background="#0078D7"
+        android:layout_height="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        android:layout_marginTop="100dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#0078D7"
+        android:text="@string/btnLogin"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/dividePassword" />
+
+    <TextView
+        android:id="@+id/lblSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginSignUp"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:text="@string/lblSignUp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+
+    <TextView
+        android:id="@+id/btnSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSignUp"
+        android:layout_marginLeft="@dimen/marginSignUp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/lblSignUp"
+        app:layout_constraintTop_toTopOf="@+id/lblSignUp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

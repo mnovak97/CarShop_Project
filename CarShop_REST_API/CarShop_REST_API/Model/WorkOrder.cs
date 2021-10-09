@@ -19,6 +19,7 @@ namespace CarShop_REST_API.Model
         public long Km { get; set; }
         public bool Warranty { get; set; }
         public bool Done { get; set; }
+        public bool Assigned { get; set; }
         public string Comment { get; set; }
         public double TotalPrice { get; set; }
         public virtual User User { get; set; }

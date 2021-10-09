@@ -35,5 +35,12 @@ namespace CarShop_REST_API.Controllers
                 Response.StatusCode = StatusCodes.Status400BadRequest;
             }
         }
+
+        [HttpPost("getReceiptsByYear")]
+        public List<Receipt> GetReceiptsByYear([FromBody]string year)
+        {
+            List<Receipt> receipts = CarShopRepository.GetReceiptsByYear(year);
+            return receipts;
+        }
     }
 }

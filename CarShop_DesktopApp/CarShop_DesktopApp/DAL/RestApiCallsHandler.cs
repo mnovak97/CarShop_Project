@@ -33,6 +33,47 @@ namespace CarShop_DesktopApp.DAL
             return response;
         }
 
+        public static object GetNotAssignedWorkOrders(string token)
+        {
+            List<WorkOrder> notAssignedWorkOrders = new List<WorkOrder>();
+            HttpWebRequest request = httpGetCall("WorkOrder/getNotAssignedWorkOrders", token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                notAssignedWorkOrders = JsonConvert.DeserializeObject<List<WorkOrder>>(result);
+            }
+            return notAssignedWorkOrders;
+        }
+
+        public static object GetWorkers(string token)
+        {
+            List<User> workers = new List<User>();
+            HttpWebRequest request = httpGetCall("User/getWorkers", token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                workers = JsonConvert.DeserializeObject<List<User>>(result);
+            }
+            return workers;
+
+        }
+
+        public static bool AssignTask(Model.Task newTask, string token)
+        {
+            HttpWebRequest request = httpPostCall("Tasks/assignTask", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(newTask);
+                streamWriter.Write(json);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+                return true;
+            else
+                return false;
+        }
 
         public static bool AddBuyer(Buyer newBuyer,string token)
         {
@@ -70,6 +111,24 @@ namespace CarShop_DesktopApp.DAL
                 buyerWorkOrders = JsonConvert.DeserializeObject<List<WorkOrder>>(result);
             }
             return buyerWorkOrders;
+        }
+
+        public static List<Receipt> GetReceiptsByYear(string year,string token)
+        {
+            List<Receipt> receipts = new List<Receipt>();
+            HttpWebRequest request = httpPostCall("Receipt/getReceiptsByYear", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(year);
+                streamWriter.Write(json);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                receipts = JsonConvert.DeserializeObject<List<Receipt>>(result);
+            }
+            return receipts;
         }
 
         public static List<Receipt> GetReceipts(string token)
@@ -151,6 +210,26 @@ namespace CarShop_DesktopApp.DAL
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string json = JsonConvert.SerializeObject(workOrderForUpdate);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)request.GetResponse();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool AddReceipt(ReceiptWorkOrders newReceiptWorkOrder, string token)
+        {
+            HttpWebRequest request = httpPostCall("Receipt/addReceipt", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(newReceiptWorkOrder);
                 streamWriter.Write(json);
             }
 

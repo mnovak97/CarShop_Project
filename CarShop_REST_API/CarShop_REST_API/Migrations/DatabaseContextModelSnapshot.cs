@@ -113,6 +113,31 @@ namespace CarShop_REST_API.Migrations
                     b.ToTable("ReceiptWorkOrders");
                 });
 
+            modelBuilder.Entity("CarShop_REST_API.Model.Task", b =>
+                {
+                    b.Property<int>("IDTask")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("UserIDUser")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WorkOrderIDWorkOrder")
+                        .HasColumnType("int");
+
+                    b.HasKey("IDTask");
+
+                    b.HasIndex("UserIDUser");
+
+                    b.HasIndex("WorkOrderIDWorkOrder");
+
+                    b.ToTable("Tasks");
+                });
+
             modelBuilder.Entity("CarShop_REST_API.Model.User", b =>
                 {
                     b.Property<int>("IDUser")
@@ -161,6 +186,9 @@ namespace CarShop_REST_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Assigned")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("BuyerIDBuyer")
                         .HasColumnType("int");
@@ -258,6 +286,21 @@ namespace CarShop_REST_API.Migrations
                         .IsRequired();
 
                     b.Navigation("Receipt");
+
+                    b.Navigation("WorkOrder");
+                });
+
+            modelBuilder.Entity("CarShop_REST_API.Model.Task", b =>
+                {
+                    b.HasOne("CarShop_REST_API.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserIDUser");
+
+                    b.HasOne("CarShop_REST_API.Model.WorkOrder", "WorkOrder")
+                        .WithMany()
+                        .HasForeignKey("WorkOrderIDWorkOrder");
+
+                    b.Navigation("User");
 
                     b.Navigation("WorkOrder");
                 });

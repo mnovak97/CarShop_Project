@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CarShop_Mobile</string>
+    <string name="btnAppointment">Make Appointment</string>
+    <string name="btnCarPickup">Car pickup location</string>
+    <string name="btnSignUp">SIGN UP</string>
+    <string name="lblSignUp">Don\'t have an account yet?</string>
+    <string name="btnLogin">Login</string>
+    <string name="txtPassword">********</string>
+    <string name="lblPassword">Password</string>
+    <string name="txtUsername">Enter username</string>
+    <string name="lblUsername">Username</string>
+</resources>

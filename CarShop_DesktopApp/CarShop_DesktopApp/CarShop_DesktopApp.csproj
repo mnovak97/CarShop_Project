@@ -58,6 +58,12 @@
     <Compile Include="CustomControls\CustomComboBox.Designer.cs">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CustomLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomLabel.Designer.cs">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,8 @@
     </Compile>
     <Compile Include="Model\ItemQuantity.cs" />
     <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\ReceiptWorkOrders.cs" />
+    <Compile Include="Model\Task.cs" />
     <Compile Include="Model\WorkOrder.cs" />
     <Compile Include="Model\WorkOrdersItems.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -146,6 +154,12 @@
     <Compile Include="UserControls\Receipts.Designer.cs">
       <DependentUpon>Receipts.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TaskAssignment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskAssignment.Designer.cs">
+      <DependentUpon>TaskAssignment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\WorkOrders.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +172,9 @@
     <Compile Include="UserControls\WorkOrdersList.Designer.cs">
       <DependentUpon>WorkOrdersList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomControls\CustomLabel.resx">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Receipts.resx">
       <DependentUpon>Receipts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TaskAssignment.resx">
+      <DependentUpon>TaskAssignment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\WorkOrders.resx">
       <DependentUpon>WorkOrders.cs</DependentUpon>

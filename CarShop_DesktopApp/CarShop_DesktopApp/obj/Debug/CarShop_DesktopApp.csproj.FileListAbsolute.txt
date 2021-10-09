@@ -25,3 +25,5 @@ D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\bin\De
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.Home.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.Receipts.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.Forms.ReceiptForm.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.CustomControls.CustomLabel.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.TaskAssignment.resources

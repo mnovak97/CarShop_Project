@@ -66,5 +66,11 @@ namespace CarShop_REST_API.Controllers
             List<WorkOrder> buyerWorkOrders = CarShopRepository.GetBuyerWorkOrders(idBuyer);
             return buyerWorkOrders;
         }
+
+        [HttpGet("getNotAssignedWorkOrders")]
+        public List<WorkOrder> GetNotAssignedWorkOrders()
+        {
+            return CarShopRepository.GetNotAssignedWorkOrders();
+        }
     }
 }

@@ -38,8 +38,14 @@ namespace CarShop_DesktopApp.Forms
             this.cbBuyer = new CarShop_DesktopApp.CustomControls.CustomComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cblWorkOrders = new System.Windows.Forms.CheckedListBox();
+            this.btnAddWorkOrders = new System.Windows.Forms.Button();
+            this.placeHolder = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTotalPrice = new System.Windows.Forms.Label();
+            this.btnNewReceipt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,7 +54,7 @@ namespace CarShop_DesktopApp.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(431, 56);
+            this.panel1.Size = new System.Drawing.Size(459, 56);
             this.panel1.TabIndex = 0;
             // 
             // lblFormName
@@ -77,6 +83,7 @@ namespace CarShop_DesktopApp.Forms
             this.tableLayoutPanel1.Controls.Add(this.cbBuyer, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cblWorkOrders, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnAddWorkOrders, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 56);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -84,7 +91,7 @@ namespace CarShop_DesktopApp.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(431, 210);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(459, 210);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // lblPaymentMethod
@@ -92,7 +99,7 @@ namespace CarShop_DesktopApp.Forms
             this.lblPaymentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(26, 44);
+            this.lblPaymentMethod.Location = new System.Drawing.Point(34, 45);
             this.lblPaymentMethod.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
             this.lblPaymentMethod.Size = new System.Drawing.Size(103, 15);
@@ -110,11 +117,11 @@ namespace CarShop_DesktopApp.Forms
             this.cbPaymentMethod.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.cbPaymentMethod.ListBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.cbPaymentMethod.ListTextColor = System.Drawing.Color.Black;
-            this.cbPaymentMethod.Location = new System.Drawing.Point(132, 36);
+            this.cbPaymentMethod.Location = new System.Drawing.Point(140, 37);
             this.cbPaymentMethod.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbPaymentMethod.Name = "cbPaymentMethod";
             this.cbPaymentMethod.Padding = new System.Windows.Forms.Padding(2);
-            this.cbPaymentMethod.Size = new System.Drawing.Size(214, 30);
+            this.cbPaymentMethod.Size = new System.Drawing.Size(228, 30);
             this.cbPaymentMethod.TabIndex = 2;
             this.cbPaymentMethod.Texts = "";
             // 
@@ -123,7 +130,7 @@ namespace CarShop_DesktopApp.Forms
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(88, 113);
+            this.label1.Location = new System.Drawing.Point(96, 115);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 15);
@@ -141,22 +148,22 @@ namespace CarShop_DesktopApp.Forms
             this.cbBuyer.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.cbBuyer.ListBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.cbBuyer.ListTextColor = System.Drawing.Color.Black;
-            this.cbBuyer.Location = new System.Drawing.Point(132, 105);
+            this.cbBuyer.Location = new System.Drawing.Point(140, 107);
             this.cbBuyer.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbBuyer.Name = "cbBuyer";
             this.cbBuyer.Padding = new System.Windows.Forms.Padding(2);
-            this.cbBuyer.Size = new System.Drawing.Size(214, 30);
+            this.cbBuyer.Size = new System.Drawing.Size(228, 30);
             this.cbBuyer.TabIndex = 4;
             this.cbBuyer.Texts = "";
             this.cbBuyer.OnSelectedIndexChanged += new System.EventHandler(this.cbBuyer_OnSelectedIndexChanged);
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(15, 185);
-            this.label2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label2.Location = new System.Drawing.Point(23, 145);
+            this.label2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 15);
             this.label2.TabIndex = 5;
@@ -166,12 +173,78 @@ namespace CarShop_DesktopApp.Forms
             // 
             this.cblWorkOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cblWorkOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cblWorkOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cblWorkOrders.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.cblWorkOrders.FormattingEnabled = true;
-            this.cblWorkOrders.Location = new System.Drawing.Point(132, 141);
+            this.cblWorkOrders.Location = new System.Drawing.Point(140, 145);
+            this.cblWorkOrders.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.cblWorkOrders.Name = "cblWorkOrders";
-            this.cblWorkOrders.Size = new System.Drawing.Size(214, 66);
+            this.cblWorkOrders.Size = new System.Drawing.Size(228, 62);
             this.cblWorkOrders.TabIndex = 6;
+            // 
+            // btnAddWorkOrders
+            // 
+            this.btnAddWorkOrders.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAddWorkOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAddWorkOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddWorkOrders.ForeColor = System.Drawing.Color.White;
+            this.btnAddWorkOrders.Location = new System.Drawing.Point(374, 177);
+            this.btnAddWorkOrders.Name = "btnAddWorkOrders";
+            this.btnAddWorkOrders.Size = new System.Drawing.Size(82, 30);
+            this.btnAddWorkOrders.TabIndex = 7;
+            this.btnAddWorkOrders.Text = "Select ";
+            this.btnAddWorkOrders.UseVisualStyleBackColor = false;
+            this.btnAddWorkOrders.Click += new System.EventHandler(this.btnAddWorkOrders_Click);
+            // 
+            // placeHolder
+            // 
+            this.placeHolder.AutoScroll = true;
+            this.placeHolder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.placeHolder.Location = new System.Drawing.Point(0, 266);
+            this.placeHolder.Name = "placeHolder";
+            this.placeHolder.Size = new System.Drawing.Size(459, 100);
+            this.placeHolder.TabIndex = 2;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnNewReceipt, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblTotalPrice, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 366);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 96);
+            this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // lblTotalPrice
+            // 
+            this.lblTotalPrice.AutoSize = true;
+            this.lblTotalPrice.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblTotalPrice.Location = new System.Drawing.Point(396, 0);
+            this.lblTotalPrice.Name = "lblTotalPrice";
+            this.lblTotalPrice.Size = new System.Drawing.Size(60, 48);
+            this.lblTotalPrice.TabIndex = 0;
+            this.lblTotalPrice.Text = "Total price:";
+            this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnNewReceipt
+            // 
+            this.btnNewReceipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnNewReceipt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNewReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnNewReceipt.Location = new System.Drawing.Point(338, 58);
+            this.btnNewReceipt.Margin = new System.Windows.Forms.Padding(10);
+            this.btnNewReceipt.Name = "btnNewReceipt";
+            this.btnNewReceipt.Size = new System.Drawing.Size(111, 28);
+            this.btnNewReceipt.TabIndex = 8;
+            this.btnNewReceipt.Text = "Add receipt";
+            this.btnNewReceipt.UseVisualStyleBackColor = false;
+            this.btnNewReceipt.Click += new System.EventHandler(this.btnNewReceipt_Click);
             // 
             // ReceiptForm
             // 
@@ -179,7 +252,9 @@ namespace CarShop_DesktopApp.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(431, 454);
+            this.ClientSize = new System.Drawing.Size(459, 462);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.placeHolder);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "ReceiptForm";
@@ -189,6 +264,8 @@ namespace CarShop_DesktopApp.Forms
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -204,5 +281,10 @@ namespace CarShop_DesktopApp.Forms
         private CustomControls.CustomComboBox cbBuyer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox cblWorkOrders;
+        private System.Windows.Forms.Button btnAddWorkOrders;
+        private System.Windows.Forms.Panel placeHolder;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btnNewReceipt;
+        private System.Windows.Forms.Label lblTotalPrice;
     }
 }
