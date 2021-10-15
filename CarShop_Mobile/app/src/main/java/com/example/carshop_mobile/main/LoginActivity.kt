@@ -1,5 +1,6 @@
 package com.example.carshop_mobile.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,8 +32,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setOnClickEvents() {
         btnSignUp.setOnClickListener {
-            val user = UserMobile("Milica","milica@gmail.com","milica123")
-            Toast.makeText(applicationContext,user.Username.toString(),Toast.LENGTH_SHORT).show()
+            val intent = Intent(it.context,SignUpActivity::class.java)
+            startActivity(intent)
+        }
+        btnLogin.setOnClickListener {
+            val intent = Intent(it.context,MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.AppointmentActivity">
+
+    <ImageButton
+        android:id="@+id/btnExitAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/outline_clear_24"
+        app:tint="@color/black" />
+    <TextView
+        android:id="@+id/lblDate"
+        android:text="@string/lblDate"
+        android:textSize="@dimen/textSizeAppointment"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:textColor="#0078D7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnExitAppointment"
+        />
+
+    <Button
+        android:id="@+id/btnPickDate"
+        style="?android:spinnerStyle"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="OCT 15 2021"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/lblDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblDate"
+        app:layout_constraintTop_toTopOf="@+id/lblDate" />
+
+    <GridView
+        android:id="@+id/gridTime"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:columnWidth="100dp"
+        android:horizontalSpacing="15dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="15dp"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPickDate"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/lblName"
+        android:text="@string/lblName"
+        android:textSize="@dimen/textSizeAppointment"
+        android:textColor="#0078D7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginTopAppointment"
+        app:layout_constraintTop_toBottomOf="@+id/gridTime"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_marginRight="@dimen/marginLR"
+        android:layout_marginLeft="@dimen/marginLR"
+        app:layout_constraintBottom_toBottomOf="@+id/lblName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lblName"
+        app:layout_constraintTop_toTopOf="@+id/lblName" />
+
+    <View
+        android:id="@+id/lineName"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="16dp"
+        android:background="#0078D7"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintBottom_toBottomOf="@+id/lblName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblName"
+        app:layout_constraintTop_toTopOf="@+id/lblName" />
+
+    <TextView
+        android:id="@+id/lblPhone"
+        android:text="@string/lblPhone"
+        android:textSize="@dimen/textSizeAppointment"
+        android:textColor="#0078D7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginTopAppointment"
+        app:layout_constraintTop_toBottomOf="@+id/lblName"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/txtPhone"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_marginRight="@dimen/marginLR"
+        android:layout_marginLeft="@dimen/marginLR"
+        app:layout_constraintBottom_toBottomOf="@+id/lblPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lblPhone"
+        app:layout_constraintTop_toTopOf="@+id/lblPhone" />
+
+    <View
+        android:id="@+id/linePhone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="16dp"
+        android:background="#0078D7"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintBottom_toBottomOf="@+id/lblPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblPhone"
+        app:layout_constraintTop_toTopOf="@+id/lblPhone" />
+
+    <Button
+        android:id="@+id/btnAddAppointment"
+        android:text="@string/btnAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopAppointment"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:backgroundTint="#0078D7"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linePhone" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

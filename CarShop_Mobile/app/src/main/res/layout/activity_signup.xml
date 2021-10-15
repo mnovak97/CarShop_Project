@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.SignupActivity">
+    tools:context=".main.SignUpActivity">
 
 
     <ImageButton
@@ -17,5 +17,127 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/outline_clear_24"
         app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/lblUsernameSignUp"
+        android:text="@string/lblUsername"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:textColor="#0078D7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnExit"
+        />
+
+    <EditText
+        android:id="@+id/txtUsernameSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:hint="@string/txtUsername"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintStart_toStartOf="@+id/lblUsernameSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/lblUsernameSignUp" />
+
+    <View
+        android:id="@+id/usernameDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        android:background="#0078D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtUsernameSignUp" />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:text="E-mail"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textColor="#0078D7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameDivider" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="Enter e-mail"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintStart_toStartOf="@+id/lblEmail"
+        app:layout_constraintTop_toBottomOf="@+id/lblEmail" />
+
+    <View
+        android:id="@+id/emailDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0078D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEmail"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        />
+
+    <TextView
+        android:id="@+id/lblPasswordSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblPassword"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textColor="#0078D7"
+        app:layout_constraintTop_toBottomOf="@+id/emailDivider"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/txtPasswordSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/txtPasswordSignUp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintStart_toStartOf="@+id/lblPasswordSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/lblPasswordSignUp" />
+
+    <View
+        android:id="@+id/passwordDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0078D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPasswordSignUp"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:layout_marginRight="@dimen/marginLR"
+        android:backgroundTint="#0078D7"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:textAllCaps="false"
+        android:text="Sign up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordDivider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

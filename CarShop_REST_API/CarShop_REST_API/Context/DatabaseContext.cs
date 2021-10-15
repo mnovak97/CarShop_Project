@@ -20,6 +20,8 @@ namespace CarShop_REST_API.Context
         public DbSet<Receipt> Receipts { get; set; }
         public DbSet<ReceiptWorkOrders> ReceiptWorkOrders { get; set; }
         public DbSet<Model.Task> Tasks { get; set; }
+        public DbSet<UserMobile> UsersMobile { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

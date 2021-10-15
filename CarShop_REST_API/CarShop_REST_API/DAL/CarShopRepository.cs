@@ -11,6 +11,27 @@ namespace CarShop_REST_API.DAL
 {
     public class CarShopRepository 
     {
+        #region UserMobile
+        public static void AddUserMobile(UserMobile userMobile)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.UsersMobile.Add(userMobile);
+                db.SaveChanges();
+            }
+        }
+
+        public static UserMobile GetUserMobile(string email)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var user = db.UsersMobile.FirstOrDefault(um => um.Email == email);
+                return user;
+            }
+        }
+
+        #endregion
+
         #region User
         public static List<User> GetUsers()
         {

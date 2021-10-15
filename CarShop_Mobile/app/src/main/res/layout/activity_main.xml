@@ -7,40 +7,70 @@
     tools:context=".main.MainActivity">
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+    <LinearLayout
+        android:id="@+id/llMain"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"
-        />
-
-    <Button
-        android:id="@+id/btnAppointment"
-        android:layout_width="@dimen/btnMain_Width"
-        android:layout_height="@dimen/btnMain_Height"
-        android:layout_marginBottom="@dimen/btn_main_margin"
-        android:textAllCaps="false"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="@string/btnAppointment"
-        app:backgroundTint="#0078D7"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnCarPickUp"
-        android:layout_width="@dimen/btnMain_Width"
-        android:layout_height="@dimen/btnMain_Height"
-        android:layout_marginTop="@dimen/btn_main_margin"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:textAllCaps="false"
-        android:text="@string/btnCarPickup"
-        app:backgroundTint="#0078D7"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/btnAppointment"
+            android:layout_width="@dimen/btnMain_Width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_round"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            >
+            <ImageView
+                android:id="@+id/imgAppointment"
+                android:layout_width="@dimen/imageViewHW"
+                android:layout_height="@dimen/imageViewHW"
+                app:srcCompat="@drawable/outline_event_note_24"
+                app:tint="@color/white"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/txtAppointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtAppointment"
+                android:textColor="@color/white"
+                android:layout_margin="@dimen/tvMainMargin"
+                android:layout_gravity="center_horizontal"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnCarPickUp"
+            android:layout_width="@dimen/btnMain_Width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_round"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+            <ImageView
+                android:id="@+id/imgCarPickup"
+                android:layout_width="@dimen/imageViewHW"
+                android:layout_height="@dimen/imageViewHW"
+                app:srcCompat="@drawable/outline_car_repair_24"
+                app:tint="@color/white"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/txtCarPickup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtCarPickup"
+                android:textColor="@color/white"
+                android:layout_margin="@dimen/tvMainMargin"
+                android:layout_gravity="center_horizontal"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

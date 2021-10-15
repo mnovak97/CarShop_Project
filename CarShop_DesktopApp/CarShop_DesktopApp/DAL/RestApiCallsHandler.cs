@@ -13,7 +13,7 @@ namespace CarShop_DesktopApp.DAL
 {
     class RestApiCallsHandler
     {
-        private static string uriString = "http://localhost:5000/api/";
+        private static string uriString = "https://6235-93-141-57-1.ngrok.io/api/";
 
         public static HttpWebResponse Login(string username, string password)
         {

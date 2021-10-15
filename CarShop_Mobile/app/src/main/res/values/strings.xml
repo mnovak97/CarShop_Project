@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CarShop_Mobile</string>
-    <string name="btnAppointment">Make Appointment</string>
-    <string name="btnCarPickup">Car pickup location</string>
+    <string name="txtAppointment">Appointment</string>
+    <string name="txtCarPickup">Car pickup</string>
     <string name="btnSignUp">SIGN UP</string>
     <string name="lblSignUp">Don\'t have an account yet?</string>
     <string name="btnLogin">Login</string>
@@ -9,4 +9,9 @@
     <string name="lblPassword">Password</string>
     <string name="txtUsername">Enter username</string>
     <string name="lblUsername">Username</string>
+    <string name="txtPasswordSignUp">Enter password</string>
+    <string name="lblDate">Date:</string>
+    <string name="lblName">Your name:</string>
+    <string name="lblPhone">Your phone:</string>
+    <string name="btnAppointment">Add appointment</string>
 </resources>
