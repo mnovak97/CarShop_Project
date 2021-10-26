@@ -49,5 +49,4 @@ class AppointmentTimeAdapter(var context: Context,var list: List<AppointmentTime
     }
 
 
-
 }

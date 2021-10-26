@@ -5,25 +5,29 @@ import java.util.*
 
 class Appointment() {
 
-    @SerializedName("IDAppointment")
+    @SerializedName("idAppointment")
     var idAppointemnt:Int? = null
-    @SerializedName("Date")
-    var date : Date? = null
-    @SerializedName("Time")
+    @SerializedName("date")
+    var date : String = ""
+    @SerializedName("time")
     var time: String = ""
-    @SerializedName("User")
+    @SerializedName("user")
     var user:UserMobile? = null
-    @SerializedName("CustomerName")
+    @SerializedName("customerName")
     var customerName:String = ""
-    @SerializedName("CustomerPhone")
+    @SerializedName("customerPhone")
     var customerPhone:String = ""
+    @SerializedName("finished")
+    var finished:Boolean = false
 
-    constructor(date:Date,time:String,currentUser:UserMobile,name:String,phone:String) : this()
+
+    constructor(date:String,time:String,currentUser:UserMobile,name:String,phone:String,finished:Boolean) : this()
     {
         this.date = date
         this.time = time
         this.user = currentUser
         this.customerName = name
         this.customerPhone = phone
+        this.finished = finished
     }
 }

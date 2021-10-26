@@ -16,18 +16,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/outline_clear_24"
         app:tint="@color/black" />
+
     <TextView
         android:id="@+id/lblDate"
-        android:text="@string/lblDate"
-        android:textSize="@dimen/textSizeAppointment"
-        android:layout_marginLeft="@dimen/marginLR"
-        android:layout_marginTop="@dimen/marginBottomTopIV"
-        android:textColor="#0078D7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:text="@string/lblDate"
+        android:textColor="#0078D7"
+        android:textSize="@dimen/textSizeAppointment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnExitAppointment"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/lblPhone" />
 
     <Button
         android:id="@+id/btnPickDate"
@@ -59,22 +59,22 @@
 
     <TextView
         android:id="@+id/lblName"
-        android:text="@string/lblName"
-        android:textSize="@dimen/textSizeAppointment"
-        android:textColor="#0078D7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginLR"
-        android:layout_marginTop="@dimen/marginTopAppointment"
-        app:layout_constraintTop_toBottomOf="@+id/gridTime"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:text="@string/lblName"
+        android:textColor="#0078D7"
+        android:textSize="@dimen/textSizeAppointment"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btnExitAppointment" />
 
     <EditText
         android:id="@+id/txtName"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="@dimen/marginLR"
         android:layout_marginLeft="@dimen/marginLR"
         app:layout_constraintBottom_toBottomOf="@+id/lblName"
@@ -113,6 +113,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="@dimen/marginLR"
         android:layout_marginLeft="@dimen/marginLR"
         app:layout_constraintBottom_toBottomOf="@+id/lblPhone"
@@ -135,19 +136,19 @@
 
     <Button
         android:id="@+id/btnAddAppointment"
-        android:text="@string/btnAppointment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopAppointment"
         android:layout_marginLeft="@dimen/marginLR"
         android:layout_marginRight="@dimen/marginLR"
+        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:backgroundTint="#0078D7"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:backgroundTint="#0078D7"
+        android:text="@string/btnAppointment"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linePhone" />
+        app:layout_constraintTop_toBottomOf="@+id/gridTime" />
 
 
 

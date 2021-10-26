@@ -13,6 +13,21 @@ namespace CarShop_REST_API.Controllers
     [ApiController]
     public class UserMobileController : ControllerBase
     {
+        [HttpPost("LoginMobile")]
+        public UserMobile addUserMobile([FromBody] UserModel login)
+        {
+            try
+            {
+                UserMobile user = CarShopRepository.AuthorizeUserMobile(login);
+                return user;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
         [HttpPost("addUserMobile")]
         public UserMobile addUserMobile([FromBody]UserMobile newUserMobile)
         {

@@ -11,7 +11,6 @@ import com.example.carshop_mobile.main.Model.UserMobile
 import com.example.carshop_mobile.main.network.JsonPlaceHolderApi
 import com.example.carshop_mobile.main.network.RetrofitClientInstance
 import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
 import java.net.HttpURLConnection
 
 class SignUpActivity : AppCompatActivity() {
@@ -48,10 +47,10 @@ class SignUpActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<UserMobile>, response: Response<UserMobile>) {
                     if (response.code() == HttpURLConnection.HTTP_OK){
                         if (response.body() == null){
-                            Toast.makeText(applicationContext, "There is already an account with that E-mail address", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(applicationContext, "There is already an account with that E-mail address", Toast.LENGTH_SHORT).show()
                         }
                         else{
-                            Toast.makeText(applicationContext, "Sign Up successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(applicationContext, "Sign Up successful", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

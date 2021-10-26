@@ -11,6 +11,45 @@ namespace CarShop_REST_API.DAL
 {
     public class CarShopRepository 
     {
+        #region Appointments
+        public static List<Appointment> GetAppointments()
+        {
+            using (var db = new DatabaseContext())
+            {
+                var appointemnts = db.Appointments.ToList();
+                return appointemnts;
+            }
+        }
+
+        public static List<Appointment> GetUserAppointments(int idUser)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var appointemts = db.Appointments.Where(a => a.User.IDUserMobile == idUser).Include(a => a.User).ToList();
+                return appointemts;
+            }
+        }
+
+        public static Appointment GetAppointment(int iDUserMobile)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var appointment = db.Appointments.OrderBy(a => a.IDAppointment).Include(a => a.User).LastOrDefault(a => a.User.IDUserMobile == iDUserMobile);
+                return appointment;
+            }
+        }
+
+        public static void AddAppointment(Appointment appointment)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.Appointments.Attach(appointment);
+                db.SaveChanges();
+            }
+        }
+
+        #endregion
+
         #region UserMobile
         public static void AddUserMobile(UserMobile userMobile)
         {
@@ -27,6 +66,14 @@ namespace CarShop_REST_API.DAL
             {
                 var user = db.UsersMobile.FirstOrDefault(um => um.Email == email);
                 return user;
+            }
+        }
+        public static UserMobile AuthorizeUserMobile(UserModel login)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var usersMobile = db.UsersMobile.FirstOrDefault(um => um.Username == login.Username && um.Password == login.Password);
+                return usersMobile;
             }
         }
 
@@ -46,6 +93,7 @@ namespace CarShop_REST_API.DAL
         {
             return GetUsers().FirstOrDefault(x => x.Username == login.Username && x.Password == login.Password);
         }
+
 
         public static List<User> GetWorkers()
         {

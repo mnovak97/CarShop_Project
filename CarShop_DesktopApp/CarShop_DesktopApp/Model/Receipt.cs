@@ -34,5 +34,7 @@ namespace CarShop_DesktopApp.Model
             User = user;
             Buyer = buyer;
         }
+
+       
     }
 }

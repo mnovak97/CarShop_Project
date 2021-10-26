@@ -6,7 +6,7 @@
     <LinearLayout
         android:id="@+id/btnAppointment"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:background="@drawable/layout_round_white"
         android:orientation="vertical"
         android:layout_margin="5dp"

@@ -19,22 +19,44 @@ namespace CarShop_DesktopApp.UserControls
 
         private string token;
         User currentUser;
+        List<Receipt> allReceipts;
         public Receipts(string JWTToken,User user)
         {
             token = JWTToken;
             currentUser = user;
             InitializeComponent();
+            showBuyers();
             btnNewReceipt.Text = "Add new receipt";
         }
+
 
         private void Receipts_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
             GridViewStyleExtension.SetStyle(dataGridReceipts);
-            List<Receipt> receipts = RestApiCallsHandler.GetReceipts(token);
-            cbYear.DataSource = getYears(receipts);
-            //cbYear.SelectedItem = cbYear.Items.IndexOf(DateTime.Now.Year.ToString());
-            //dataGridReceipts.DataSource = RestApiCallsHandler.GetReceiptsByYear(DateTime.Now.Year.ToString(),token);
+            allReceipts = RestApiCallsHandler.GetReceipts(token);
+            cbYear.DataSource = getYears(allReceipts);
+            setCurrency(dataGridReceipts);
+            
+        }
+        private void showBuyers()
+        {
+            List<Buyer> buyers = new List<Buyer>();
+            buyers = RestApiCallsHandler.GetBuyers(token);
+            foreach (Buyer buyer in buyers)
+            {
+                cbBuyers.Items.Add(buyer);
+            }
+        }
+
+        private void setCurrency(DataGridView dataGridReceipts)
+        {
+            DataGridViewTextBoxColumn columnCurrency = new DataGridViewTextBoxColumn();
+            columnCurrency.DataPropertyName = "Currency";
+            columnCurrency.Name = "Currency";
+            columnCurrency.ValueType = typeof(string);
+            columnCurrency.DefaultCellStyle.NullValue = "HRK";
+            dataGridReceipts.Columns.Insert(2, columnCurrency);
         }
 
         private List<string> getYears(List<Receipt> receipts)
@@ -70,9 +92,42 @@ namespace CarShop_DesktopApp.UserControls
 
         private void cbYear_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            List<Receipt> displayedList = new List<Receipt>();
+            Buyer buyer = (Buyer)cbBuyers.SelectedItem;
             string year = cbYear.SelectedItem.ToString();
-            List<Receipt> receipts = RestApiCallsHandler.GetReceiptsByYear(year,token);
-            dataGridReceipts.DataSource = receipts;
+            if (buyer == null)
+            {
+                displayedList = getReceitsByYear(year);
+                dataGridReceipts.DataSource = displayedList;
+            }
+            else if(buyer != null)
+            {
+                displayedList = getBuyersReceiptsByYear(year, buyer);
+                dataGridReceipts.DataSource = displayedList;
+            }
+        }
+
+
+        private void cbBuyers_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Receipt> displayedList = new List<Receipt>();
+            Buyer buyer = (Buyer)cbBuyers.SelectedItem;
+            string year = cbYear.SelectedItem.ToString();
+            displayedList = getBuyersReceiptsByYear(year, buyer);
+            dataGridReceipts.DataSource = displayedList;
+        }
+        private List<Receipt> getReceitsByYear(string year)
+        {
+            List<Receipt> receipts = new List<Receipt>();
+            receipts = allReceipts.Where(r => r.DateOfReceipt.Year.ToString() == year).ToList();
+            return receipts;
+        }
+
+        private List<Receipt> getBuyersReceiptsByYear(string year, Buyer buyer)
+        {
+            List<Receipt> receipts = new List<Receipt>();
+            receipts = allReceipts.Where(r => r.DateOfReceipt.Year.ToString() == year && r.Buyer.IDBuyer == buyer.IDBuyer).ToList();
+            return receipts;
         }
     }
 }

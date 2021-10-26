@@ -13,7 +13,7 @@ namespace CarShop_DesktopApp.DAL
 {
     class RestApiCallsHandler
     {
-        private static string uriString = "https://6235-93-141-57-1.ngrok.io/api/";
+        private static string uriString = "https://92f0-93-141-57-1.ngrok.io/api/";
 
         public static HttpWebResponse Login(string username, string password)
         {
@@ -112,6 +112,8 @@ namespace CarShop_DesktopApp.DAL
             }
             return buyerWorkOrders;
         }
+
+      
 
         public static List<Receipt> GetReceiptsByYear(string year,string token)
         {
