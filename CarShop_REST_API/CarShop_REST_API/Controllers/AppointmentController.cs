@@ -19,12 +19,18 @@ namespace CarShop_REST_API.Controllers
             return CarShopRepository.GetAppointments();
         }
 
-        [HttpPost("getUserAppointments")]
-        public List<Appointment> GetUsersAppointments([FromBody] int idUser)
+        [HttpGet("getUserAppointments/{idUser}")]
+        public List<Appointment> GetUsersAppointments(int idUser)
         {
             return CarShopRepository.GetUserAppointments(idUser);
         }
-        
+        [HttpGet("getDateAppointments/{date}")]
+        public List<Appointment> GetDateAppointments(string date)
+        {
+            var dateString = date.Replace("%2F", "/");
+            return CarShopRepository.GetDateAppointments(dateString);
+        }
+
         [HttpPost("addAppointment")]
         public Appointment addAppointment([FromBody]Appointment appointment)
         {

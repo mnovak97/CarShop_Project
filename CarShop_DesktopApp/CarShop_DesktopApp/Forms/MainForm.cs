@@ -114,7 +114,7 @@ namespace CarShop_DesktopApp
         }
         private void setHome()
         {
-            Home myHomeControl = new Home();
+            Home myHomeControl = new Home(token);
             placeHolder.Controls.Add(myHomeControl);
             myHomeControl.Top = placeHolder.Height / 2 - myHomeControl.Height / 2;
             myHomeControl.Left = placeHolder.Width / 2 - myHomeControl.Width / 2;

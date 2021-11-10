@@ -13,7 +13,7 @@ namespace CarShop_DesktopApp.DAL
 {
     class RestApiCallsHandler
     {
-        private static string uriString = "https://92f0-93-141-57-1.ngrok.io/api/";
+        private static string uriString = "https://ba5f-93-141-104-130.ngrok.io/api/";
 
         public static HttpWebResponse Login(string username, string password)
         {
@@ -31,6 +31,20 @@ namespace CarShop_DesktopApp.DAL
 
             var response = (HttpWebResponse)webRequest.GetResponse();
             return response;
+        }
+
+        public static List<Appointment> GetAppointmentsForDate(string dateString,string token)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            HttpWebRequest request = httpGetCall("appointment/getDateAppointments/"+dateString, token);
+            
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                appointments = JsonConvert.DeserializeObject<List<Appointment>>(result);
+            }
+            return appointments;
         }
 
         public static object GetNotAssignedWorkOrders(string token)
@@ -376,6 +390,7 @@ namespace CarShop_DesktopApp.DAL
             request.ContentType = "application/json; charset=utf-8";
             request.PreAuthenticate = true;
             request.Headers.Add("Authorization", "Bearer " + token);
+            
 
             return request;
         }

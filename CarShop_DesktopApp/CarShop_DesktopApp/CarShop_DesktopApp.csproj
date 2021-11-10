@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CustomAppointment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomAppointment.Designer.cs">
+      <DependentUpon>CustomAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,10 +106,12 @@
     <Compile Include="Forms\SelectItem.Designer.cs">
       <DependentUpon>SelectItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\ItemQuantity.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\ReceiptWorkOrders.cs" />
     <Compile Include="Model\Task.cs" />
+    <Compile Include="Model\UserMobile.cs" />
     <Compile Include="Model\WorkOrder.cs" />
     <Compile Include="Model\WorkOrdersItems.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -172,6 +180,9 @@
     <Compile Include="UserControls\WorkOrdersList.Designer.cs">
       <DependentUpon>WorkOrdersList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomControls\CustomAppointment.resx">
+      <DependentUpon>CustomAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomLabel.resx">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </EmbeddedResource>

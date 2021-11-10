@@ -33,10 +33,10 @@ namespace CarShop_DesktopApp.UserControls
             this.dataGridReceipts = new System.Windows.Forms.DataGridView();
             this.btnNewReceipt = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblBuyer = new System.Windows.Forms.Label();
             this.cbYear = new CarShop_DesktopApp.CustomControls.CustomComboBox();
             this.lblYear = new System.Windows.Forms.Label();
             this.cbBuyers = new CarShop_DesktopApp.CustomControls.CustomComboBox();
-            this.lblBuyer = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceipts)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -105,6 +105,18 @@ namespace CarShop_DesktopApp.UserControls
             this.tableLayoutPanel2.Size = new System.Drawing.Size(542, 39);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
+            // lblBuyer
+            // 
+            this.lblBuyer.AutoSize = true;
+            this.lblBuyer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBuyer.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblBuyer.Location = new System.Drawing.Point(273, 0);
+            this.lblBuyer.Name = "lblBuyer";
+            this.lblBuyer.Size = new System.Drawing.Size(42, 39);
+            this.lblBuyer.TabIndex = 7;
+            this.lblBuyer.Text = "Buyer:";
+            this.lblBuyer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cbYear
             // 
             this.cbYear.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -161,22 +173,11 @@ namespace CarShop_DesktopApp.UserControls
             this.cbBuyers.Texts = "";
             this.cbBuyers.OnSelectedIndexChanged += new System.EventHandler(this.cbBuyers_OnSelectedIndexChanged);
             // 
-            // lblBuyer
-            // 
-            this.lblBuyer.AutoSize = true;
-            this.lblBuyer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBuyer.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblBuyer.Location = new System.Drawing.Point(273, 0);
-            this.lblBuyer.Name = "lblBuyer";
-            this.lblBuyer.Size = new System.Drawing.Size(42, 39);
-            this.lblBuyer.TabIndex = 7;
-            this.lblBuyer.Text = "Buyer:";
-            this.lblBuyer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Receipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Receipts";
             this.Size = new System.Drawing.Size(548, 382);

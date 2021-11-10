@@ -30,6 +30,15 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+        public static List<Appointment> GetDateAppointments(string date)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var appointments = db.Appointments.OrderBy(a=> a.Time).Where(a => a.Date == date).Include(a => a.User).ToList();
+                return appointments;
+            }
+        }
+
         public static Appointment GetAppointment(int iDUserMobile)
         {
             using (var db = new DatabaseContext())

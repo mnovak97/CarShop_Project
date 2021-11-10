@@ -85,6 +85,7 @@ namespace CarShop_DesktopApp
             // 
             // placeHolderWorkOrders
             // 
+            this.placeHolderWorkOrders.BackColor = System.Drawing.Color.White;
             this.placeHolderWorkOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.placeHolderWorkOrders.Location = new System.Drawing.Point(0, 39);
             this.placeHolderWorkOrders.Name = "placeHolderWorkOrders";
