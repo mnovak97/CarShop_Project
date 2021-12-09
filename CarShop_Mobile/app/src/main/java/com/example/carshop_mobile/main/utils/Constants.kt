@@ -19,6 +19,7 @@ class Constants {
         const val SATURDAY = "Saturday"
         const val SUNDAY = "Sunday"
         const val WEEK_DAY = "Week day"
+        const val REQUEST_CODE = 101
 
         fun getMonthFormat(month: Int): String {
             var montString:String = ""

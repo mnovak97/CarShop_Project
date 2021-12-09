@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnCarPickup.setOnClickListener{
+            val intent = Intent(it.context,CarPickupActivity::class.java)
+            startActivity(intent)
         }
     }
 }

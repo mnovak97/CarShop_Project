@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carshop_mobile">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarShop_Mobile"
         android:usesCleartextTraffic="true">
-        <activity android:name=".main.AppointmentActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <activity android:name=".main.CarPickupActivity"></activity>
+        <activity android:name=".main.AppointmentActivity" />
         <activity android:name=".main.SignUpActivity" />
         <activity android:name=".main.LoginActivity">
             <intent-filter>
