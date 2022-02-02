@@ -18,7 +18,6 @@ namespace CarShop_DesktopApp.Model
         public string Address { get; set; }
         public string OIB { get; set; }
 
-
         public Buyer(string name,string email,string mobilePhone,string address,string oib)
         {
             Name = name;
@@ -27,6 +26,7 @@ namespace CarShop_DesktopApp.Model
             Address = address;
             OIB = oib;
         }
+
         public override string ToString()
         {
             return Name + "," + OIB;

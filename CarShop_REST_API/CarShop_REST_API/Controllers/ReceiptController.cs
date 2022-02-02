@@ -36,8 +36,8 @@ namespace CarShop_REST_API.Controllers
             }
         }
 
-        [HttpPost("getReceiptsByYear")]
-        public List<Receipt> GetReceiptsByYear([FromBody]string year)
+        [HttpGet("getReceiptsByYear/{year}")]
+        public List<Receipt> GetReceiptsByYear(string year)
         {
             List<Receipt> receipts = CarShopRepository.GetReceiptsByYear(year);
             return receipts;

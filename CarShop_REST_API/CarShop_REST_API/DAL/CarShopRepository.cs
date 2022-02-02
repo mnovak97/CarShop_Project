@@ -11,6 +11,34 @@ namespace CarShop_REST_API.DAL
 {
     public class CarShopRepository 
     {
+        #region PickUps
+        public static void AddPickUpRequest(PickUp pickupRequest)
+        {
+            using (var db = new DatabaseContext())
+            {
+                db.PickUps.Attach(pickupRequest);
+                db.SaveChanges();
+            }
+        }
+        public static PickUp GetUserPickUpRequest(int iDUserMobile)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var pickUp = db.PickUps.OrderBy(p => p.IDPickup).Include(p => p.User).LastOrDefault(p => p.User.IDUserMobile == iDUserMobile);
+                return pickUp;
+            }
+        }
+
+        public static List<PickUp> GetPickups()
+        {
+            using (var db = new DatabaseContext())
+            {
+                var pickUps = db.PickUps.Include(p => p.User).ToList();
+                return pickUps;
+            }
+        }
+
+        #endregion
         #region Appointments
         public static List<Appointment> GetAppointments()
         {
@@ -21,12 +49,34 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+
         public static List<Appointment> GetUserAppointments(int idUser)
         {
             using (var db = new DatabaseContext())
             {
                 var appointemts = db.Appointments.Where(a => a.User.IDUserMobile == idUser).Include(a => a.User).ToList();
                 return appointemts;
+            }
+        }
+
+        public static List<Model.Task> GetWorkersTasks(int iDUser)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var tasks = db.Tasks.Where(t => t.User.IDUser == iDUser).Include(t => t.User)
+                                                                        .Include(t => t.WorkOrder).ThenInclude(w => w.Buyer)
+                                                                        .Include(t => t.WorkOrder).ThenInclude(w => w.User)
+                                                                        .ToList();
+                return tasks;
+            }
+        }
+
+        public static List<Appointment> GetBuyerAppointments(string email)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var appointmetns = db.Appointments.Where(a => a.User.Email == email).Include(a => a.User).ToList();
+                return appointmetns;
             }
         }
 

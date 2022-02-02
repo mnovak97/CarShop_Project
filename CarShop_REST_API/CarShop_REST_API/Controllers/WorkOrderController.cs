@@ -60,8 +60,8 @@ namespace CarShop_REST_API.Controllers
             }
         }
 
-        [HttpPost("getBuyersWorkOrders")]
-        public List<WorkOrder> GetBuyerWorkOrders([FromBody]int idBuyer)
+        [HttpGet("getBuyersWorkOrders/{idBuyer:int}")]
+        public List<WorkOrder> GetBuyerWorkOrders(int idBuyer)
         {
             List<WorkOrder> buyerWorkOrders = CarShopRepository.GetBuyerWorkOrders(idBuyer);
             return buyerWorkOrders;

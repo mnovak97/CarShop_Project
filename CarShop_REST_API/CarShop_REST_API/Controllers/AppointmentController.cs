@@ -30,6 +30,11 @@ namespace CarShop_REST_API.Controllers
             var dateString = date.Replace("%2F", "/");
             return CarShopRepository.GetDateAppointments(dateString);
         }
+        [HttpGet("getBuyersAppointments/{email}")]
+        public List<Appointment> GetBuyerAppointments(string email)
+        {
+            return CarShopRepository.GetBuyerAppointments(email);
+        }
 
         [HttpPost("addAppointment")]
         public Appointment addAppointment([FromBody]Appointment appointment)

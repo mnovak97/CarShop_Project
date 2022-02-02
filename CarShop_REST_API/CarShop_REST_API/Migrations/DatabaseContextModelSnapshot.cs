@@ -35,8 +35,8 @@ namespace CarShop_REST_API.Migrations
                     b.Property<string>("Date")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Finished")
-                        .HasColumnType("bit");
+                    b.Property<int>("State")
+                        .HasColumnType("int");
 
                     b.Property<string>("Time")
                         .HasColumnType("nvarchar(max)");
@@ -97,6 +97,35 @@ namespace CarShop_REST_API.Migrations
                     b.HasKey("IDItem");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("CarShop_REST_API.Model.PickUp", b =>
+                {
+                    b.Property<int>("IDPickup")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Done")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("UserIDUserMobile")
+                        .HasColumnType("int");
+
+                    b.HasKey("IDPickup");
+
+                    b.HasIndex("UserIDUserMobile");
+
+                    b.ToTable("PickUps");
                 });
 
             modelBuilder.Entity("CarShop_REST_API.Model.Receipt", b =>
@@ -240,6 +269,9 @@ namespace CarShop_REST_API.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AppointmentIDAppointment")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Assigned")
                         .HasColumnType("bit");
 
@@ -284,6 +316,8 @@ namespace CarShop_REST_API.Migrations
 
                     b.HasKey("IDWorkOrder");
 
+                    b.HasIndex("AppointmentIDAppointment");
+
                     b.HasIndex("BuyerIDBuyer");
 
                     b.HasIndex("UserIDUser");
@@ -310,6 +344,15 @@ namespace CarShop_REST_API.Migrations
                 });
 
             modelBuilder.Entity("CarShop_REST_API.Model.Appointment", b =>
+                {
+                    b.HasOne("CarShop_REST_API.Model.UserMobile", "User")
+                        .WithMany()
+                        .HasForeignKey("UserIDUserMobile");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CarShop_REST_API.Model.PickUp", b =>
                 {
                     b.HasOne("CarShop_REST_API.Model.UserMobile", "User")
                         .WithMany()
@@ -369,6 +412,10 @@ namespace CarShop_REST_API.Migrations
 
             modelBuilder.Entity("CarShop_REST_API.Model.WorkOrder", b =>
                 {
+                    b.HasOne("CarShop_REST_API.Model.Appointment", "Appointment")
+                        .WithMany()
+                        .HasForeignKey("AppointmentIDAppointment");
+
                     b.HasOne("CarShop_REST_API.Model.Buyer", "Buyer")
                         .WithMany("WorkOrders")
                         .HasForeignKey("BuyerIDBuyer");
@@ -376,6 +423,8 @@ namespace CarShop_REST_API.Migrations
                     b.HasOne("CarShop_REST_API.Model.User", "User")
                         .WithMany("WorkOrders")
                         .HasForeignKey("UserIDUser");
+
+                    b.Navigation("Appointment");
 
                     b.Navigation("Buyer");
 

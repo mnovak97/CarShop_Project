@@ -22,6 +22,7 @@ namespace CarShop_REST_API.Context
         public DbSet<Model.Task> Tasks { get; set; }
         public DbSet<UserMobile> UsersMobile { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<PickUp> PickUps { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

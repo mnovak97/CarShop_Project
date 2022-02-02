@@ -26,7 +26,7 @@ namespace CarShop_DesktopApp.UserControls
 
         private void Home_Load(object sender, EventArgs e)
         {
-            string dateToday = DateTime.Now.ToString("d/MM/yyyy");
+            string dateToday = DateTime.Now.ToString("d/M/yyyy");
             dateString = dateToday.Replace(".", "%2F");
             this.Dock = DockStyle.Fill;
             centerDatePicker();

@@ -36,8 +36,8 @@ namespace CarShop_REST_API.Controllers
             }
         }
 
-        [HttpPost("getWorkOrderItems")]
-        public List<ItemQuantity> GetWorkOrderItems([FromBody]int workOrderID)
+        [HttpGet("getWorkOrderItems/{workOrderID:int}")]
+        public List<ItemQuantity> GetWorkOrderItems([FromRoute]int workOrderID)
         {
             List<ItemQuantity> workOrderItems = CarShopRepository.GetWorkOrderItems(workOrderID);
             return workOrderItems;

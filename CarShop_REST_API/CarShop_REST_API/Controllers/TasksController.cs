@@ -28,5 +28,11 @@ namespace CarShop_REST_API.Controllers
                 Response.StatusCode = StatusCodes.Status400BadRequest;
             }
         }
+        [Authorize]
+        [HttpGet("getWorkersTasks/{IDUser:int}")]
+        public List<Model.Task> GetWorkersTasks([FromRoute] int IDUser)
+        {
+            return CarShopRepository.GetWorkersTasks(IDUser);
+        }
     }
 }

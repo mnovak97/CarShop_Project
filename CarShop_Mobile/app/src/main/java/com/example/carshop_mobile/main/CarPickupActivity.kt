@@ -11,7 +11,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.carshop_mobile.R
+import com.example.carshop_mobile.main.Model.PickUp
+import com.example.carshop_mobile.main.Model.UserMobile
+import com.example.carshop_mobile.main.network.JsonPlaceHolderApi
+import com.example.carshop_mobile.main.network.RetrofitClientInstance
 import com.example.carshop_mobile.main.utils.Constants.Companion.REQUEST_CODE
+import com.example.carshop_mobile.main.utils.PreferenceUtils
 import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -27,6 +32,9 @@ import com.google.android.libraries.places.api.model.TypeFilter
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 
@@ -38,6 +46,9 @@ class CarPickupActivity : AppCompatActivity(), OnMapReadyCallback {
     var placesClient:PlacesClient? = null
     lateinit var txtCarPickupAddress : TextView
     lateinit var btnRequestPickup : Button
+    private lateinit var currentUser: UserMobile
+    var latitude:Double = 0.0
+    var longitude:Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +56,7 @@ class CarPickupActivity : AppCompatActivity(), OnMapReadyCallback {
         Places.initialize(applicationContext, resources.getString(R.string.map_key))
         placesClient = Places.createClient(this)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        currentUser = PreferenceUtils.getUser(applicationContext)
         fetchLocation()
         initializeAutocomplete()
         initializeComponents()
@@ -58,7 +70,20 @@ class CarPickupActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun buttonOnClick() {
         btnRequestPickup.setOnClickListener {
-            
+            var pickUp = PickUp(txtCarPickupAddress.text.toString(),longitude,latitude,false,currentUser)
+            val service = RetrofitClientInstance.getRetrofitInstance().create(JsonPlaceHolderApi::class.java)
+            val call = service.addPickUp(pickUp)
+            call.enqueue(object : Callback<PickUp>{
+                override fun onResponse(call: Call<PickUp>, response: Response<PickUp>) {
+                    var pickUp = response.body()
+                    if (pickUp != null){
+                        Toast.makeText(applicationContext,"Pick up request made successfully!",Toast.LENGTH_SHORT).show()
+                    }
+                }
+                override fun onFailure(call: Call<PickUp>, t: Throwable) {
+                    call.cancel()
+                }
+            })
         }
     }
 
@@ -86,6 +111,8 @@ class CarPickupActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
         mMap.addMarker(markerOptions)
         txtCarPickupAddress.text = place.address
+        longitude = place.latLng!!.longitude
+        latitude = place.latLng!!.latitude
     }
 
 

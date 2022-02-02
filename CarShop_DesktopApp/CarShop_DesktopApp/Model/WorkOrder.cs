@@ -37,6 +37,8 @@ namespace CarShop_DesktopApp.Model
         public virtual User User { get; set; }
         //[Browsable(false)]
         public virtual Buyer Buyer { get; set; }
+        [Browsable(false)]
+        public virtual Appointment Appointment { get; set; }
 
         public WorkOrder(int number,DateTime date,string carType,string registrationPlate,string description,int manufacturingYear,long km,bool warranty,bool done,string comment,double totalPrice,User user,Buyer buyer)
         {
@@ -54,6 +56,8 @@ namespace CarShop_DesktopApp.Model
             User = user;
             Buyer = buyer;
         }
+
+
 
         public override string ToString()
         {

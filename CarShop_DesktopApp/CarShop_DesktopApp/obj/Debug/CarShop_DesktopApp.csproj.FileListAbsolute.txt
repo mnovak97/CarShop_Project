@@ -28,3 +28,7 @@ D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\De
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.CustomControls.CustomLabel.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.TaskAssignment.resources
 D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.CustomControls.CustomAppointment.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.CustomControls.CustomTask.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.UserTasks.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.CustomControls.CustomPickUp.resources
+D:\Documents\GitHub\CarShop_Project\CarShop_DesktopApp\CarShop_DesktopApp\obj\Debug\CarShop_DesktopApp.UserControls.PickUpRequests.resources

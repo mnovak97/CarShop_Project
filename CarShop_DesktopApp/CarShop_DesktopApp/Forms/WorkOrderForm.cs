@@ -46,6 +46,10 @@ namespace CarShop_DesktopApp.Forms
             setData();
             addColumnquantity();
             lblFormName.Text = "Update work order form";
+            if (user.Role == Role.User)
+            {
+                btnAddWorkOrder.Visible = false;
+            }
         }
 
         public WorkOrderForm(string JWTToken,WorkOrder selectedWorkOrder,List<ItemQuantity> itemsQuantity)
@@ -71,7 +75,6 @@ namespace CarShop_DesktopApp.Forms
             btnItemsList.Visible = false;
             txtManufacturingYear.Enabled = false;
             txtKm.Enabled = false;
-            chBDone.Enabled = false;
             chBWarranty.Enabled = false;
             btnAddWorkOrder.Visible = false;
             Label lblTotalPrice = new Label();
@@ -108,14 +111,7 @@ namespace CarShop_DesktopApp.Forms
             {
                 chBWarranty.Checked = false;
             }
-            if (selected.Done)
-            {
-                chBDone.Checked = true;
-            }
-            else
-            {
-                chBDone.Checked = false;
-            }
+           
         }
 
         private void AddWorkOrder_Load(object sender, EventArgs e)
@@ -249,7 +245,7 @@ namespace CarShop_DesktopApp.Forms
         {
             double totalPrice = countTotalPrice();
             Buyer buyer = getBuyer();
-            WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Texts, txtRegistrationPlate.Texts, txtDescription.Texts, Convert.ToInt32(txtManufacturingYear.Texts), Convert.ToInt64(txtKm.Texts), chBWarranty.Checked, chBDone.Checked, txtComment.Texts, totalPrice, user, buyer);
+            WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Texts, txtRegistrationPlate.Texts, txtDescription.Texts, Convert.ToInt32(txtManufacturingYear.Texts), Convert.ToInt64(txtKm.Texts), chBWarranty.Checked, false, txtComment.Texts, totalPrice, user, buyer);
             WorkOrdersItems workOrderItems = new WorkOrdersItems(newWorkOrder, getItems());
             if (RestApiCallsHandler.AddWorkOrder(workOrderItems, token))
             {
@@ -268,7 +264,6 @@ namespace CarShop_DesktopApp.Forms
             selected.ManufacturingYear = Convert.ToInt32(txtManufacturingYear.Texts);
             selected.Km = Convert.ToInt64(txtKm.Texts);
             selected.Warranty = chBWarranty.Checked;
-            selected.Done = chBDone.Checked;
             selected.Comment = txtComment.Texts;
             selected.TotalPrice = price;
             selected.Buyer = buyer;
@@ -287,12 +282,22 @@ namespace CarShop_DesktopApp.Forms
             return itemsQuantity;
         }
 
-
-
         private Buyer getBuyer()
         {
             Buyer buyer = (Buyer)cbBuyers.SelectedItem;
             return buyer;
+        }
+
+        private void cbBuyers_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Buyer buyer = (Buyer)cbBuyers.SelectedItem;
+            List<Appointment> buyersAppointment = RestApiCallsHandler.GetBuyersAppointments(buyer.Email,token);
+            if (buyersAppointment.Count > 0)
+            {
+                lblAppointment.Visible = true;
+                cbAppointment.Visible = true;
+                showAppointemtns(buyersAppointment);
+            }
         }
 
         private double countTotalPrice()
@@ -305,6 +310,13 @@ namespace CarShop_DesktopApp.Forms
             return price;
         }
 
+        private void showAppointemtns(List<Appointment> appointments)
+        {
+            foreach (Appointment appointment in appointments)
+            {
+                cbAppointment.Items.Add(appointment);
+            }
+        }
         private void showBuyers()
         {
             List<Buyer> buyers = new List<Buyer>();

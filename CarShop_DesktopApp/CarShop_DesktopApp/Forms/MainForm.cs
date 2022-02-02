@@ -63,15 +63,26 @@ namespace CarShop_DesktopApp
             Receipts myReceiptsControl = new Receipts(token, user);
             OpenUserControl(myReceiptsControl);
         }
-        private void btnAppointments_Click(object sender, EventArgs e)
+        private void btnPickUp_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            PickUpRequests pickUpRequests = new PickUpRequests(token, user);
+            OpenUserControl(pickUpRequests);
         }
         private void btnTasks_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            TaskAssignment myTaskControl = new TaskAssignment(token);
-            OpenUserControl(myTaskControl);
+            if (user.Role == Role.Admin)
+            {
+                TaskAssignment myTaskControl = new TaskAssignment(token);
+                OpenUserControl(myTaskControl);
+            }
+            else if(user.Role == Role.User)
+            {
+                UserTasks myUserTaskControl = new UserTasks(token, user);
+                OpenUserControl(myUserTaskControl);
+            }
+
         }
 
         private void OpenUserControl(UserControl userControl)
@@ -130,5 +141,6 @@ namespace CarShop_DesktopApp
             lblUserControl.Text = "Home";
         }
 
+      
     }
 }

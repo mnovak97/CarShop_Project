@@ -25,5 +25,9 @@ namespace CarShop_DesktopApp.Model
             CustomerPhone = customerPhone;
             Finished = finished;
         }
+        public override string ToString()
+        {
+            return Date + "," + Time;
+        }
     }
 }

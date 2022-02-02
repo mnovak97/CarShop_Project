@@ -70,6 +70,18 @@
     <Compile Include="CustomControls\CustomLabel.Designer.cs">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CustomPickUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomPickUp.Designer.cs">
+      <DependentUpon>CustomPickUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CustomTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CustomTask.Designer.cs">
+      <DependentUpon>CustomTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CustomTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +120,7 @@
     </Compile>
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\ItemQuantity.cs" />
+    <Compile Include="Model\PickUp.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\ReceiptWorkOrders.cs" />
     <Compile Include="Model\Task.cs" />
@@ -156,6 +169,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\PickUpRequests.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PickUpRequests.Designer.cs">
+      <DependentUpon>PickUpRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Receipts.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +186,12 @@
     </Compile>
     <Compile Include="UserControls\TaskAssignment.Designer.cs">
       <DependentUpon>TaskAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserTasks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserTasks.Designer.cs">
+      <DependentUpon>UserTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WorkOrders.cs">
       <SubType>UserControl</SubType>
@@ -185,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomLabel.resx">
       <DependentUpon>CustomLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomPickUp.resx">
+      <DependentUpon>CustomPickUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomTask.resx">
+      <DependentUpon>CustomTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
@@ -224,11 +255,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PickUpRequests.resx">
+      <DependentUpon>PickUpRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Receipts.resx">
       <DependentUpon>Receipts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TaskAssignment.resx">
       <DependentUpon>TaskAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserTasks.resx">
+      <DependentUpon>UserTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\WorkOrders.resx">
       <DependentUpon>WorkOrders.cs</DependentUpon>

@@ -31,6 +31,8 @@ namespace CarShop_DesktopApp
         {
             this.lblUserControl = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnTasks = new FontAwesome.Sharp.IconButton();
+            this.btnPickUp = new FontAwesome.Sharp.IconButton();
             this.btnReceipt = new FontAwesome.Sharp.IconButton();
             this.btnWorkOrders = new FontAwesome.Sharp.IconButton();
             this.btnBuyers = new FontAwesome.Sharp.IconButton();
@@ -40,8 +42,6 @@ namespace CarShop_DesktopApp
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconCurrent = new FontAwesome.Sharp.IconPictureBox();
             this.placeHolder = new System.Windows.Forms.Panel();
-            this.btnAppointments = new FontAwesome.Sharp.IconButton();
-            this.btnTasks = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgHome)).BeginInit();
@@ -65,7 +65,7 @@ namespace CarShop_DesktopApp
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panelMenu.Controls.Add(this.btnTasks);
-            this.panelMenu.Controls.Add(this.btnAppointments);
+            this.panelMenu.Controls.Add(this.btnPickUp);
             this.panelMenu.Controls.Add(this.btnReceipt);
             this.panelMenu.Controls.Add(this.btnWorkOrders);
             this.panelMenu.Controls.Add(this.btnBuyers);
@@ -76,6 +76,52 @@ namespace CarShop_DesktopApp
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(179, 476);
             this.panelMenu.TabIndex = 4;
+            // 
+            // btnTasks
+            // 
+            this.btnTasks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTasks.FlatAppearance.BorderSize = 0;
+            this.btnTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnTasks.ForeColor = System.Drawing.Color.White;
+            this.btnTasks.IconChar = FontAwesome.Sharp.IconChar.Tasks;
+            this.btnTasks.IconColor = System.Drawing.Color.White;
+            this.btnTasks.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTasks.IconSize = 32;
+            this.btnTasks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTasks.Location = new System.Drawing.Point(0, 350);
+            this.btnTasks.Name = "btnTasks";
+            this.btnTasks.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnTasks.Size = new System.Drawing.Size(179, 50);
+            this.btnTasks.TabIndex = 6;
+            this.btnTasks.Text = "Tasks";
+            this.btnTasks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTasks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTasks.UseVisualStyleBackColor = true;
+            this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
+            // 
+            // btnPickUp
+            // 
+            this.btnPickUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPickUp.FlatAppearance.BorderSize = 0;
+            this.btnPickUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPickUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPickUp.ForeColor = System.Drawing.Color.White;
+            this.btnPickUp.IconChar = FontAwesome.Sharp.IconChar.CarCrash;
+            this.btnPickUp.IconColor = System.Drawing.Color.White;
+            this.btnPickUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPickUp.IconSize = 32;
+            this.btnPickUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPickUp.Location = new System.Drawing.Point(0, 300);
+            this.btnPickUp.Name = "btnPickUp";
+            this.btnPickUp.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnPickUp.Size = new System.Drawing.Size(179, 50);
+            this.btnPickUp.TabIndex = 5;
+            this.btnPickUp.Text = "Pick up requests";
+            this.btnPickUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPickUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPickUp.UseVisualStyleBackColor = true;
+            this.btnPickUp.Click += new System.EventHandler(this.btnPickUp_Click);
             // 
             // btnReceipt
             // 
@@ -220,52 +266,6 @@ namespace CarShop_DesktopApp
             this.placeHolder.Size = new System.Drawing.Size(651, 421);
             this.placeHolder.TabIndex = 6;
             // 
-            // btnAppointments
-            // 
-            this.btnAppointments.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAppointments.FlatAppearance.BorderSize = 0;
-            this.btnAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAppointments.ForeColor = System.Drawing.Color.White;
-            this.btnAppointments.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.btnAppointments.IconColor = System.Drawing.Color.White;
-            this.btnAppointments.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAppointments.IconSize = 32;
-            this.btnAppointments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppointments.Location = new System.Drawing.Point(0, 300);
-            this.btnAppointments.Name = "btnAppointments";
-            this.btnAppointments.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnAppointments.Size = new System.Drawing.Size(179, 50);
-            this.btnAppointments.TabIndex = 5;
-            this.btnAppointments.Text = "Appointments";
-            this.btnAppointments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppointments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAppointments.UseVisualStyleBackColor = true;
-            this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
-            // 
-            // btnTasks
-            // 
-            this.btnTasks.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTasks.FlatAppearance.BorderSize = 0;
-            this.btnTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTasks.ForeColor = System.Drawing.Color.White;
-            this.btnTasks.IconChar = FontAwesome.Sharp.IconChar.Tasks;
-            this.btnTasks.IconColor = System.Drawing.Color.White;
-            this.btnTasks.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTasks.IconSize = 32;
-            this.btnTasks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTasks.Location = new System.Drawing.Point(0, 350);
-            this.btnTasks.Name = "btnTasks";
-            this.btnTasks.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnTasks.Size = new System.Drawing.Size(179, 50);
-            this.btnTasks.TabIndex = 6;
-            this.btnTasks.Text = "Tasks";
-            this.btnTasks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTasks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTasks.UseVisualStyleBackColor = true;
-            this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,7 +299,7 @@ namespace CarShop_DesktopApp
         private FontAwesome.Sharp.IconPictureBox iconCurrent;
         private System.Windows.Forms.Panel placeHolder;
         private FontAwesome.Sharp.IconButton btnReceipt;
-        private FontAwesome.Sharp.IconButton btnAppointments;
+        private FontAwesome.Sharp.IconButton btnPickUp;
         private FontAwesome.Sharp.IconButton btnTasks;
     }
 }

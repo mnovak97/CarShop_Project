@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace CarShop_REST_API.Model
 {
+    public enum State
+    {
+        NotFinished,
+        Working,
+        Finished
+    }
     public class Appointment
     {
         [Key]
@@ -15,7 +21,7 @@ namespace CarShop_REST_API.Model
         public UserMobile User { get; set; }
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set; }
-        public bool Finished { get; set; }
+        public State State { get; set; }
 
     }
 }

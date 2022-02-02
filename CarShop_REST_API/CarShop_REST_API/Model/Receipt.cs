@@ -13,7 +13,6 @@ namespace CarShop_REST_API.Model
     }
     public class Receipt
     {
-
         [Key]
         public int IDReceipt { get; set; }
         public DateTime DateOfReceipt { get; set; }
@@ -22,7 +21,5 @@ namespace CarShop_REST_API.Model
         public virtual User User { get; set; }
         public virtual Buyer Buyer { get; set; }
         public virtual ICollection<ReceiptWorkOrders> ReceiptWorkOrders { get; set; }
-
-
     }
 }

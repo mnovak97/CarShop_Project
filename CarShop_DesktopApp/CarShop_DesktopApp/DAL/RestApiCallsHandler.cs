@@ -13,7 +13,7 @@ namespace CarShop_DesktopApp.DAL
 {
     class RestApiCallsHandler
     {
-        private static string uriString = "https://ba5f-93-141-104-130.ngrok.io/api/";
+        private static string uriString = "https://1878-93-141-10-202.ngrok.io/api/";
 
         public static HttpWebResponse Login(string username, string password)
         {
@@ -33,11 +33,36 @@ namespace CarShop_DesktopApp.DAL
             return response;
         }
 
+        public static List<PickUp> GetPickUpRequest(string token)
+        {
+            List<PickUp> pickUpRequest = new List<PickUp>();
+            HttpWebRequest request = httpGetCall("pickup/getPickUps", token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                pickUpRequest = JsonConvert.DeserializeObject<List<PickUp>>(result);
+            }
+            return pickUpRequest;
+        }
+
+        public static List<Model.Task> GetUserTasks(int iDUser,string token)
+        {
+            List<Model.Task> tasks = new List<Model.Task>();
+            HttpWebRequest request = httpGetCall("tasks/getWorkersTasks/" + iDUser, token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                tasks = JsonConvert.DeserializeObject<List<Model.Task>>(result);
+            }
+            return tasks;
+        }
+
         public static List<Appointment> GetAppointmentsForDate(string dateString,string token)
         {
             List<Appointment> appointments = new List<Appointment>();
             HttpWebRequest request = httpGetCall("appointment/getDateAppointments/"+dateString, token);
-            
             var response = (HttpWebResponse)request.GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
@@ -112,12 +137,7 @@ namespace CarShop_DesktopApp.DAL
         public static List<WorkOrder> GetBuyersWorkOrders(int IDBuyer,string token)
         {
             List<WorkOrder> buyerWorkOrders = new List<WorkOrder>();
-            HttpWebRequest request = httpPostCall("WorkOrder/getBuyersWorkOrders", token);
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-            {
-                string json = JsonConvert.SerializeObject(IDBuyer);
-                streamWriter.Write(json);
-            }
+            HttpWebRequest request = httpGetCall("WorkOrder/getBuyersWorkOrders/"+IDBuyer, token);
             var response = (HttpWebResponse)request.GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
@@ -132,12 +152,7 @@ namespace CarShop_DesktopApp.DAL
         public static List<Receipt> GetReceiptsByYear(string year,string token)
         {
             List<Receipt> receipts = new List<Receipt>();
-            HttpWebRequest request = httpPostCall("Receipt/getReceiptsByYear", token);
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-            {
-                string json = JsonConvert.SerializeObject(year);
-                streamWriter.Write(json);
-            }
+            HttpWebRequest request = httpGetCall("Receipt/getReceiptsByYear/"+year, token);
             var response = (HttpWebResponse)request.GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
@@ -300,6 +315,19 @@ namespace CarShop_DesktopApp.DAL
             }
         }
 
+        public static List<Appointment> GetBuyersAppointments(string email,string token)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            HttpWebRequest request = httpGetCall("Appointment/getBuyersAppointments/"+ email, token);
+            var response = (HttpWebResponse)request.GetResponse();
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                var result = sr.ReadToEnd();
+                appointments = JsonConvert.DeserializeObject<List<Appointment>>(result);
+            }
+            return appointments;
+        }
+
         public static int GetWorkOrdersNumber(string token)
         {
             int number;
@@ -328,12 +356,7 @@ namespace CarShop_DesktopApp.DAL
         public static List<ItemQuantity> GetWorkOrderItems(int WorkOrderID,string token)
         {
             List<ItemQuantity> workOrderItems = new List<ItemQuantity>();
-            HttpWebRequest request = httpPostCall("Item/getWorkOrderItems", token);
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-            {
-                string json = JsonConvert.SerializeObject(WorkOrderID);
-                streamWriter.Write(json);
-            }
+            HttpWebRequest request = httpGetCall("Item/getWorkOrderItems/"+WorkOrderID, token);
             var response = (HttpWebResponse)request.GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
