@@ -29,16 +29,38 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+
         public static List<PickUp> GetPickups()
         {
             using (var db = new DatabaseContext())
             {
-                var pickUps = db.PickUps.Include(p => p.User).ToList();
+                var pickUps = db.PickUps.Where(p => p.Done == false).Include(p => p.User).ToList();
                 return pickUps;
             }
         }
 
+        public static void CompletePickup(PickUp pickUp)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var pUp = db.PickUps.FirstOrDefault(p => p.IDPickup == pickUp.IDPickup);
+                db.Entry(pUp).CurrentValues.SetValues(pickUp);
+                db.SaveChanges();
+            }
+        }
+
+        public static void CompleteTask(Model.Task completedTask)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var task = db.Tasks.FirstOrDefault(t => t.IDTask == completedTask.IDTask);
+                db.Entry(task).CurrentValues.SetValues(completedTask);
+                db.SaveChanges();
+            }
+        }
+
         #endregion
+
         #region Appointments
         public static List<Appointment> GetAppointments()
         {
@@ -49,6 +71,29 @@ namespace CarShop_REST_API.DAL
             }
         }
 
+        public static void UpdateAppointentState(Appointment appointmentForUpdate)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var appointment = db.Appointments.FirstOrDefault(a => a.IDAppointment == appointmentForUpdate.IDAppointment);
+                db.Entry(appointment).CurrentValues.SetValues(appointmentForUpdate);
+                db.SaveChanges();
+            }
+        }
+
+        public static void AppointmentStateWorking(int iDAppointment)
+        {
+            Appointment app = new Appointment();
+            using (var db = new DatabaseContext())
+            {
+                var appointment = db.Appointments.FirstOrDefault(a => a.IDAppointment == iDAppointment);
+                appointment.State = State.Working;
+                app = appointment;
+                db.Entry(appointment).CurrentValues.SetValues(app);
+                db.SaveChanges();
+            }
+            
+        }
 
         public static List<Appointment> GetUserAppointments(int idUser)
         {
@@ -63,10 +108,11 @@ namespace CarShop_REST_API.DAL
         {
             using (var db = new DatabaseContext())
             {
-                var tasks = db.Tasks.Where(t => t.User.IDUser == iDUser).Include(t => t.User)
-                                                                        .Include(t => t.WorkOrder).ThenInclude(w => w.Buyer)
-                                                                        .Include(t => t.WorkOrder).ThenInclude(w => w.User)
-                                                                        .ToList();
+                var tasks = db.Tasks.Where(t => t.User.IDUser == iDUser).Where(t => t.Completed == false).Include(t => t.User)
+                                                                                                         .Include(t => t.WorkOrder).ThenInclude(w => w.Buyer)
+                                                                                                         .Include(t => t.WorkOrder).ThenInclude(w => w.User)
+                                                                                                         .Include(t => t.WorkOrder).ThenInclude(w => w.Appointment)
+                                                                                                         .ToList();
                 return tasks;
             }
         }
@@ -252,6 +298,7 @@ namespace CarShop_REST_API.DAL
             {
                 var workOrders = db.WorkOrders.Include(wo => wo.User)
                                               .Include(wo => wo.Buyer)
+                                              .Include(wo => wo.Appointment)
                                               .ToList();
                 return workOrders;
             }
@@ -262,6 +309,7 @@ namespace CarShop_REST_API.DAL
             {
                 var notAssigned = db.WorkOrders.Where(wo => wo.Assigned == false).Include(wo => wo.User)
                                                                                  .Include(wo => wo.Buyer)
+                                                                                 .Include(wo => wo.Appointment)
                                                                                  .ToList();
                 return notAssigned;
             }
@@ -291,6 +339,7 @@ namespace CarShop_REST_API.DAL
             {
                 var workOrders = db.WorkOrders.Where(wo => wo.Buyer.IDBuyer == idBuyer).Include(wo => wo.User)
                                                                                        .Include(wo => wo.Buyer)
+                                                                                       .Include(wo => wo.Appointment)
                                                                                        .ToList();
                 return workOrders;
             }

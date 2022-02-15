@@ -28,7 +28,15 @@ namespace CarShop_DesktopApp.CustomControls
 
         private void btnCompleteTask_Click(object sender, EventArgs e)
         {
-
+            task.Completed = true;
+            task.WorkOrder.Done = true;
+            task.WorkOrder.Appointment.State = State.Finished;
+            if (RestApiCallsHandler.CompleteTask(task,token))
+            {
+                MessageBox.Show("Task completed!");
+            }
+            else
+                MessageBox.Show("Error");
         }
 
         private void txtWorkOrder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

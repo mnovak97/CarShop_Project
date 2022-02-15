@@ -29,6 +29,10 @@ namespace CarShop_DesktopApp
             this.Dock = DockStyle.Fill;
             dataGridBuyers.DataSource = RestApiCallsHandler.GetBuyers(token);
             GridViewStyleExtension.SetStyle(dataGridBuyers);
+            if (user.Role != Role.Admin)
+            {
+                btnNewBuyer.Visible = false;
+            }
         }
 
         private void btnNewBuyer_Click(object sender, EventArgs e)

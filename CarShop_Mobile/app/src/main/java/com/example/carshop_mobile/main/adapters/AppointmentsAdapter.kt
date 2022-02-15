@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carshop_mobile.R
 import com.example.carshop_mobile.main.Model.Appointment
+import com.example.carshop_mobile.main.Model.State
 import com.example.carshop_mobile.main.utils.Constants
 
 class AppointmentsAdapter(var items:ArrayList<Appointment>) : RecyclerView.Adapter<AppointmentsAdapter.ViewHolder>() {
@@ -31,11 +32,15 @@ class AppointmentsAdapter(var items:ArrayList<Appointment>) : RecyclerView.Adapt
         holder.phoneAppointment.text = "Phone number: ${item.customerPhone}"
         holder.timeAppointment.text = "Time slot: ${item.time}"
         holder.dateAppointment.text = makeDateString(item.date)
-        if (item.finished){
+        if (item.state == State.Finished) {
             holder.finishedAppointment.text = "Finished"
             holder.finishedAppointment.setTextColor(Color.GREEN)
         }
-        else{
+        else if(item.state == State.Working) {
+            holder.finishedAppointment.text = "In progress"
+            holder.finishedAppointment.setTextColor(Color.BLUE)
+        }
+        else if (item.state == State.NotFinished) {
             holder.finishedAppointment.text = "Not finished"
             holder.finishedAppointment.setTextColor(Color.RED)
         }

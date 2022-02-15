@@ -34,8 +34,8 @@ namespace CarShop_DesktopApp.UserControls
             this.btnNewReceipt = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblBuyer = new System.Windows.Forms.Label();
-            this.cbYear = new CarShop_DesktopApp.CustomControls.CustomComboBox();
             this.lblYear = new System.Windows.Forms.Label();
+            this.cbYear = new CarShop_DesktopApp.CustomControls.CustomComboBox();
             this.cbBuyers = new CarShop_DesktopApp.CustomControls.CustomComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceipts)).BeginInit();
@@ -117,6 +117,18 @@ namespace CarShop_DesktopApp.UserControls
             this.lblBuyer.Text = "Buyer:";
             this.lblBuyer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblYear.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblYear.Location = new System.Drawing.Point(3, 0);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(42, 39);
+            this.lblYear.TabIndex = 5;
+            this.lblYear.Text = "Year:";
+            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cbYear
             // 
             this.cbYear.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -138,18 +150,6 @@ namespace CarShop_DesktopApp.UserControls
             this.cbYear.TabIndex = 4;
             this.cbYear.Texts = "";
             this.cbYear.OnSelectedIndexChanged += new System.EventHandler(this.cbYear_OnSelectedIndexChanged);
-            // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblYear.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblYear.Location = new System.Drawing.Point(3, 0);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(42, 39);
-            this.lblYear.TabIndex = 5;
-            this.lblYear.Text = "Year:";
-            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbBuyers
             // 

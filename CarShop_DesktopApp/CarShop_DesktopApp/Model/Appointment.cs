@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace CarShop_DesktopApp.Model
 {
+    public enum State
+    {
+        NotFinished,
+        Working,
+        Finished
+    }
     public class Appointment
     {
         public int IdAppointment { get; set; }
@@ -14,16 +20,16 @@ namespace CarShop_DesktopApp.Model
         public UserMobile User { get; set; }
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set; }
-        public bool Finished { get; set; }
+        public State State { get; set; }
 
-        public Appointment(string date,string time,UserMobile user,string customerName,string customerPhone,bool finished)
+        public Appointment(string date,string time,UserMobile user,string customerName,string customerPhone,State state)
         {
             Date = date;
             Time = time;
             User = user;
             CustomerName = customerName;
             CustomerPhone = customerPhone;
-            Finished = finished;
+            State = State;
         }
         public override string ToString()
         {

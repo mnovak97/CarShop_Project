@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         buttonClick()
     }
 
+    override fun onResume() {
+        super.onResume()
+        initializeComponents()
+        buttonClick()
+    }
+
     private fun initializeComponents() {
         btnAppointment = findViewById(R.id.btnAppointment)
         btnCarPickup = findViewById(R.id.btnCarPickUp)

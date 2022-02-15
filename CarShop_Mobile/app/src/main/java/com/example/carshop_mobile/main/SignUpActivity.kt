@@ -17,6 +17,9 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var txtUsername:EditText
     lateinit var txtEmail:EditText
     lateinit var txtPassword:EditText
+    lateinit var txtName:EditText
+    lateinit var txtSurname:EditText
+    lateinit var txtMobilePhone:EditText
     lateinit var btnClose:ImageButton
     lateinit var btnRegister:Button
 
@@ -31,6 +34,9 @@ class SignUpActivity : AppCompatActivity() {
         txtUsername = findViewById(R.id.txtUsernameSignUp)
         txtEmail = findViewById(R.id.txtEmail)
         txtPassword = findViewById(R.id.txtPasswordSignUp)
+        txtName = findViewById(R.id.txtName)
+        txtSurname = findViewById(R.id.txtSurname)
+        txtMobilePhone = findViewById(R.id.txtMobilePhone)
         btnClose = findViewById(R.id.btnExit)
         btnRegister = findViewById(R.id.btnRegister)
     }
@@ -39,7 +45,7 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
         btnRegister.setOnClickListener {
-            var user = UserMobile(txtUsername.text.toString(),txtEmail.text.toString(),txtPassword.text.toString())
+            var user = UserMobile(txtUsername.text.toString(),txtPassword.text.toString(),txtEmail.text.toString(),txtMobilePhone.text.toString(),txtName.text.toString(),txtSurname.text.toString())
             val service = RetrofitClientInstance.getRetrofitInstance().create(JsonPlaceHolderApi::class.java)
             val call = service.newUserMobile(user)
             call.enqueue(object : Callback<UserMobile>{

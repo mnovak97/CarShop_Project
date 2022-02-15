@@ -40,7 +40,7 @@ namespace CarShop_DesktopApp.Model
         [Browsable(false)]
         public virtual Appointment Appointment { get; set; }
 
-        public WorkOrder(int number,DateTime date,string carType,string registrationPlate,string description,int manufacturingYear,long km,bool warranty,bool done,string comment,double totalPrice,User user,Buyer buyer)
+        public WorkOrder(int number,DateTime date,string carType,string registrationPlate,string description,int manufacturingYear,long km,bool warranty,bool done,string comment,double totalPrice,User user,Buyer buyer,Appointment appointment)
         {
             Number = number;
             DateOfWorkOrder = date;
@@ -55,8 +55,8 @@ namespace CarShop_DesktopApp.Model
             TotalPrice = totalPrice;
             User = user;
             Buyer = buyer;
+            Appointment = appointment;
         }
-
 
 
         public override string ToString()

@@ -13,7 +13,7 @@ namespace CarShop_DesktopApp.DAL
 {
     class RestApiCallsHandler
     {
-        private static string uriString = "https://1878-93-141-10-202.ngrok.io/api/";
+        private static string uriString = "https://62d1-93-141-10-202.ngrok.io/api/";
 
         public static HttpWebResponse Login(string username, string password)
         {
@@ -31,6 +31,36 @@ namespace CarShop_DesktopApp.DAL
 
             var response = (HttpWebResponse)webRequest.GetResponse();
             return response;
+        }
+
+        public static bool CompleteTask(Model.Task task, string token)
+        {
+            HttpWebRequest request = httpPostCall("Tasks/completeTask", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(task);
+                streamWriter.Write(json);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool CompletePickup(PickUp pickupRequest, string token)
+        {
+            HttpWebRequest request = httpPostCall("pickup/completePickup", token);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(pickupRequest);
+                streamWriter.Write(json);
+            }
+            var response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+                return true;
+            else
+                return false;
         }
 
         public static List<PickUp> GetPickUpRequest(string token)

@@ -1,4 +1,5 @@
-﻿using CarShop_DesktopApp.Model;
+﻿using CarShop_DesktopApp.DAL;
+using CarShop_DesktopApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,22 @@ namespace CarShop_DesktopApp.CustomControls
             this.Dock = DockStyle.Top;
             lblAddressText.Text = pickupRequest.Address;
             lblMobileTelephoneText.Text = pickupRequest.User.MobileTelephone;
-            lblNameText.Text = pickupRequest.User.Username;
+            lblNameText.Text = pickupRequest.User.Name + " " + pickupRequest.User.Surname;
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {
+            pickupRequest.Done = true;
+           
+            if(RestApiCallsHandler.CompletePickup(pickupRequest, token))
+            {
+                MessageBox.Show("Pickup completed!");
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+          
         }
     }
 }

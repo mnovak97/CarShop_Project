@@ -26,6 +26,10 @@ namespace CarShop_DesktopApp
             user = currentUser;
             InitializeComponent();
             btnNewItem.Text = "Add new item";
+            if (user.Role != Role.Admin)
+            {
+                btnNewItem.Visible = false;
+            }
         }
 
 
@@ -43,6 +47,7 @@ namespace CarShop_DesktopApp
             this.Dock = DockStyle.Fill;
             dataGridItems.DataSource = RestApiCallsHandler.GetItems(token);
             GridViewStyleExtension.SetStyle(dataGridItems);
+           
         }
 
         private void btnNewItem_Click(object sender, EventArgs e)

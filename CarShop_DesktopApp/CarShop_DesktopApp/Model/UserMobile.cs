@@ -13,6 +13,8 @@ namespace CarShop_DesktopApp.Model
         public string Email { get; set; }
         public string Password { get; set; }
         public string MobileTelephone { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
 
     }
 }

@@ -30,14 +30,14 @@ namespace CarShop_DesktopApp.CustomControls
         private void InitializeComponent()
         {
             this.tblPickupInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.tblButton = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.lblMobileTelephone = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.btnFinish = new System.Windows.Forms.Button();
-            this.lblAddressText = new System.Windows.Forms.Label();
-            this.lblNameText = new System.Windows.Forms.Label();
             this.lblMobileTelephoneText = new System.Windows.Forms.Label();
+            this.lblNameText = new System.Windows.Forms.Label();
+            this.lblMobileTelephone = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblAddressText = new System.Windows.Forms.Label();
+            this.tblButton = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFinish = new System.Windows.Forms.Button();
             this.tblPickupInfo.SuspendLayout();
             this.tblButton.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +45,7 @@ namespace CarShop_DesktopApp.CustomControls
             // tblPickupInfo
             // 
             this.tblPickupInfo.BackColor = System.Drawing.Color.White;
+            this.tblPickupInfo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tblPickupInfo.ColumnCount = 2;
             this.tblPickupInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.87738F));
             this.tblPickupInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.12261F));
@@ -64,6 +65,69 @@ namespace CarShop_DesktopApp.CustomControls
             this.tblPickupInfo.Size = new System.Drawing.Size(367, 158);
             this.tblPickupInfo.TabIndex = 0;
             // 
+            // lblMobileTelephoneText
+            // 
+            this.lblMobileTelephoneText.AutoSize = true;
+            this.lblMobileTelephoneText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMobileTelephoneText.Location = new System.Drawing.Point(131, 105);
+            this.lblMobileTelephoneText.Name = "lblMobileTelephoneText";
+            this.lblMobileTelephoneText.Size = new System.Drawing.Size(232, 52);
+            this.lblMobileTelephoneText.TabIndex = 6;
+            this.lblMobileTelephoneText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblNameText
+            // 
+            this.lblNameText.AutoSize = true;
+            this.lblNameText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNameText.Location = new System.Drawing.Point(131, 53);
+            this.lblNameText.Name = "lblNameText";
+            this.lblNameText.Size = new System.Drawing.Size(232, 51);
+            this.lblNameText.TabIndex = 5;
+            this.lblNameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMobileTelephone
+            // 
+            this.lblMobileTelephone.AutoSize = true;
+            this.lblMobileTelephone.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMobileTelephone.Location = new System.Drawing.Point(4, 105);
+            this.lblMobileTelephone.Name = "lblMobileTelephone";
+            this.lblMobileTelephone.Size = new System.Drawing.Size(120, 52);
+            this.lblMobileTelephone.TabIndex = 2;
+            this.lblMobileTelephone.Text = "Mobile telephone:";
+            this.lblMobileTelephone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAddress.Location = new System.Drawing.Point(4, 1);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(120, 51);
+            this.lblAddress.TabIndex = 1;
+            this.lblAddress.Text = "Address:";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblName.Location = new System.Drawing.Point(4, 53);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(120, 51);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Name:";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAddressText
+            // 
+            this.lblAddressText.AutoSize = true;
+            this.lblAddressText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAddressText.Location = new System.Drawing.Point(131, 1);
+            this.lblAddressText.Name = "lblAddressText";
+            this.lblAddressText.Size = new System.Drawing.Size(232, 51);
+            this.lblAddressText.TabIndex = 4;
+            this.lblAddressText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tblButton
             // 
             this.tblButton.BackColor = System.Drawing.Color.White;
@@ -79,39 +143,6 @@ namespace CarShop_DesktopApp.CustomControls
             this.tblButton.Size = new System.Drawing.Size(367, 54);
             this.tblButton.TabIndex = 1;
             // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAddress.Location = new System.Drawing.Point(3, 0);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(121, 52);
-            this.lblAddress.TabIndex = 1;
-            this.lblAddress.Text = "Address:";
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblMobileTelephone
-            // 
-            this.lblMobileTelephone.AutoSize = true;
-            this.lblMobileTelephone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMobileTelephone.Location = new System.Drawing.Point(3, 104);
-            this.lblMobileTelephone.Name = "lblMobileTelephone";
-            this.lblMobileTelephone.Size = new System.Drawing.Size(121, 54);
-            this.lblMobileTelephone.TabIndex = 2;
-            this.lblMobileTelephone.Text = "Mobile telephone:";
-            this.lblMobileTelephone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblName.Location = new System.Drawing.Point(3, 52);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(121, 52);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Name:";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnFinish
             // 
             this.btnFinish.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -125,36 +156,7 @@ namespace CarShop_DesktopApp.CustomControls
             this.btnFinish.TabIndex = 0;
             this.btnFinish.Text = "Finish";
             this.btnFinish.UseVisualStyleBackColor = false;
-            // 
-            // lblAddressText
-            // 
-            this.lblAddressText.AutoSize = true;
-            this.lblAddressText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAddressText.Location = new System.Drawing.Point(130, 0);
-            this.lblAddressText.Name = "lblAddressText";
-            this.lblAddressText.Size = new System.Drawing.Size(234, 52);
-            this.lblAddressText.TabIndex = 4;
-            this.lblAddressText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblNameText
-            // 
-            this.lblNameText.AutoSize = true;
-            this.lblNameText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNameText.Location = new System.Drawing.Point(130, 52);
-            this.lblNameText.Name = "lblNameText";
-            this.lblNameText.Size = new System.Drawing.Size(234, 52);
-            this.lblNameText.TabIndex = 5;
-            this.lblNameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblMobileTelephoneText
-            // 
-            this.lblMobileTelephoneText.AutoSize = true;
-            this.lblMobileTelephoneText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMobileTelephoneText.Location = new System.Drawing.Point(130, 104);
-            this.lblMobileTelephoneText.Name = "lblMobileTelephoneText";
-            this.lblMobileTelephoneText.Size = new System.Drawing.Size(234, 54);
-            this.lblMobileTelephoneText.TabIndex = 6;
-            this.lblMobileTelephoneText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
             // CustomPickUp
             // 

@@ -33,5 +33,19 @@ namespace CarShop_REST_API.Controllers
         {
             return CarShopRepository.GetPickups();
         }
+        [HttpPost("completePickup")]
+        public void completePickup([FromBody] PickUp pickUp)
+        {
+            try
+            {
+                CarShopRepository.CompletePickup(pickUp);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
+
     }
 }

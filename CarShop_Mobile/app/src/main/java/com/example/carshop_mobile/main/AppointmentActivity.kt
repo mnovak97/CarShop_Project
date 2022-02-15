@@ -12,6 +12,7 @@ import androidx.core.view.get
 import com.example.carshop_mobile.R
 import com.example.carshop_mobile.main.Model.Appointment
 import com.example.carshop_mobile.main.Model.AppointmentTime
+import com.example.carshop_mobile.main.Model.State
 import com.example.carshop_mobile.main.Model.UserMobile
 import com.example.carshop_mobile.main.adapters.AppointmentTimeAdapter
 import com.example.carshop_mobile.main.network.JsonPlaceHolderApi
@@ -195,7 +196,7 @@ class AppointmentActivity : AppCompatActivity() {
             var view:View = gridView[selectedTimeSpotPosition!!]
             if (view != null){
                 var time:TextView = view.findViewById(R.id.txtTime)
-                var appointment = Appointment(dateString,time.text.toString(),currentUser,txtName.text.toString(),txtPhone.text.toString(),false)
+                var appointment = Appointment(dateString,time.text.toString(),currentUser,txtName.text.toString(),txtPhone.text.toString(),State.NotFinished)
                 val service = RetrofitClientInstance.getRetrofitInstance().create(JsonPlaceHolderApi::class.java)
                 val call = service.addAppointment(appointment)
                 call.enqueue(object : Callback<Appointment>{

@@ -21,6 +21,7 @@ namespace CarShop_REST_API.Controllers
             {
                 CarShopRepository.AssignTask(newTask);
                 CarShopRepository.UpdateWorkOrder(newTask.WorkOrder);
+                CarShopRepository.AppointmentStateWorking(newTask.WorkOrder.Appointment.IDAppointment);
                 Response.StatusCode = StatusCodes.Status200OK;
             }
             catch (Exception)
@@ -28,6 +29,22 @@ namespace CarShop_REST_API.Controllers
                 Response.StatusCode = StatusCodes.Status400BadRequest;
             }
         }
+        [HttpPost("completeTask")]
+        public void completeTask([FromBody]Model.Task completedTask)
+        {
+            try
+            {
+                CarShopRepository.CompleteTask(completedTask);
+                CarShopRepository.UpdateWorkOrder(completedTask.WorkOrder);
+                CarShopRepository.UpdateAppointentState(completedTask.WorkOrder.Appointment);
+                Response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+        }
+
         [Authorize]
         [HttpGet("getWorkersTasks/{IDUser:int}")]
         public List<Model.Task> GetWorkersTasks([FromRoute] int IDUser)

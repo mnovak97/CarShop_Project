@@ -35,7 +35,7 @@ namespace CarShop_DesktopApp.UserControls
             List<PickUp> pickUpRequest = RestApiCallsHandler.GetPickUpRequest(token);
             foreach (PickUp requests in pickUpRequest)
             {
-                CustomPickUp myTaskControl = new CustomPickUp(requests);
+                CustomPickUp myTaskControl = new CustomPickUp(token,requests);
                 panelPickupRequests.Controls.Add(myTaskControl);
             }
         }

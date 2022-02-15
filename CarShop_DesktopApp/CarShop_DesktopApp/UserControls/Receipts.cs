@@ -36,8 +36,10 @@ namespace CarShop_DesktopApp.UserControls
             GridViewStyleExtension.SetStyle(dataGridReceipts);
             allReceipts = RestApiCallsHandler.GetReceipts(token);
             cbYear.DataSource = getYears(allReceipts);
-            setCurrency(dataGridReceipts);
-            
+            if (allReceipts.Count > 0)
+            {
+                setCurrency(dataGridReceipts);
+            }
         }
         private void showBuyers()
         {

@@ -49,6 +49,7 @@ namespace CarShop_DesktopApp.UserControls
             // 
             // panelPickupRequests
             // 
+            this.panelPickupRequests.AutoScroll = true;
             this.panelPickupRequests.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPickupRequests.Location = new System.Drawing.Point(0, 51);
             this.panelPickupRequests.Name = "panelPickupRequests";

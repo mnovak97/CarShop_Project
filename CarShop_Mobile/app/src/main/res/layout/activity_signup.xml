@@ -54,6 +54,109 @@
         app:layout_constraintTop_toBottomOf="@id/txtUsernameSignUp" />
 
     <TextView
+        android:id="@+id/lblName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:text="Name"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textColor="#0078D7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameDivider" />
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="Enter name"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintStart_toStartOf="@+id/lblName"
+        app:layout_constraintTop_toBottomOf="@+id/lblName" />
+
+    <View
+        android:id="@+id/nameDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0078D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtName"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        />
+
+    <TextView
+        android:id="@+id/lblSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:text="Surname"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textColor="#0078D7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameDivider" />
+
+    <EditText
+        android:id="@+id/txtSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="Enter surname"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintStart_toStartOf="@+id/lblSurname"
+        app:layout_constraintTop_toBottomOf="@+id/lblSurname" />
+
+    <View
+        android:id="@+id/surnameDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0078D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSurname"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        />
+    <TextView
+        android:id="@+id/lblMobilePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:text="Mobile phone"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textColor="#0078D7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surnameDivider" />
+
+    <EditText
+        android:id="@+id/txtMobilePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="Enter mobile phone"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/marginTop"
+        app:layout_constraintStart_toStartOf="@+id/lblMobilePhone"
+        app:layout_constraintTop_toBottomOf="@+id/lblMobilePhone" />
+
+    <View
+        android:id="@+id/mobilePhoneDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0078D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMobilePhone"
+        android:layout_marginLeft="@dimen/marginLR"
+        android:layout_marginRight="@dimen/marginLR"
+        />
+    <TextView
         android:id="@+id/lblEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,7 +165,7 @@
         android:layout_marginTop="@dimen/marginTop"
         android:textColor="#0078D7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameDivider" />
+        app:layout_constraintTop_toBottomOf="@+id/mobilePhoneDivider" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -87,7 +190,6 @@
         android:layout_marginLeft="@dimen/marginLR"
         android:layout_marginRight="@dimen/marginLR"
         />
-
     <TextView
         android:id="@+id/lblPasswordSignUp"
         android:layout_width="wrap_content"
@@ -129,14 +231,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginLR"
-        android:layout_marginTop="@dimen/marginBottomTopIV"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="@dimen/marginLR"
         android:backgroundTint="#0078D7"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:textAllCaps="false"
         android:text="Sign up"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordDivider" />
 

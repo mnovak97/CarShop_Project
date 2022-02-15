@@ -102,7 +102,9 @@ namespace CarShop_DesktopApp.Forms
             txtKm.Texts = selected.Km.ToString();
             txtManufacturingYear.Texts = selected.ManufacturingYear.ToString();
             txtRegistrationPlate.Texts = selected.RegistrationPlate;
-            cbBuyers.SelectedItem = cbBuyers.Items[selected.Buyer.IDBuyer - 1];
+            setSelectedBuyer(selected.Buyer);
+            lblAppointment.Visible = false;
+            cbAppointment.Visible = false;
             if (selected.Warranty)
             {
                 chBWarranty.Checked = true;
@@ -112,6 +114,17 @@ namespace CarShop_DesktopApp.Forms
                 chBWarranty.Checked = false;
             }
            
+        }
+
+        private void setSelectedBuyer(Buyer buyer)
+        {
+            for (int i = 0; i < cbBuyers.Items.Count; i++)
+            {
+                if(cbBuyers.Items[i].ToString() == buyer.ToString())
+                {
+                    cbBuyers.SelectedItem = cbBuyers.Items[i];
+                }
+            }
         }
 
         private void AddWorkOrder_Load(object sender, EventArgs e)
@@ -245,15 +258,32 @@ namespace CarShop_DesktopApp.Forms
         {
             double totalPrice = countTotalPrice();
             Buyer buyer = getBuyer();
-            WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Texts, txtRegistrationPlate.Texts, txtDescription.Texts, Convert.ToInt32(txtManufacturingYear.Texts), Convert.ToInt64(txtKm.Texts), chBWarranty.Checked, false, txtComment.Texts, totalPrice, user, buyer);
-            WorkOrdersItems workOrderItems = new WorkOrdersItems(newWorkOrder, getItems());
-            if (RestApiCallsHandler.AddWorkOrder(workOrderItems, token))
+            if (lblAppointment.Visible == true)
             {
-                MessageBox.Show("Work order added!");
+                Appointment appointment = (Appointment)cbAppointment.SelectedItem;
+                WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Texts, txtRegistrationPlate.Texts, txtDescription.Texts, Convert.ToInt32(txtManufacturingYear.Texts), Convert.ToInt64(txtKm.Texts), chBWarranty.Checked, false, txtComment.Texts, totalPrice, user, buyer, appointment);
+                WorkOrdersItems workOrderItems = new WorkOrdersItems(newWorkOrder, getItems());
+                if (RestApiCallsHandler.AddWorkOrder(workOrderItems, token))
+                {
+                    MessageBox.Show("Work order added!");
+                }
+                else
+                {
+                    MessageBox.Show("Error!");
+                }
             }
             else
             {
-                MessageBox.Show("Error!");
+                WorkOrder newWorkOrder = new WorkOrder(number, DateTime.Now, txtCarType.Texts, txtRegistrationPlate.Texts, txtDescription.Texts, Convert.ToInt32(txtManufacturingYear.Texts), Convert.ToInt64(txtKm.Texts), chBWarranty.Checked, false, txtComment.Texts, totalPrice, user, buyer,null);
+                WorkOrdersItems workOrderItems = new WorkOrdersItems(newWorkOrder, getItems());
+                if (RestApiCallsHandler.AddWorkOrder(workOrderItems, token))
+                {
+                    MessageBox.Show("Work order added!");
+                }
+                else
+                {
+                    MessageBox.Show("Error!");
+                }
             }
         }
         private void populateWorkOrder(double price, Buyer buyer)
@@ -296,7 +326,7 @@ namespace CarShop_DesktopApp.Forms
             {
                 lblAppointment.Visible = true;
                 cbAppointment.Visible = true;
-                showAppointemtns(buyersAppointment);
+                    showAppointemtns(buyersAppointment);
             }
         }
 
